@@ -1,0 +1,340 @@
+@import url("https://fonts.cdnfonts.com/css/hey-august");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+
+img, video {
+  vertical-align: top;
+}
+
+input, button, textarea {
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+@font-face {
+  font-family: "CWDangamAsac-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 48;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.changwon {
+  font-family: "CWDangamAsac-Bold";
+}
+
+.comma {
+  font-family: "Coustard", serif;
+}
+
+.mont {
+  font-family: "Montserrat", sans-serif;
+}
+
+.hey {
+  font-family: "Hey August", sans-serif;
+}
+
+#header {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 9999;
+}
+#header .center {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .center .t_logo {
+  width: 80px;
+}
+#header .center .t_logo a img {
+  width: 100%;
+}
+#header .center .menuBtn {
+  display: block;
+  width: 40px;
+}
+#header .center .menuBtn .menuIcon {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  margin-bottom: 10px;
+}
+#header .center .menuBtn .menuIcon:last-child {
+  margin-bottom: 0;
+}
+
+.main .cont1 {
+  height: 100vh;
+  padding: 100px 0 80px;
+  background: url(../img/main/main_bg_1.png) no-repeat center/cover;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.main .cont1 .mainConts {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.main .cont1 .mainConts .center {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .cont1 .mainConts .center .leftText {
+  width: 50%;
+  height: 486px;
+  position: relative;
+}
+.main .cont1 .mainConts .center .leftText:hover .mainTitle.full {
+  width: 733px;
+}
+.main .cont1 .mainConts .center .leftText .mainTitle {
+  width: 100%;
+  font-size: 160px;
+  position: absolute;
+}
+.main .cont1 .mainConts .center .leftText .mainTitle.line {
+  -webkit-text-stroke: 1px #fff;
+  color: transparent;
+  overflow: hidden;
+  transition: all 2s;
+}
+.main .cont1 .mainConts .center .leftText .mainTitle.full {
+  width: 0;
+  height: 326px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fff;
+  transition: all 2s;
+}
+.main .cont1 .mainConts .center .leftText .mainTitle.fix {
+  -webkit-text-stroke: 1px #fff;
+  color: transparent;
+  bottom: 0;
+}
+.main .cont1 .mainConts .center .rightConts {
+  width: 48%;
+  height: 750px;
+  position: relative;
+}
+.main .cont1 .mainConts .center .rightConts:hover img.back {
+  opacity: 0;
+}
+.main .cont1 .mainConts .center .rightConts:hover img.front {
+  opacity: 1;
+}
+.main .cont1 .mainConts .center .rightConts > img {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  transition: all 1s;
+}
+.main .cont1 .mainConts .center .rightConts img.back {
+  opacity: 1;
+}
+.main .cont1 .mainConts .center .rightConts img.front {
+  opacity: 0;
+}
+.main .cont1 .textFlow {
+  width: 100%;
+  display: flex;
+}
+.main .cont1 .textFlow p {
+  color: #fff;
+  opacity: 0.8;
+  font-weight: 100;
+  font-size: 30px;
+  letter-spacing: 0.5px;
+  margin-right: 20px;
+}
+.main .section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.main .section .center {
+  width: 80%;
+  height: 100%;
+  position: relative;
+}
+.main .section .center > img {
+  position: absolute;
+}
+.main .section .center .textWrap {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.main .section .center .textWrap .title {
+  font-size: 65px;
+  font-weight: 900;
+  margin-bottom: 30px;
+  line-height: 1.1;
+}
+.main .section .center .textWrap .hashtag {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin-bottom: 40px;
+}
+.main .section .center .goLink {
+  width: 500px;
+  height: 100px;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+}
+.main .section .center .goLink:hover .viewBtn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.main .section .center .goLink:hover .viewBtn .btnConts .btnText {
+  width: 0;
+  margin-right: 0;
+}
+.main .section .center .goLink .viewBtn {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border: 2px solid transparent;
+  border-radius: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s;
+}
+.main .section .center .goLink .viewBtn .btnConts {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.main .section .center .goLink .viewBtn .btnConts .btnText {
+  font-size: 40px;
+  width: 90%;
+  white-space: nowrap;
+  margin-right: 20px;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+.main .section .center .goLink .viewBtn .btnConts span.line {
+  width: 100%;
+  height: 3px;
+  background: #4C477F;
+}
+.main .section .center .goLink .viewBtn .btnConts span.arrow {
+  position: absolute;
+  right: -10px;
+  font-size: 30px;
+  font-variation-settings: "wght" 300;
+}
+.main .cont2 {
+  background-color: #DEDAFE;
+}
+.main .cont2 .center img.one {
+  top: 100px;
+  left: 180px;
+}
+.main .cont2 .center img.two {
+  bottom: 100px;
+  left: 450px;
+}
+.main .cont2 .center img.three {
+  top: 80px;
+  right: 120px;
+}
+.main .cont2 .center img.bigNum {
+  top: 120px;
+  right: 650px;
+}
+.main .cont2 .center .textWrap {
+  bottom: 160px;
+  left: 50px;
+  text-align: right;
+  color: #4C477F;
+}
+.main .cont2 .center .goLink {
+  bottom: 100px;
+  right: 150px;
+}
+.main .cont2 .center .goLink:hover .viewBtn {
+  border: 2px solid #4C477F;
+}
+.main .cont2 .center .goLink .viewBtn {
+  color: #4C477F;
+}
+.main .cont3 {
+  background-color: #FDC3B5;
+}
+.main .cont3 .center img.one {
+  top: 100px;
+  left: 180px;
+}
+.main .cont3 .center img.two {
+  bottom: 100px;
+  left: 450px;
+}
+.main .cont3 .center img.three {
+  top: 80px;
+  right: 120px;
+}
+.main .cont3 .center img.bigNum {
+  top: 120px;
+  right: 650px;
+}
+.main .cont3 .center .textWrap {
+  bottom: 160px;
+  left: 50px;
+  text-align: right;
+  color: #4C477F;
+}
+.main .cont3 .center .goLink {
+  bottom: 100px;
+  right: 150px;
+}
+.main .cont3 .center .goLink:hover .viewBtn {
+  border: 2px solid #4C477F;
+}
+.main .cont3 .center .goLink .viewBtn {
+  color: #4C477F;
+}

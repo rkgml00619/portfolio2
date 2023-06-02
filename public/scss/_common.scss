@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'CWDangamAsac-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@import url('https://fonts.cdnfonts.com/css/hey-august');
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.changwon {
+    font-family: 'CWDangamAsac-Bold';
+}
+.comma {
+    font-family: 'Coustard', serif;
+}
+.mont {
+    font-family: 'Montserrat', sans-serif;
+}
+.hey {
+    font-family: 'Hey August', sans-serif;
+}
+
+$center: 80%
