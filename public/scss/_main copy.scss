@@ -1,0 +1,328 @@
+.main {
+    .textWrap {
+        width: $center;
+        color: #fff;
+        .mainTitle {
+            font-size: 160px;
+            margin-bottom: 40px;
+            font-weight: 900;
+            transition: all 0.5s;
+        }
+        .subTitle {
+            font-size: 50px;
+            font-weight: 300;
+            line-height: 1.2;
+            transition: all 0.5s;
+        }
+    }
+    .cont1 {
+        width: 100vw; height: 100vh;
+        padding: 100px 0 80px;
+        // background: url(../img/main/main_bg_11.png) no-repeat center / cover;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: fixed;
+        top: 0; left: 0;
+        .mainConts {
+            width: 100%; height: 100%;
+            display: flex;
+            justify-content: center;
+            .bgVideo {
+                width: 100%; height: 100%;
+                position: absolute;
+                top: 0; left: 0;
+                .overlay {
+                    width: 100%; height: 100%;
+                    position: absolute;
+                    top: 0; left: 0;
+                    background: rgba(0,0,0,0.4);
+                }
+            }
+            .bigBox {
+                position: absolute;
+                top: 0; left: 0;
+                z-index: 10;
+                width: 100%; height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+
+            }
+        }
+    }
+
+    .cont2 {
+        position: relative;
+        width: 100%; height: 120vh;
+        margin-top: 120vh;
+        background: #fff;
+        transition: all 0.5s;
+        overflow: hidden;
+        display: flex;
+        .contsWrap {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            .bigBox {
+                width: 100vw; height: 100%;
+                background: url(../img/main/main_bg_2.png) no-repeat center / cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s;
+            }
+            .rightBox {
+                width: 50vw; height: 65%;
+                overflow: hidden;
+                margin-left: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                transition: all 0.5s;
+                .right_textWrap {
+                    color: #000;
+                    padding-bottom: 50px;
+                    margin-bottom: 50px;
+                    position: relative;
+                    .mainTitle {
+                        font-size: 80px;
+                        margin-bottom: 20px;
+                    }
+                    .subTitle {
+                        font-size: 30px;
+                    }
+                    .linkBtn {
+                        position: absolute;
+                        right: 50px; bottom: 0;
+                        border: 1px solid #000;
+                        width: 60px; height: 60px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.5s;
+                        &:hover {
+                            background: #000;
+                            span.goText {
+                                opacity: 0;
+                            }
+                            span.arrow {
+                                opacity: 1;
+                                color: #fff;
+                            }
+                        }
+                        > span {
+                            position: absolute;
+                        }
+                        span.goText {
+                            font-weight: 600;
+                            color: #000;
+                            font-size: 20px;
+                            opacity: 1;
+                            transition: all 0.5s;
+                        }
+                        span.arrow {
+                            opacity: 0;
+                            color: #000;
+                            font-size: 30px;
+                            font-variation-settings: "wght" 300;
+                            transition: all 0.5s;
+    
+                        }
+                    }
+                }
+                .listWrap {
+                    display: flex;
+                    justify-content: space-between;
+                    .listBox {
+                        width: calc(100% - 20px / 3); height: 300px;
+                        background: #f9f9f9;
+                        // border: 1px solid #ccc;
+                        margin-right: 10px;
+                        position: relative;
+                        overflow: hidden;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                        &:hover {
+                            .png {
+                                opacity: 0;
+                            }
+                            .hover {
+                                opacity: 1;
+                            }
+                        }
+                        img {
+                            position: absolute;
+                            top: 50%; left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 100%;
+                            transition: all 0.5s;
+                        }
+                        .png {
+                            opacity: 1;
+                        }
+                        .hover {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .cont2.lists {
+        .contsWrap {
+            display: flex;
+            align-items: center;
+            top: 50%;
+            transform: translateY(-50%);
+            .bigBox {
+                width: 50%; height: 65%;
+                .textWrap {
+                    display: none;
+                }
+            }
+            .rightBox {
+                margin-left: 20px;
+            }
+        }
+    }
+
+    .cont3 {
+        position: relative;
+        width: 100%; height: 120vh;
+        background: #fff;
+        transition: all 0.5s;
+        overflow: hidden;
+        display: flex;
+        .contsWrap {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            position: absolute;
+            .bigBox {
+                width: 100%; height: 100%;
+                background: url(../img//main/main_bg_3.png) no-repeat center / cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s;
+            }
+            .rightBox {
+                width: 50vw; height: 65%;
+                overflow: hidden;
+                margin-left: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                transition: all 0.5s;
+                .right_textWrap {
+                    color: #000;
+                    padding-bottom: 50px;
+                    margin-bottom: 50px;
+                    position: relative;
+                    .mainTitle {
+                        font-size: 80px;
+                        margin-bottom: 20px;
+                    }
+                    .subTitle {
+                        font-size: 30px;
+                    }
+                    .linkBtn {
+                        position: absolute;
+                        right: 50px; bottom: 0;
+                        border: 1px solid #000;
+                        width: 60px; height: 60px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.5s;
+                        &:hover {
+                            background: #000;
+                            span.goText {
+                                opacity: 0;
+                            }
+                            span.arrow {
+                                opacity: 1;
+                                color: #fff;
+                            }
+                        }
+                        > span {
+                            position: absolute;
+                        }
+                        span.goText {
+                            font-weight: 600;
+                            color: #000;
+                            font-size: 20px;
+                            opacity: 1;
+                            transition: all 0.5s;
+                        }
+                        span.arrow {
+                            opacity: 0;
+                            color: #000;
+                            font-size: 30px;
+                            font-variation-settings: "wght" 300;
+                            transition: all 0.5s;
+    
+                        }
+                    }
+                }
+                .listWrap {
+                    display: flex;
+                    justify-content: space-between;
+                    .listBox {
+                        width: calc(100% - 20px / 3); height: 300px;
+                        background: #f9f9f9;
+                        // border: 1px solid #ccc;
+                        margin-right: 10px;
+                        position: relative;
+                        overflow: hidden;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                        &:hover {
+                            .png {
+                                opacity: 0;
+                            }
+                            .hover {
+                                opacity: 1;
+                            }
+                        }
+                        img {
+                            position: absolute;
+                            top: 50%; left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 100%;
+                            transition: all 0.5s;
+                        }
+                        .png {
+                            opacity: 1;
+                        }
+                        .hover {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .cont3.lists {
+        .contsWrap {
+            display: flex;
+            align-items: center;
+            top: 50%;
+            transform: translateY(-50%);
+            .bigBox {
+                width: 50%; height: 65%;
+                .textWrap {
+                    display: none;
+                }
+            }
+            .rightBox {
+                margin-left: 20px;
+            }
+        }
+    }
+}

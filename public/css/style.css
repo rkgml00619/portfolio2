@@ -1,4 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/hey-august");
+@import url("https://webfontworld.github.io/gmarket/GmarketSans.css");
 * {
   margin: 0;
   padding: 0;
@@ -59,6 +60,10 @@ body {
   font-family: "Hey August", sans-serif;
 }
 
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
 #header {
   width: 100%;
   height: 100px;
@@ -95,246 +100,219 @@ body {
   margin-bottom: 0;
 }
 
+.main .textWrap .mainTitle {
+  font-size: 160px;
+  font-weight: 900;
+  margin-bottom: 40px;
+  color: #fff;
+}
+.main .textWrap .subTitle {
+  font-size: 60px;
+  font-weight: 300;
+  color: #fff;
+}
 .main .cont1 {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  padding: 100px 0 80px;
-  background: url(../img/main/main_bg_1.png) no-repeat center/cover;
-  box-sizing: border-box;
   overflow: hidden;
 }
 .main .cont1 .mainConts {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   display: flex;
   justify-content: center;
 }
-.main .cont1 .mainConts .center {
+.main .cont1 .mainConts .bgVideo {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.main .cont1 .mainConts .bgVideo .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.2);
+}
+.main .cont1 .mainConts .bigBox {
   width: 80%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.main .conts {
+  width: 100%;
+  height: 100vh;
+}
+.main .conts .contsWrap {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+.main .conts .contsWrap .bigBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+.main .conts .contsWrap .bigBox .textWrap {
+  width: 80%;
+  opacity: 1;
+  overflow: hidden;
+  transition: opacity 0.2s;
+}
+.main .conts .contsWrap .bigBox .textWrap .mainTitle {
+  white-space: nowrap;
+}
+.main .conts .contsWrap .rightBox {
+  width: 0;
+  height: 0;
+  margin-left: 0;
+  transition: all 0.5s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.main .conts .contsWrap .rightBox .right.textWrap {
+  width: 100%;
+  position: relative;
+  padding-bottom: 100px;
+}
+.main .conts .contsWrap .rightBox .right.textWrap .mainTitle {
+  font-size: 80px;
+  color: #000;
+}
+.main .conts .contsWrap .rightBox .right.textWrap .subTitle {
+  font-size: 30px;
+  color: #000;
+}
+.main .conts .contsWrap .rightBox .right.textWrap .linkBtn {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+.main .conts .contsWrap .rightBox .right.textWrap .linkBtn:hover {
+  background: #000;
+}
+.main .conts .contsWrap .rightBox .right.textWrap .linkBtn:hover span.goText {
+  opacity: 0;
+}
+.main .conts .contsWrap .rightBox .right.textWrap .linkBtn:hover span.arrow {
+  opacity: 1;
+}
+.main .conts .contsWrap .rightBox .right.textWrap .linkBtn span {
+  position: absolute;
+  transition: all 0.5s;
+}
+.main .conts .contsWrap .rightBox .right.textWrap .linkBtn span.goText {
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 1;
+  color: #000;
+}
+.main .conts .contsWrap .rightBox .right.textWrap .linkBtn span.arrow {
+  font-size: 40px;
+  opacity: 0;
+  color: #fff;
+}
+.main .conts .contsWrap .rightBox .listWrap {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+}
+.main .conts .contsWrap .rightBox .listWrap .listBox {
+  width: calc(100% - 40px);
+  position: relative;
+  overflow: hidden;
+  margin-right: 20px;
+  background: #f9f9f9;
+}
+.main .conts .contsWrap .rightBox .listWrap .listBox:last-child {
+  margin-right: 0;
+}
+.main .conts .contsWrap .rightBox .listWrap .listBox:hover img.png {
+  opacity: 0;
+}
+.main .conts .contsWrap .rightBox .listWrap .listBox:hover img.hover {
+  opacity: 1;
+}
+.main .conts .contsWrap .rightBox .listWrap .listBox img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s;
+}
+.main .conts .contsWrap .rightBox .listWrap .listBox img.png {
+  opacity: 1;
+}
+.main .conts .contsWrap .rightBox .listWrap .listBox img.hover {
+  opacity: 0;
+}
+.main .conts.show .contsWrap {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.main .cont1 .mainConts .center .leftText {
+.main .conts.show .contsWrap .bigBox {
   width: 50%;
-  height: 486px;
-  position: relative;
 }
-.main .cont1 .mainConts .center .leftText:hover .mainTitle.full {
-  width: 733px;
-}
-.main .cont1 .mainConts .center .leftText .mainTitle {
-  width: 100%;
-  font-size: 160px;
-  position: absolute;
-}
-.main .cont1 .mainConts .center .leftText .mainTitle.line {
-  -webkit-text-stroke: 1px #fff;
-  color: transparent;
-  overflow: hidden;
-  transition: all 2s;
-}
-.main .cont1 .mainConts .center .leftText .mainTitle.full {
-  width: 0;
-  height: 326px;
-  white-space: nowrap;
-  overflow: hidden;
-  color: #fff;
-  transition: all 2s;
-}
-.main .cont1 .mainConts .center .leftText .mainTitle.fix {
-  -webkit-text-stroke: 1px #fff;
-  color: transparent;
-  bottom: 0;
-}
-.main .cont1 .mainConts .center .rightConts {
-  width: 48%;
-  height: 750px;
-  position: relative;
-}
-.main .cont1 .mainConts .center .rightConts:hover img.back {
+.main .conts.show .contsWrap .bigBox .textWrap {
   opacity: 0;
 }
-.main .cont1 .mainConts .center .rightConts:hover img.front {
-  opacity: 1;
-}
-.main .cont1 .mainConts .center .rightConts > img {
+.main .conts.show .contsWrap .rightBox {
+  width: calc(50% - 20px);
   height: 100%;
-  position: absolute;
-  bottom: 0;
-  transition: all 1s;
+  margin-left: 20px;
 }
-.main .cont1 .mainConts .center .rightConts img.back {
-  opacity: 1;
+.main .cont2 .contsWrap .bigBox {
+  background: url(../img/main/main_bg_2.png) no-repeat center/cover;
 }
-.main .cont1 .mainConts .center .rightConts img.front {
-  opacity: 0;
+.main .cont3 .contsWrap .bigBox {
+  background: url(../img/main/main_bg_3.png) no-repeat center/cover;
 }
-.main .cont1 .textFlow {
+.main .cont4 .contsWrap {
   width: 100%;
-  display: flex;
-}
-.main .cont1 .textFlow p {
-  color: #fff;
-  opacity: 0.8;
-  font-weight: 100;
-  font-size: 30px;
-  letter-spacing: 0.5px;
-  margin-right: 20px;
-}
-.main .section {
   height: 100vh;
+  overflow: hidden;
+}
+.main .cont4 .contsWrap img {
+  width: 100%;
+}
+.main .cont4 .contsWrap .bigBox {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
-.main .section .center {
+.main .cont4 .contsWrap .bigBox .textWrap {
   width: 80%;
-  height: 100%;
-  position: relative;
+  margin-top: 40px;
 }
-.main .section .center > img {
-  position: absolute;
+.main .cont4 .contsWrap .bigBox .textWrap .mainTitle {
+  color: #000;
+  margin-bottom: 60px;
 }
-.main .section .center .textWrap {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+.main .cont4 .contsWrap .bigBox .textWrap .subTitle {
+  color: #000;
 }
-.main .section .center .textWrap .title {
-  font-size: 65px;
-  font-weight: 900;
-  margin-bottom: 30px;
-  line-height: 1.1;
-}
-.main .section .center .textWrap .hashtag {
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  margin-bottom: 40px;
-}
-.main .section .center .goLink {
-  width: 500px;
-  height: 100px;
-  position: absolute;
-  display: flex;
-  justify-content: flex-end;
-}
-.main .section .center .goLink:hover .viewBtn {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-}
-.main .section .center .goLink:hover .viewBtn .btnConts .btnText {
-  width: 0;
-  margin-right: 0;
-}
-.main .section .center .goLink .viewBtn {
-  width: 100%;
-  height: 60px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  border: 2px solid transparent;
-  border-radius: 0;
-  padding: 10px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  transition: all 0.5s;
-}
-.main .section .center .goLink .viewBtn .btnConts {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.main .section .center .goLink .viewBtn .btnConts .btnText {
-  font-size: 40px;
-  width: 90%;
-  white-space: nowrap;
-  margin-right: 20px;
-  overflow: hidden;
-  transition: all 0.5s;
-}
-.main .section .center .goLink .viewBtn .btnConts span.line {
-  width: 100%;
-  height: 3px;
-  background: #4C477F;
-}
-.main .section .center .goLink .viewBtn .btnConts span.arrow {
-  position: absolute;
-  right: -10px;
-  font-size: 30px;
-  font-variation-settings: "wght" 300;
-}
-.main .cont2 {
-  background-color: #DEDAFE;
-}
-.main .cont2 .center img.one {
-  top: 100px;
-  left: 180px;
-}
-.main .cont2 .center img.two {
-  bottom: 100px;
-  left: 450px;
-}
-.main .cont2 .center img.three {
-  top: 80px;
-  right: 120px;
-}
-.main .cont2 .center img.bigNum {
-  top: 120px;
-  right: 650px;
-}
-.main .cont2 .center .textWrap {
-  bottom: 160px;
-  left: 50px;
-  text-align: right;
-  color: #4C477F;
-}
-.main .cont2 .center .goLink {
-  bottom: 100px;
-  right: 150px;
-}
-.main .cont2 .center .goLink:hover .viewBtn {
-  border: 2px solid #4C477F;
-}
-.main .cont2 .center .goLink .viewBtn {
-  color: #4C477F;
-}
-.main .cont3 {
-  background-color: #FDC3B5;
-}
-.main .cont3 .center img.one {
-  top: 100px;
-  left: 180px;
-}
-.main .cont3 .center img.two {
-  bottom: 100px;
-  left: 450px;
-}
-.main .cont3 .center img.three {
-  top: 80px;
-  right: 120px;
-}
-.main .cont3 .center img.bigNum {
-  top: 120px;
-  right: 650px;
-}
-.main .cont3 .center .textWrap {
-  bottom: 160px;
-  left: 50px;
-  text-align: right;
-  color: #4C477F;
-}
-.main .cont3 .center .goLink {
-  bottom: 100px;
-  right: 150px;
-}
-.main .cont3 .center .goLink:hover .viewBtn {
-  border: 2px solid #4C477F;
-}
-.main .cont3 .center .goLink .viewBtn {
-  color: #4C477F;
+.main .fp-watermark {
+  display: none !important;
 }
