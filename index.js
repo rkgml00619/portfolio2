@@ -15,6 +15,6 @@ app.listen(port,function(){
 app.get('/', (req, res) => {
   res.render("index.ejs")
 })
-app.get('/test', (req, res) => {
-  res.render("test.ejs")
+app.get('/hdetail', (req, res) => {
+  res.render("header_detail.ejs")
 })

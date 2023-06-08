@@ -1,4 +1,40 @@
-.main {    
+.fixMenu {
+    position: fixed;
+    bottom: 50px; left: 10%;
+    // transform: translateX(-50%);
+    z-index: 999;
+    ul {
+        display: flex;
+        li {
+            margin-right: 20px;
+            a {
+                display: block;
+                height: 5px; width: 40px;
+                background: rgba(255,255,255,0.6);
+                border-radius: 50px;
+                transition: all 0.5s;
+            }
+        }
+        li.active {
+            a {
+                width: 180px;
+                background: rgba(255,255,255,1);
+            }
+        }
+        li.dark {
+            a {
+                background: rgba(0,0,0,0.6);
+            }
+        }
+        li.dark.active {
+            a {
+                background: rgba(0,0,0,1);
+            }
+        }
+    }
+}
+
+.main {
     .textWrap {
         .mainTitle {
             font-size: 160px;
@@ -203,19 +239,97 @@
                 justify-content: center;
                 .textWrap {
                     width: $center;
-                    margin-top: 40px;
+                    margin-top: 60px;
                     .mainTitle {
                         color: #000;
                         margin-bottom: 60px;
+                        font-size: 140px;
+                        position: relative;
+                        span.full {
+                            display: inline-block;
+                            width: 0;
+                            // opacity: 0;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            transition: all 2s ease-out;
+                        }
+                        span.line {
+                            position: absolute;
+                            top: -120%; left: 0%;
+                            opacity: 0;
+                            color: transparent;
+                            -webkit-text-stroke: 1px #000;
+                            white-space: nowrap;
+                            transition: all 0.6s;
+                        }
+                        span.full.show {
+                            width: 100%;
+                            // opacity: 1;
+                        }
+                        span.line.show {
+                            top: 0;
+                            opacity: 1;
+                        }
                     }
                     .subTitle {
+                        display: flex;
+                        align-items: center;
                         color: #000;
+                        .linkBtn {
+                            width: 60px; height: 60px;
+                            border: 1px solid #000;
+                            border-radius: 50%;
+                            margin-left: 60px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            transition: all 0.5s;
+                            &:hover {
+                                background: #000;
+                                span.goText {
+                                    opacity: 0;
+                                }
+                                span.arrow {
+                                    opacity: 1;
+                                }
+                            }
+                            span {
+                                position: absolute;
+                                transition: all 0.5s;
+                            }
+                            span.goText {
+                                font-size: 20px;
+                                font-weight: 600;
+                                opacity: 1;
+                                color: #000;
+                            }
+                            span.arrow {
+                                font-size: 40px;
+                                opacity: 0;
+                                color: #fff;
+                            }
+                        }
                     }
                 }
-            } 
+            }
         }
     }
     .fp-watermark {
         display: none !important;
     }
 }
+
+
+// #fp-nav ul li, .fp-slidesNav ul li {
+//     margin: 60px 20px;
+// }
+// #fp-nav ul li a span, .fp-slidesNav ul li a span {
+//     background: #fff;
+//     width: 6px; height: 60px;
+//     border-radius: 50px;
+// }
+
+// #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span {
+//     width: 6px; height: 120px;
+//     border-radius: 50px;
+// }
