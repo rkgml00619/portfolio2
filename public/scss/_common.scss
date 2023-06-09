@@ -15,8 +15,12 @@
     'opsz' 48
 }
 
-body {
+body, input::placeholder, textarea::placeholder,section, button, label, button, textarea, input {
     font-family: 'Noto Sans KR', sans-serif;
+}
+input::placeholder, textarea::placeholder {
+    font-weight: 300;
+    color: #aaa;
 }
 .changwon {
     font-family: 'CWDangamAsac-Bold';

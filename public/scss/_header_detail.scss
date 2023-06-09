@@ -76,6 +76,7 @@
             width: $center;
             display: flex;
             align-items: center;
+            position: relative;
             .gnb {
                 li {
                     margin-bottom: 30px;
@@ -144,6 +145,20 @@
                             opacity: 0;
                         }
                     }
+                }
+            }
+
+            .circleText {
+                position: absolute;
+                bottom: 150px; right: 0;
+                width: 150px;
+                animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;
+                transition: all 0.5s;
+                // opacity: 0.5;
+            }
+            @keyframes rotate_image{
+                100% {
+                    transform: rotate(360deg);
                 }
             }
         }

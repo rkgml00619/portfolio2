@@ -166,7 +166,7 @@ function headerColorBK(){
     headerImg[1].classList.add("opac1");
     headerMenuBtn.forEach(function(menu){
         menu.style.background = "#000"
-    })           
+    })
 }
 function headerColorWH(){
     headerImg.forEach(function(logo){

@@ -16,12 +16,13 @@
             a {
                 img {
                     width: 100%;
-                    position: absolute;
+                    display: none;
                     opacity: 0;
                     transition: all 0.5s;
                 }
                 img.opac1 {
                     opacity: 1;
+                    display: block;
                 }
             }
         }
@@ -68,4 +69,8 @@
             display: none;
         }
     }
+}
+
+#header.sub {
+    position: relative;
 }
