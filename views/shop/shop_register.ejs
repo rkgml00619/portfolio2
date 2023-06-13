@@ -1,4 +1,4 @@
-<%- include('../header') %>
+<%- include('../header', jsFiles=["shop/shop_register.js"], cssFiles=[]) %>
     <div id="container" class="shop_register">
         <div class="cont1">
             <div class="center">
@@ -7,8 +7,9 @@
                     <p class="subTitle">MLB PET 제품을 등록해주세요</p>
                 </div>
 
-                <form action="/prddata" method="post" id="prdRegister">
+                <form action="/shop/edit/register/data" method="post" id="prdRegister" enctype="multipart/form-data">
                     <div class="formLeft">
+                        <!-- 카테고리 -->
                         <div class="inputWrap categoryWrap">
                             <p class="label">카테고리</p>
                             <div class="categoryCheck">
@@ -26,98 +27,90 @@
                                 </span>
                             </div>
                         </div>
-
+                        <!-- 제품명 -->
                         <div class="inputWrap">
                             <label for="prdName">제품명</label>
                             <input type="text" name="prdName" id="prdName" placeholder="제품명을 입력해주세요" required>
                         </div>
-    
+                        <!-- 가격 -->
                         <div class="inputWrap">
                             <label for="price">가격</label>
                             <input type="number" name="price" id="price" placeholder="제품 가격을 입력해주세요" required>
                         </div>
-                        
-                        <div class="inputWrap">
+                        <!-- 대표이미지 -->
+                        <div class="inputWrap imgWrap">
                             <label for="prdImg">대표이미지</label>
-                            <input type="text" name="prdImg" id="prdImg" placeholder="이미지 경로를 입력해주세요 (임시)">
+                            <input type="file" name="prdImg" id="prdImg" multiple>
                         </div>
-                        <!-- <div class="inputWrap">
-                            <label for="file">대표이미지</label>
-                            <div class="filebox">
-                                <input class="upload-name" placeholder="대표이미지를 등록해주세요">
-                                <label for="file">파일찾기</label> 
-                                <input type="file" id="file" name="file">
-                            </div>  
-                        </div> -->
-                        
+                        <!-- 색상 -->
                         <div class="inputWrap colorWrap">
                             <p class="label">색상</p>
                             <div class="colorChkWrap">
                                 <span>
-                                    <input type="checkbox" name="color" id="black" class="colorCheck">
+                                    <input type="checkbox" name="color" id="black" class="colorCheck" value="black">
                                     <label for="black" class="black colorLabel">
-                                        <span class="selectColor"></span>
+                                        <span class="material-symbols-outlined selectColor">check</span>
                                     </label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="color" id="white" class="colorCheck">
+                                    <input type="checkbox" name="color" id="white" class="colorCheck" value="white">
                                     <label for="white" class="white colorLabel">
-                                        <span class="selectColor"></span>
+                                        <span class="material-symbols-outlined selectColor">check</span>
                                     </label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="color" id="blue" class="colorCheck">
+                                    <input type="checkbox" name="color" id="blue" class="colorCheck" value="blue">
                                     <label for="blue" class="blue colorLabel">
-                                        <span class="selectColor"></span>
+                                        <span class="material-symbols-outlined selectColor">check</span>
                                     </label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="color" id="pink" class="colorCheck">
+                                    <input type="checkbox" name="color" id="pink" class="colorCheck" value="pink">
                                     <label for="pink" class="pink colorLabel">
-                                        <span class="selectColor"></span>
+                                        <span class="material-symbols-outlined selectColor">check</span>
                                     </label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="color" id="mint" class="colorCheck">
+                                    <input type="checkbox" name="color" id="mint" class="colorCheck" value="mint">
                                     <label for="mint" class="mint colorLabel">
-                                        <span class="selectColor"></span>
+                                        <span class="material-symbols-outlined selectColor">check</span>
                                     </label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="color" id="purple" class="colorCheck">
+                                    <input type="checkbox" name="color" id="purple" class="colorCheck" value="purple">
                                     <label for="purple" class="purple colorLabel">
-                                        <span class="selectColor"></span>
+                                        <span class="material-symbols-outlined selectColor">check</span>
                                     </label>
                                 </span>
                             </div>
                         </div>
-
+                        <!-- 사이즈 -->
                         <div class="inputWrap sizeWrap">
                             <p class="label">사이즈</p>
                             <div class="sizeChkWrap">
                                 <span>
-                                    <input type="checkbox" name="size" id="small" class="sizeCheck">
+                                    <input type="checkbox" name="size" id="small" class="sizeCheck" value="S">
                                     <label for="small" class="sizeLabel">S
                                     </label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="size" id="medium" class="sizeCheck">
+                                    <input type="checkbox" name="size" id="medium" class="sizeCheck" value="M">
                                     <label for="medium" class="sizeLabel">M
                                     </label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="size" id="large" class="sizeCheck">
+                                    <input type="checkbox" name="size" id="large" class="sizeCheck" value="L">
                                     <label for="large" class="sizeLabel">L
                                     </label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="size" id="XLarge" class="sizeCheck">
+                                    <input type="checkbox" name="size" id="XLarge" class="sizeCheck" value="XL">
                                     <label for="XLarge" class="sizeLabel">XL
                                     </label>
                                 </span>
                             </div>
                         </div>
-
+                        <!-- 상세 -->
                         <div class="inputWrap">
                             <label for="detail">제품상세</label>
                             <textarea name="detail" id="detail" placeholder="제품의 상세정보를 입력해주세요"></textarea>
@@ -132,58 +125,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const colorLabel = document.querySelectorAll(".colorChkWrap .colorLabel");
-        const colorSelect = document.querySelectorAll(".colorLabel .selectColor");
-
-        const sizeLabel = document.querySelectorAll(".sizeChkWrap .sizeLabel");
-        const categoryLabel = document.querySelectorAll(".categoryChkWrap .categoryLabel");
-
-        const registerForm = document.querySelector("#prdRegister");
-        const resetBtn = document.querySelector(".reset");
-        const registerBtn = document.querySelector(".register");
-        
-        
-        for(let i = 0; i < categoryLabel.length; i++){
-            categoryLabel[i].onclick = function(){
-                categoryLabel[i].classList.add("select");
-            }
-        }
-        for(let i = 0; i < colorLabel.length; i++){
-            colorLabel[i].onclick = function(){
-                colorSelect[i].style.display = "block";
-            }
-        }
-        for(let i = 0; i < sizeLabel.length; i++){
-            sizeLabel[i].onclick = function(){
-                sizeLabel[i].classList.add("select");
-            }
-        }
-
-        registerBtn.onclick = function(){
-            let regisetCheck = window.confirm("등록하시겠습니까?");
-
-            if(regisetCheck){
-                registerForm.submit();
-            }
-            else {
-                alert("제품등록이 취소되었습니다.");
-            }
-        }
-
-        resetBtn.onclick = function(){
-            let resetCheck = window.confirm("등록된 내용을 모두 지우시겠습니까?");
-
-            if(resetCheck){
-                registerForm.reset();
-                alert("등록된 내용을 모두 삭제하였습니다.");
-            }
-            else {
-                alert("등록된 내용을 유지하였습니다.");
-            }
-        }
-
-    </script>
 </body>
 </html>

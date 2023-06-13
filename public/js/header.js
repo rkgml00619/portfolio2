@@ -15,10 +15,9 @@ const mobile = matchMedia("screen and (max-width: 768px)");
 // 접속 페이지 확인
 const mainLink = window.location.pathname;
 
-console.log(headerLogo)
-console.log(headerBtn)
+// console.log(mainLink);
 
-if(mainLink !== "/"){
+if(mainLink !== "/" && mainLink !== "/m"){
     header.classList.add("sub");
     headerLogo.forEach(function(logo){
         logo.classList.remove("opac1");

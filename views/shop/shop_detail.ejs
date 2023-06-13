@@ -1,42 +1,52 @@
-<%- include('../header') %>
+<%- include('../header', jsFiles=["shop/shop_detail.js"], cssFiles=[]) %>
     <div id="container" class="shop_detail">
         <div class="cont1">
             <div class="center">
                 <div class="left">
                     <div class="mainImg">
-                        <img src="/img/shop/product/clothes_1.png" alt="">
+                        <img src="/upload/<%- data.prdImg[0] %>" alt="">
                     </div>
                     <div class="subImg">
-                        <div class="imglist"></div>
-                        <div class="imglist"></div>
-                        <div class="imglist"></div>
-                        <div class="imglist"></div>
+                        <% for( let i = 1; i < data.prdImg.length; i++ ) { %>
+                            <div class="imglist">
+                                <img src="/upload/<%- data.prdImg[i] %>" alt="">
+                            </div>
+                        <% } %>
                     </div>
                 </div>
                 <div class="right">
-                    <h2 class="prdName">MOGOGRAM 후드 뉴욕 양키스</h2>
-                    <h2 class="price">49,000원</h2>
+                    <!-- <p class="category"><%#- data.category %></p> -->
+                    <h2 class="prdName"><%- data.prdName %></h2>
+                    <h2 class="price"><span class="priceText"><%- data.price %></span>원</h2>
                     <form class="subInfo" action="">
                         <div class="infoWrap">
-                            <p>색상</p>
-                            <div class="colorWrap">
-                                <input type="radio" name="black">
-                                <label for="black"></label>
-                            </div>
-                            <div class="colorWrap">
-                                <input type="radio" name="black">
-                                <label for="black"></label>
-                            </div>
-                            <div class="colorWrap">
-                                <input type="radio" name="black">
-                                <label for="black"></label>
-                            </div>
+                            <p class="detailTitle">색상</p>
+                            <% for( let i = 0; i < data.color.length; i++ ) { %>
+                                <div class="colorWrap inputWrap">
+                                    <input type="radio" name="color" id="<%- data.color[i] %>" value="<%- data.color[i] %>">
+                                    <label for="<%- data.color[i] %>" class="color <%- data.color[i] %>">
+                                        <span class="material-symbols-outlined checkIcon">
+                                            check</span>
+                                    </label>
+                                </div>
+                            <% } %>
                         </div>
                         <div class="infoWrap">
-                            <p>수량</p>
-                            <button class="plus">+</button>
-                            <input type="text" name="amout" value="1">
-                            <button class="minus">-</button>
+                            <p class="detailTitle">사이즈</p>
+                            <% for( let i = 0; i < data.size.length; i++ ) { %>
+                                <div class="sizeWrap inputWrap">
+                                    <input type="radio" name="size" id="<%- data.size[i] %>" value="<%- data.size[i] %>">
+                                    <label for="<%- data.size[i] %>"><%- data.size[i] %></label>
+                                </div>
+                            <% } %>
+                        </div>
+                        <div class="infoWrap">
+                            <p class="detailTitle">수량</p>
+                            <div class="amountWrap inputWrap">
+                                <button class="plus">+</button>
+                                <input type="text" name="amout" value="1">
+                                <button class="minus">-</button>
+                            </div>
                         </div>
                     </form>
                 </div>

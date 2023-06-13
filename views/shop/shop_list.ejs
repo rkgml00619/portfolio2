@@ -1,4 +1,4 @@
-<%- include('../header') %>
+<%- include('../header', jsFiles=[], cssFiles=[]) %>
     <div id="container" class="shop_list">
         <div class="cont1">
             <div class="center">
@@ -12,7 +12,19 @@
         <div class="cont2">
             <div class="center">
                 <div class="lists">
-                    <div class="list"></div>
+                    <% for( let i = 0; i < data.length; i++ ) { %>
+                        <div class="list">
+                            <a href="/shop/detail/<%- data[i].num %>">
+                                <div class="imgWrap">
+                                    <img src="/upload/<%- data[i].prdImg[0] %>" alt="">
+                                </div>
+                                <div class="textWrap">
+                                    <h5 class="prdName"><%- data[i].prdName %></h5>
+                                    <p class="price"><%- data[i].price %>원</p>
+                                </div>
+                            </a>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>

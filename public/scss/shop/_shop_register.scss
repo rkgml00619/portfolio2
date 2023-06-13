@@ -142,10 +142,15 @@
                                     margin-right: 10px;
                                     .selectColor {
                                         display: none;
-                                        width: 10px; height: 10px;
-                                        background: #fff;
-                                        border: 1px solid #aaa;
-                                        border-radius: 100%;
+                                        font-variation-settings: "wght" 400;
+
+                                        // width: 10px; height: 10px;
+                                        // background: #fff;
+                                        // border: 1px solid #aaa;
+                                        // border-radius: 100%;
+                                    }
+                                    .selectColor.select{
+                                        display: block;
                                     }
                                 }
                                 .black {

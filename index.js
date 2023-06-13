@@ -4,6 +4,9 @@ const port = 5000
 
 const MongoClient = require('mongodb').MongoClient;
 
+// 파일업로드 기능인 multer를 사용하기 위한 명령어들 불러들임
+const multer  = require('multer')
+
 app.set("view engine","ejs")
 app.use(express.static('public'))
 
@@ -27,27 +30,66 @@ MongoClient.connect("mongodb+srv://rkgml00619:!!rkals1010@cluster0.dujoq6u.mongo
 
 });
 
+//파일 첨부 후 서버에 전달 할 때 multer library 설정
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/upload') //업로드 폴더 지정
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname = Buffer.from(file.originalname, 'latin1').toString('utf8'))
+    //영어가 아닌 다른 파일명 안깨지고 나오게 처리
+  }
+})
+
+//upload는 위의 설정사항을 담은 변수(상수) 
+const upload = multer({ storage: storage })
+
+// 메인 페이지
 app.get('/', (req, res) => {
   res.render("index.ejs")
 })
-app.get('/shop/clothes', (req, res) => {
-  res.render("shop/shop_list.ejs")
+// 제품 목록
+app.get('/shop/:category', (req, res) => {
+  db.collection("product").findOne({category: req.params.category}, (err, result)=>{
+    console.log(result)
+    db.collection("product").find().sort({num:-1}).toArray((err,result)=>{
+      //게시글 목록 데이터 전부 가지고 와서 목록페이지로 전달
+      res.render("shop/shop_list.ejs",{data:result})
+    })
+  })
 })
-app.get('/shop/detail', (req, res) => {
-  res.render("shop/shop_detail.ejs")
+// 제품 상세
+app.get('/shop/detail/:num', (req, res) => {  
+  db.collection("product").findOne({num: Number(req.params.num)}, (err, result)=>{
+    res.render("shop/shop_detail.ejs", {data: result});
+  })
 })
 
-app.get('/shop/register', (req, res) => {
+// 제품 등록
+app.get('/shop/edit/register', (req, res) => {
   res.render("shop/shop_register.ejs")
 })
-app.post('/prddata', (req, res)=>{
-  db.collection("product").insertOne({
-    category: req.body.category,
-    prdName: req.body.prdName,
-    price: req.body.price,
-    prdImg: req.body.prdImg,
-    detail: req.body.detail,
-  }, (err, result)=>{
-    
-  });
+// 제품 등록 데이터
+app.post("/shop/edit/register/data", upload.array("prdImg"),(req,res)=>{
+  let prdImgs = [];
+
+  for(let i = 0; i < req.files.length; i++){
+    prdImgs[i] = req.files[i].filename;
+  }
+
+  db.collection("count").findOne({title: "상품갯수"}, (err, countResult)=>{
+    db.collection("product").insertOne({
+      num: countResult.num,
+      category: req.body.category,
+      prdName: req.body.prdName,
+      prdImg : prdImgs,
+      price: req.body.price,
+      color: req.body.color,
+      size: req.body.size,
+    }, (err, result)=>{
+      db.collection("count").updateOne({title: "상품갯수"}, {$inc: {num:1}}, (err, result)=>{
+        res.redirect(`/shop/detail/${countResult.num}`);
+      })
+    })
+  })
 })
