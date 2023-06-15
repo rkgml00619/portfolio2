@@ -35,7 +35,7 @@
                 </span>        
             </div>
         </div>
-        <div class="section conts cont2 scrollable">
+        <div class="section conts cont2">
             <div class="contsWrap">
                 <div class="bigBox">
                     <div class="textWrap">
@@ -51,31 +51,21 @@
                             We are Soulmate<br>Fashion, too
                         </h2>
                         <p class="poppins subTitle">#MLB PET ClOTHES</p>
-                        <a class="linkBtn" href="#">
+                        <a class="linkBtn" href="/shop/clothes">
                             <span class="goText poppins">GO</span>
                             <span class="material-symbols-outlined arrow">
                                 arrow_forward</span>
                         </a>
                     </div>
                     <div class="listWrap">
-                        <div class="listBox">
-                            <a href="#">
-                                <img class="png" src="/img/main/clothes_1.png" alt="">
-                                <img class="hover" src="/img/main/clothes_1.jfif" alt="">
-                            </a>
-                        </div>
-                        <div class="listBox">
-                            <a href="#">
-                                <img class="png" src="/img/main/clothes_1.png" alt="">
-                                <img class="hover" src="/img/main/clothes_1.jfif" alt="">
-                            </a>
-                        </div>
-                        <div class="listBox">
-                            <a href="#">
-                                <img class="png" src="/img/main/clothes_1.png" alt="">
-                                <img class="hover" src="/img/main/clothes_1.jfif" alt="">
-                            </a>
-                        </div>
+                        <% for(let i = 0; i < 3; i++) { %>
+                            <div class="listBox">
+                                <a href="/shop/detail/<%- newClothes[i].num %>">
+                                    <img class="png" src="/upload/<%-newClothes[i].prdImg[0]%>">
+                                    <img class="hover" src="/upload/<%-newClothes[i].prdImg[1]%>">
+                                </a>
+                            </div>
+                        <% } %>
                     </div>
                 </div>
             </div>
@@ -96,31 +86,21 @@
                             Petshoinsta<br>Must-have Items
                         </h2>
                         <p class="poppins subTitle">#MLB PET ACC</p>
-                        <a class="linkBtn" href="#">
+                        <a class="linkBtn" href="/shop/acc">
                             <span class="goText poppins">GO</span>
                             <span class="material-symbols-outlined arrow">
                                 arrow_forward</span>
                         </a>
                     </div>
                     <div class="listWrap">
-                        <div class="listBox">
-                            <a href="#">
-                                <img class="png" src="/img/main/clothes_1.png" alt="">
-                                <img class="hover" src="/img/main/clothes_1.jfif" alt="">
-                            </a>
-                        </div>
-                        <div class="listBox">
-                            <a href="#">
-                                <img class="png" src="/img/main/clothes_1.png" alt="">
-                                <img class="hover" src="/img/main/clothes_1.jfif" alt="">
-                            </a>
-                        </div>
-                        <div class="listBox">
-                            <a href="#">
-                                <img class="png" src="/img/main/clothes_1.png" alt="">
-                                <img class="hover" src="/img/main/clothes_1.jfif" alt="">
-                            </a>
-                        </div>
+                        <% for(let i = 0; i < 3; i++) { %>
+                            <div class="listBox">
+                                <a href="/shop/detail/<%- newAcc[i].num %>">
+                                    <img class="png" src="/upload/<%-newAcc[i].prdImg[0]%>">
+                                    <img class="hover" src="/upload/<%-newAcc[i].prdImg[1]%>">
+                                </a>
+                            </div>
+                        <% } %>
                     </div>
                 </div>
             </div>

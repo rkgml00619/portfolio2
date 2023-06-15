@@ -3,9 +3,8 @@
         <div class="cont1">
             <div class="center">
                 <div class="titleWrap">
-                    <h2 class="mainTitle poppins">Clothes</h2>
-                    <p class="subTitle poppins">
-                        We are Soulmate Fashion, too</p>
+                    <h2 class="mainTitle poppins"></h2>
+                    <p class="subTitle poppins"></p>
                 </div>
             </div>
         </div>
@@ -13,7 +12,7 @@
             <div class="center">
                 <div class="lists">
                     <% for( let i = 0; i < data.length; i++ ) { %>
-                        <div class="list">
+                        <div class="list <%- data[i].category %>">
                             <a href="/shop/detail/<%- data[i].num %>">
                                 <div class="imgWrap">
                                     <img src="/upload/<%- data[i].prdImg[0] %>" alt="">
@@ -28,6 +27,41 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+
+    <script>
+        const mainTitle = document.querySelector(".cont1 .titleWrap .mainTitle");
+        const subTitle = document.querySelector(".cont1 .titleWrap .subTitle");
+        const accList = document.querySelectorAll(".cont2 .lists .acc");
+        const clothesList = document.querySelectorAll(".cont2 .lists .clothes");
+        const hrefText = window.location.pathname;
+
+        console.log(mainTitle)
+        console.log(accList)
+        console.log(clothesList)
+        console.log(hrefText)
+
+        if(hrefText.includes("acc")){
+            mainTitle.innerText = "Acc";
+            subTitle.innerText = "Petshoinsta Must-have Items";
+            clothesList.forEach(function(clothes){
+                clothes.classList.remove("show");
+            })
+            accList.forEach(function(acc){
+                acc.classList.add("show");
+            })
+        }
+        else if(hrefText.includes("clothes")){
+            mainTitle.innerText = "Clothes";
+            subTitle.innerText = "We are Soulmate Fashion, too";
+            accList.forEach(function(acc){
+                acc.classList.remove("show");
+            })
+            clothesList.forEach(function(clothes){
+                clothes.classList.add("show");
+            })
+        }
+        
+    </script>
 </body>
 </html>

@@ -1,52 +1,121 @@
-<%- include('../header', jsFiles=["shop/shop_detail.js"], cssFiles=[]) %>
+<%- include('../header', jsFiles=["shop/shop_detail.js", "shop/shop_detail_slide.js"], cssFiles=[]) %>
     <div id="container" class="shop_detail">
         <div class="cont1">
             <div class="center">
                 <div class="left">
                     <div class="mainImg">
                         <img src="/upload/<%- data.prdImg[0] %>" alt="">
+                        <div class="arrows">
+                            <span class="material-symbols-outlined arrowIcon prev">
+                                arrow_back_ios_new</span>
+                            <span class="material-symbols-outlined arrowIcon next">
+                                arrow_forward_ios</span>
+                        </div>
                     </div>
-                    <div class="subImg">
-                        <% for( let i = 1; i < data.prdImg.length; i++ ) { %>
-                            <div class="imglist">
-                                <img src="/upload/<%- data.prdImg[i] %>" alt="">
+                    <div class="subImgList">
+                        <span class="material-symbols-outlined arrowIcon prev">arrow_back_ios_new</span>
+                        <div class="subImg">
+                            <div class="subImgWrap">
+                                <% for( let i = 0; i < data.prdImg.length; i++ ) { %>
+                                    <div class="imglist" data-index="<%- i %>">
+                                        <img src="/upload/<%- data.prdImg[i] %>" alt="">
+                                    </div>
+                                <% } %>
+                                <div class="subImgselect"></div>
                             </div>
-                        <% } %>
+                        </div>
+                        <span class="material-symbols-outlined arrowIcon next">arrow_forward_ios</span>
                     </div>
                 </div>
                 <div class="right">
-                    <!-- <p class="category"><%#- data.category %></p> -->
                     <h2 class="prdName"><%- data.prdName %></h2>
-                    <h2 class="price"><span class="priceText"><%- data.price %></span>원</h2>
-                    <form class="subInfo" action="">
-                        <div class="infoWrap">
-                            <p class="detailTitle">색상</p>
-                            <% for( let i = 0; i < data.color.length; i++ ) { %>
-                                <div class="colorWrap inputWrap">
-                                    <input type="radio" name="color" id="<%- data.color[i] %>" value="<%- data.color[i] %>">
-                                    <label for="<%- data.color[i] %>" class="color <%- data.color[i] %>">
-                                        <span class="material-symbols-outlined checkIcon">
-                                            check</span>
-                                    </label>
-                                </div>
-                            <% } %>
-                        </div>
-                        <div class="infoWrap">
-                            <p class="detailTitle">사이즈</p>
-                            <% for( let i = 0; i < data.size.length; i++ ) { %>
-                                <div class="sizeWrap inputWrap">
-                                    <input type="radio" name="size" id="<%- data.size[i] %>" value="<%- data.size[i] %>">
-                                    <label for="<%- data.size[i] %>"><%- data.size[i] %></label>
-                                </div>
-                            <% } %>
-                        </div>
-                        <div class="infoWrap">
-                            <p class="detailTitle">수량</p>
-                            <div class="amountWrap inputWrap">
-                                <button class="plus">+</button>
-                                <input type="text" name="amout" value="1">
-                                <button class="minus">-</button>
+                    <h2 class="price"><span class="priceText"><%- data.price %></span>원</h2>                    
+                    <div class="subInfo">
+                        <div class="subInfoWrap">
+                            <!-- 색상 -->
+                            <div class="infoWrap">
+                                <p class="detailTitle">색상</p>
+                                <% for( let i = 0; i < data.color.length; i++ ) { %>
+                                    <div class="colorWrap inputWrap">
+                                        <input type="radio" name="color" id="<%- data.color[i] %>" value="<%- data.color[i] %>">
+                                        <label for="<%- data.color[i] %>" class="color <%- data.color[i] %>">
+                                            <span class="material-symbols-outlined checkIcon">
+                                                check</span>
+                                        </label>
+                                    </div>
+                                <% } %>
                             </div>
+                            <!-- 사이즈 -->
+                            <div class="infoWrap">
+                                <p class="detailTitle">사이즈</p>
+                                <% for( let i = 0; i < data.size.length; i++ ) { %>
+                                    <div class="sizeWrap inputWrap">
+                                        <input type="radio" name="size" id="<%- data.size[i] %>" value="<%- data.size[i] %>">
+                                        <label for="<%- data.size[i] %>"><%- data.size[i] %></label>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <!-- 혜택 -->
+                            <div class="infoWrap benefitWrap">
+                                <p class="detailTitle">혜택</p>
+                                <div class="benefit">
+                                    <p>전 상품 무료배송</p>
+                                    <p>등급별 최대 6% 마일리지</p>
+                                    <p>신규가입시 마일리지 1만원</p>
+                                    <p>네이버 페이 결제 시 1% 포인트 적립</p>
+                                </div>
+                            </div>
+                            <!-- 배송 -->
+                            <div class="infoWrap">
+                                <p class="detailTitle">배송</p>
+                                <p class="delivery">전상품 무료배송</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="selInfoForm" action="">
+                        <div class="selResult">
+                            <div class="selInfo">
+                                <h5 class="selPrdName">
+                                    <input type="text" value="모노그램 맨투맨 LA다저스" readonly>
+                                </h5>
+                                <div class="selInfoWrap">
+                                    <div class="selColorSizeWrap">
+                                        <p class="selColor">
+                                            색상 : 
+                                            <input type="text" name="selColor" value="" readonly>
+                                        </p>
+                                        <p class="selSize">
+                                            사이즈 : 
+                                            <input type="text" name="selSize" value="" readonly>
+                                        </p>
+                                    </div>
+                                    <div class="selAmoutWrap">
+                                        <div class="amountControl">
+                                            <div class="selAmountMinus subAmountIcon">
+                                                <span class="material-symbols-outlined amountIcon">remove</span>
+                                            </div>
+                                            <input type="text" value="1">
+                                            <div class="selAmountPlus subAmountIcon">
+                                                <span class="material-symbols-outlined amountIcon">add</span>
+                                            </div>  
+                                        </div>                                  
+                                        <div class="remove">
+                                            <span class="material-symbols-outlined removeIcon">
+                                            close</span>
+                                        </div>
+                                    </div>
+                                </div>        
+                            </div>
+                            <div class="totalPrice show">
+                                <p class="totalText">총 금액</p>
+                                <h2 class="priceResult">
+                                    <input class="priceText" readonly>원
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="btnsWrap">
+                            <button type="submit" class="cart">장바구니 담기</button>
+                            <button type="submit" class="purchase">바로 구매하기</button>
                         </div>
                     </form>
                 </div>

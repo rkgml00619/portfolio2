@@ -46,12 +46,26 @@ const upload = multer({ storage: storage })
 
 // 메인 페이지
 app.get('/', (req, res) => {
-  res.render("index.ejs")
+  db.collection("product").find().sort({num: -1}).toArray((err, result)=>{
+    let newClothes = [];
+    let newAcc = [];
+    
+    for(let i = 0; i < result.length; i++){
+      if(result[i].category === "clothes"){
+        newClothes[newClothes.length] = result[i]
+      }
+      else if(result[i].category === "acc"){
+        newAcc[newAcc.length] = result[i]
+      }
+    }
+    // console.log(newClothes.length);
+    // console.log(newAcc[0].num);
+    res.render("index.ejs", {data: result, newClothes: newClothes, newAcc: newAcc});
+  })
 })
 // 제품 목록
 app.get('/shop/:category', (req, res) => {
   db.collection("product").findOne({category: req.params.category}, (err, result)=>{
-    console.log(result)
     db.collection("product").find().sort({num:-1}).toArray((err,result)=>{
       //게시글 목록 데이터 전부 가지고 와서 목록페이지로 전달
       res.render("shop/shop_list.ejs",{data:result})
@@ -61,6 +75,12 @@ app.get('/shop/:category', (req, res) => {
 // 제품 상세
 app.get('/shop/detail/:num', (req, res) => {  
   db.collection("product").findOne({num: Number(req.params.num)}, (err, result)=>{
+
+    // color 값을 무조건 배열로 가져올 수 있도록
+    if (result && typeof result.color === 'string') {
+      result.color = [result.color]; 
+    }
+
     res.render("shop/shop_detail.ejs", {data: result});
   })
 })
@@ -70,26 +90,48 @@ app.get('/shop/edit/register', (req, res) => {
   res.render("shop/shop_register.ejs")
 })
 // 제품 등록 데이터
-app.post("/shop/edit/register/data", upload.array("prdImg"),(req,res)=>{
-  let prdImgs = [];
 
-  for(let i = 0; i < req.files.length; i++){
-    prdImgs[i] = req.files[i].filename;
+const cpUpload = upload.fields([{ name: 'prdImg'}, {name: 'addPrdImg'} ,{ name: 'detailImg'}]);
+
+app.post("/shop/edit/register/data",cpUpload,(req,res)=>{
+
+  // console.log(req.files)
+  // console.log(req.files["prdImg"])
+  // console.log(req.files["detailImg"])
+  console.log(req.files["addPrdImg"])
+
+  let prdImgs = [];
+  let addPrdImgs = [];
+  let detailImgs = [];
+
+  for(let i = 0; i < req.files["prdImg"].length; i++){
+    prdImgs[i] = req.files["prdImg"][i].filename;
   }
 
-  db.collection("count").findOne({title: "상품갯수"}, (err, countResult)=>{
-    db.collection("product").insertOne({
-      num: countResult.num,
-      category: req.body.category,
-      prdName: req.body.prdName,
-      prdImg : prdImgs,
-      price: req.body.price,
-      color: req.body.color,
-      size: req.body.size,
-    }, (err, result)=>{
-      db.collection("count").updateOne({title: "상품갯수"}, {$inc: {num:1}}, (err, result)=>{
-        res.redirect(`/shop/detail/${countResult.num}`);
-      })
-    })
-  })
+  for(let i = 0; i < req.files["addPrdImg"].length; i++){
+    addPrdImgs[i] = req.files["addPrdImg"][i].filename;
+  }
+
+  for(let i = 0; i < req.files["detailImg"].length; i++){
+    detailImgs[i] =  req.files["detailImg"][i].filename;
+  }
+
+  // db.collection("count").findOne({title: "상품갯수"}, (err, countResult)=>{
+  //   db.collection("product").insertOne({
+  //     num: countResult.num,
+  //     category: req.body.category,
+  //     prdName: req.body.prdName,
+  //     prdImg : prdImgs,
+  //     addPrdImg : addPrdImgs,
+  //     detailImg:detailImgs,
+  //     price: req.body.price,
+  //     color: req.body.color,
+  //     size: req.body.size,
+      
+  //   }, (err, result)=>{
+  //     db.collection("count").updateOne({title: "상품갯수"}, {$inc: {num:1}}, (err, result)=>{
+  //       res.redirect(`/shop/detail/${countResult.num}`);
+  //     })
+  //   })
+  // })
 })

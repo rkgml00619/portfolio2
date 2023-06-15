@@ -40,7 +40,12 @@
                         <!-- 대표이미지 -->
                         <div class="inputWrap imgWrap">
                             <label for="prdImg">대표이미지</label>
-                            <input type="file" name="prdImg" id="prdImg" multiple>
+                            <input type="file" name="prdImg" id="prdImg">
+                        </div>
+                        <!-- 추가 썸네일 이미지 -->
+                        <div class="inputWrap addImgWrap">
+                            <label for="addPrdImg">추가 썸네일 이미지</label>
+                            <input type="file" name="addPrdImg" id="addPrdImg" multiple>
                         </div>
                         <!-- 색상 -->
                         <div class="inputWrap colorWrap">
@@ -71,6 +76,12 @@
                                     </label>
                                 </span>
                                 <span>
+                                    <input type="checkbox" name="color" id="red" class="colorCheck" value="red">
+                                    <label for="red" class="red colorLabel">
+                                        <span class="material-symbols-outlined selectColor">check</span>
+                                    </label>
+                                </span>
+                                <span>
                                     <input type="checkbox" name="color" id="mint" class="colorCheck" value="mint">
                                     <label for="mint" class="mint colorLabel">
                                         <span class="material-symbols-outlined selectColor">check</span>
@@ -79,6 +90,30 @@
                                 <span>
                                     <input type="checkbox" name="color" id="purple" class="colorCheck" value="purple">
                                     <label for="purple" class="purple colorLabel">
+                                        <span class="material-symbols-outlined selectColor">check</span>
+                                    </label>
+                                </span>
+                                <span>
+                                    <input type="checkbox" name="color" id="beige" class="colorCheck" value="beige">
+                                    <label for="beige" class="beige colorLabel">
+                                        <span class="material-symbols-outlined selectColor">check</span>
+                                    </label>
+                                </span>
+                                <span>
+                                    <input type="checkbox" name="color" id="yellow" class="colorCheck" value="yellow">
+                                    <label for="yellow" class="yellow colorLabel">
+                                        <span class="material-symbols-outlined selectColor">check</span>
+                                    </label>
+                                </span>
+                                <span>
+                                    <input type="checkbox" name="color" id="skyblue" class="colorCheck" value="skyblue">
+                                    <label for="skyblue" class="skyblue colorLabel">
+                                        <span class="material-symbols-outlined selectColor">check</span>
+                                    </label>
+                                </span>
+                                <span>
+                                    <input type="checkbox" name="color" id="brown" class="colorCheck" value="brown">
+                                    <label for="brown" class="brown colorLabel">
                                         <span class="material-symbols-outlined selectColor">check</span>
                                     </label>
                                 </span>
@@ -110,9 +145,14 @@
                                 </span>
                             </div>
                         </div>
-                        <!-- 상세 -->
+                        <!-- 상세이미지 -->
+                        <div class="inputWrap detailImgWrap">
+                            <label for="detailImg">상세페이지 이미지</label>
+                            <input type="file" name="detailImg" id="detailImg" multiple>
+                        </div>
+                        <!-- 상세 텍스트 -->
                         <div class="inputWrap">
-                            <label for="detail">제품상세</label>
+                            <label for="detail">제품상세 추가설명</label>
                             <textarea name="detail" id="detail" placeholder="제품의 상세정보를 입력해주세요"></textarea>
                         </div>
                     </div>

@@ -143,33 +143,10 @@
                                     .selectColor {
                                         display: none;
                                         font-variation-settings: "wght" 400;
-
-                                        // width: 10px; height: 10px;
-                                        // background: #fff;
-                                        // border: 1px solid #aaa;
-                                        // border-radius: 100%;
                                     }
                                     .selectColor.select{
                                         display: block;
                                     }
-                                }
-                                .black {
-                                    background: #000;
-                                }
-                                .white {
-                                    background: #fff;
-                                }
-                                .blue {
-                                    background: blue;
-                                }
-                                .pink {
-                                    background: pink;
-                                }
-                                .mint {
-                                    background: mediumaquamarine;
-                                }
-                                .purple {
-                                    background: blueviolet;
                                 }
                             }
                         }

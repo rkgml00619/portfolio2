@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.cdnfonts.com/css/hey-august");
 @import url("https://webfontworld.github.io/gmarket/GmarketSans.css");
 * {
@@ -76,6 +77,50 @@ input::placeholder, textarea::placeholder {
 
 .poppins {
   font-family: "Poppins", sans-serif;
+}
+
+.black {
+  background: #000;
+}
+
+.white {
+  background: #fff;
+}
+
+.blue {
+  background: blue;
+}
+
+.pink {
+  background: pink;
+}
+
+.red {
+  background: red;
+}
+
+.mint {
+  background: mediumaquamarine;
+}
+
+.purple {
+  background: slateblue;
+}
+
+.beige {
+  background: burlywood;
+}
+
+.yellow {
+  background: gold;
+}
+
+.skyblue {
+  background: skyblue;
+}
+
+.brown {
+  background: saddlebrown;
 }
 
 #header {
@@ -656,7 +701,6 @@ input::placeholder, textarea::placeholder {
 }
 .main .conts .contsWrap .rightBox .listWrap {
   width: 100%;
-  height: 400px;
   display: flex;
   justify-content: space-between;
 }
@@ -670,6 +714,11 @@ input::placeholder, textarea::placeholder {
 .main .conts .contsWrap .rightBox .listWrap .listBox:last-child {
   margin-right: 0;
 }
+.main .conts .contsWrap .rightBox .listWrap .listBox::before {
+  content: "";
+  display: block;
+  padding-top: 100%; /* height 값을 width 값의 비율로 설정 */
+}
 .main .conts .contsWrap .rightBox .listWrap .listBox:hover img.png {
   opacity: 0;
 }
@@ -677,6 +726,7 @@ input::placeholder, textarea::placeholder {
   opacity: 1;
 }
 .main .conts .contsWrap .rightBox .listWrap .listBox img {
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1472,6 +1522,7 @@ input::placeholder, textarea::placeholder {
   display: flex;
 }
 .shop_list .cont2 .center .lists .list {
+  display: none;
   width: calc(25% - 60px);
   margin-right: 20px;
 }
@@ -1500,6 +1551,9 @@ input::placeholder, textarea::placeholder {
 .shop_list .cont2 .center .lists .list .textWrap .price {
   font-size: 16px;
   font-weight: 300;
+}
+.shop_list .cont2 .center .lists .list.show {
+  display: block;
 }
 
 .shop_register .cont1 {
@@ -1617,24 +1671,6 @@ input::placeholder, textarea::placeholder {
 .shop_register .cont1 .center form .formLeft .inputWrap.colorWrap .colorChkWrap span .colorLabel .selectColor.select {
   display: block;
 }
-.shop_register .cont1 .center form .formLeft .inputWrap.colorWrap .colorChkWrap span .black {
-  background: #000;
-}
-.shop_register .cont1 .center form .formLeft .inputWrap.colorWrap .colorChkWrap span .white {
-  background: #fff;
-}
-.shop_register .cont1 .center form .formLeft .inputWrap.colorWrap .colorChkWrap span .blue {
-  background: blue;
-}
-.shop_register .cont1 .center form .formLeft .inputWrap.colorWrap .colorChkWrap span .pink {
-  background: pink;
-}
-.shop_register .cont1 .center form .formLeft .inputWrap.colorWrap .colorChkWrap span .mint {
-  background: mediumaquamarine;
-}
-.shop_register .cont1 .center form .formLeft .inputWrap.colorWrap .colorChkWrap span .purple {
-  background: blueviolet;
-}
 .shop_register .cont1 .center form .formLeft .inputWrap.sizeWrap .sizeChkWrap {
   display: flex;
 }
@@ -1698,51 +1734,108 @@ input::placeholder, textarea::placeholder {
 .shop_detail .cont1 .center .left {
   width: 50%;
   margin-right: 60px;
-  border: 1px solid #ddd;
 }
 .shop_detail .cont1 .center .left .mainImg {
   width: 100%;
-  background: #ccc;
+  height: 550px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 .shop_detail .cont1 .center .left .mainImg img {
   width: 100%;
 }
-.shop_detail .cont1 .center .left .subImg {
+.shop_detail .cont1 .center .left .mainImg .arrows {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
+  justify-content: space-between;
 }
-.shop_detail .cont1 .center .left .subImg .imglist {
-  width: 24%;
-  background: #ccc;
+.shop_detail .cont1 .center .left .mainImg .arrows span.arrowIcon {
+  font-variation-settings: "wght" 100;
+  font-size: 60px;
+  cursor: pointer;
+  color: #ccc;
+  transition: all 0.5s;
+}
+.shop_detail .cont1 .center .left .mainImg .arrows span.arrowIcon:hover {
+  color: #000;
+}
+.shop_detail .cont1 .center .left .subImgList {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.shop_detail .cont1 .center .left .subImgList span.arrowIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  font-variation-settings: "wght" 100;
+  cursor: pointer;
+  z-index: 10;
+}
+.shop_detail .cont1 .center .left .subImgList span.prev {
+  left: 0;
+}
+.shop_detail .cont1 .center .left .subImgList span.next {
+  right: 0;
+}
+.shop_detail .cont1 .center .left .subImgList .subImg {
+  width: 85%;
+  position: relative;
+  overflow: hidden;
+}
+.shop_detail .cont1 .center .left .subImgList .subImg .subImgWrap {
+  width: 200%;
+  display: flex;
+  margin-left: 0%;
+  position: relative;
+}
+.shop_detail .cont1 .center .left .subImgList .subImg .subImgWrap .imglist {
+  background: #f8f8f8;
+  width: calc((100% - 40px) / 5);
   margin-right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transform: translateX();
 }
-.shop_detail .cont1 .center .left .subImg .imglist:last-child {
+.shop_detail .cont1 .center .left .subImgList .subImg .subImgWrap .imglist:last-child {
   margin-right: 0;
 }
-.shop_detail .cont1 .center .left .subImg .imglist img {
+.shop_detail .cont1 .center .left .subImgList .subImg .subImgWrap .imglist img {
   width: 100%;
+}
+.shop_detail .cont1 .center .left .subImgList .subImg .subImgWrap .subImgselect {
+  position: absolute;
+  width: calc((50% - 40px) / 5);
+  height: 100%;
+  border: 2px solid #000;
+  box-sizing: border-box;
 }
 .shop_detail .cont1 .center .right {
   width: calc(50% - 60px);
-}
-.shop_detail .cont1 .center .right .category {
-  display: inline-block;
-  border: 1px solid #000;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: 300;
-  font-size: 14px;
-  margin-bottom: 30px;
-}
-.shop_detail .cont1 .center .right .category::first-letter {
-  text-transform: uppercase;
+  /*.category {
+      display: inline-block;
+      border: 1px solid #000;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 300;
+      font-size: 14px;
+      margin-bottom: 30px;
+      &::first-letter {
+          text-transform: uppercase;
+      }
+  }*/
 }
 .shop_detail .cont1 .center .right .prdName {
   font-size: 34px;
@@ -1752,58 +1845,229 @@ input::placeholder, textarea::placeholder {
   font-size: 24px;
   margin-bottom: 40px;
 }
-.shop_detail .cont1 .center .right .subInfo {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   padding: 40px 0;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap {
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap:last-child {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap:last-child {
   margin-bottom: 0;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap .detailTitle {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .detailTitle {
   font-size: 18px;
   font-weight: 300;
   width: 100px;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap .inputWrap:last-child label {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .inputWrap:last-child label {
   margin-right: 0;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap .inputWrap input[type=radio] {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .inputWrap input[type=radio] {
   width: 0;
   height: 0;
   overflow: hidden;
   display: none;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap .inputWrap label {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .inputWrap label {
   display: inline-block;
   margin-right: 10px;
+  cursor: pointer;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap .colorWrap label {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .colorWrap label {
   border: 1px solid #ccc;
-  width: 36px;
-  height: 36px;
-  background: #ccc;
+  width: 32px;
+  height: 32px;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap .colorWrap label span.checkIcon {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .colorWrap label span.checkIcon {
   font-variation-settings: "wght" 400;
   display: none;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap .colorWrap label span.checkIcon.select {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .colorWrap label span.checkIcon.select {
   display: block;
 }
-.shop_detail .cont1 .center .right .subInfo .infoWrap .sizeWrap label {
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .sizeWrap label {
   padding: 8px 20px;
-  border: 1px solid #000;
+  border: 1px solid #ccc;
   border-radius: 3px;
   font-size: 16px;
   font-weight: 300;
+}
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .sizeWrap label.select {
+  background: #000;
+  color: #fff;
+}
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .amountWrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .amountWrap .amountBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: 0;
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .amountWrap .amountBtn span.amountIcon {
+  font-variation-settings: "wght" 300;
+  font-size: 20px;
+  color: #000;
+}
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .infoWrap .amountWrap .amount {
+  border-top: 0;
+  border-bottom: 0;
+  text-align: center;
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: 300;
+}
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .benefitWrap {
+  align-items: flex-start;
+}
+.shop_detail .cont1 .center .right .subInfo .subInfoWrap .benefitWrap .benefit p {
+  margin-bottom: 10px;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult {
+  display: none;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo {
+  border-bottom: 1px solid #ccc;
+  padding: 30px 0;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo input {
+  border: 0;
+  width: auto;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selPrdName input {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selColorSizeWrap {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selColorSizeWrap > p {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selColorSizeWrap > p:last-child {
+  margin: 0;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selColorSizeWrap > p:last-child::after {
+  display: none;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selColorSizeWrap > p::after {
+  content: "/";
+  margin-left: 10px;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selColorSizeWrap > p input {
+  width: auto;
+  margin-left: 10px;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selAmoutWrap {
+  display: flex;
+  align-items: center;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selAmoutWrap .amountControl {
+  display: flex;
+  border: 1px solid #ccc;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selAmoutWrap .amountControl input {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-top: 0;
+  border-bottom: 0;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selAmoutWrap .amountControl .subAmountIcon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selAmoutWrap .remove {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccc;
+  border-radius: 100%;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .selInfo .selInfoWrap .selAmoutWrap .remove span.removeIcon {
+  font-size: 18px;
+  font-variation-settings: "wght" 300;
+  color: #fff;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .totalPrice {
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 40px;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .totalPrice .totalText {
+  margin-right: 20px;
+  font-size: 20px;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .totalPrice .priceResult {
+  display: flex;
+  align-items: center;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .totalPrice .priceResult .priceText {
+  border: 0;
+  font-size: 26px;
+  font-weight: 600;
+}
+.shop_detail .cont1 .center .right .selInfoForm .selResult .totalPrice.show {
+  display: flex;
+}
+.shop_detail .cont1 .center .right .selInfoForm .btnsWrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.shop_detail .cont1 .center .right .selInfoForm .btnsWrap button {
+  width: calc(100% - 10px);
+  margin-right: 20px;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.shop_detail .cont1 .center .right .selInfoForm .btnsWrap button:last-child {
+  margin-right: 0;
+}
+.shop_detail .cont1 .center .right .selInfoForm .btnsWrap .purchase {
+  background: #000;
+}
+.shop_detail .cont1 .center .right .selInfoForm .btnsWrap .cart {
+  background: #ccc;
 }
