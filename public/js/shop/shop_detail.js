@@ -235,3 +235,6 @@ for(let i = 0; i < sizes.length; i++){
         }
     }
 }
+
+const detailText = document.querySelector(".cont2 .detailPage .detailText");
+console.log(detailText.innerHTML);

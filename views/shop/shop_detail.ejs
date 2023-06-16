@@ -4,21 +4,22 @@
             <div class="center">
                 <div class="left">
                     <div class="mainImg">
+                        <span class="material-symbols-outlined arrowIcon prev">arrow_back_ios_new</span>
+
                         <img src="/upload/<%- data.prdImg[0] %>" alt="">
-                        <div class="arrows">
-                            <span class="material-symbols-outlined arrowIcon prev">
-                                arrow_back_ios_new</span>
-                            <span class="material-symbols-outlined arrowIcon next">
-                                arrow_forward_ios</span>
-                        </div>
+
+                        <span class="material-symbols-outlined arrowIcon next"> arrow_forward_ios</span>
                     </div>
                     <div class="subImgList">
                         <span class="material-symbols-outlined arrowIcon prev">arrow_back_ios_new</span>
                         <div class="subImg">
                             <div class="subImgWrap">
-                                <% for( let i = 0; i < data.prdImg.length; i++ ) { %>
-                                    <div class="imglist" data-index="<%- i %>">
-                                        <img src="/upload/<%- data.prdImg[i] %>" alt="">
+                                <div class="imglist">
+                                    <img src="/upload/<%- data.prdImg[0] %>" alt="">
+                                </div>
+                                <% for( let i = 0; i < data.addPrdImg.length; i++ ) { %>
+                                    <div class="imglist">
+                                        <img src="/upload/<%- data.addPrdImg[i] %>" alt="">
                                     </div>
                                 <% } %>
                                 <div class="subImgselect"></div>
@@ -118,6 +119,23 @@
                             <button type="submit" class="purchase">바로 구매하기</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="cont2">
+            <div class="center">
+                <div class="detailPage">
+                    <% if (data.detailTxt) { %>
+                        <div class="detailText">
+                            <%- data.detailTxt %>
+                        </div>
+                    <% } %>
+                    <div class="detailImg">
+                        <% for( let i = 0; i < data.detailImg.length; i++ ) { %>
+                            <img src="/upload/<%- data.detailImg[i] %>" alt="">
+                        <% } %>
+                    </div>
                 </div>
             </div>
         </div>

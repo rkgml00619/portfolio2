@@ -18,8 +18,6 @@ const checkImgFiles = [".jpg", ".jpeg", ".png", ".gif", ".jfif"];
 let imgCheckCount = 0;
 let imgCheckResult = false;
 
-
-
 // 제품 등록 시 등록여부 확인 및 이미지 파일 확장자 확인
 registerBtn.onclick = function(e){
     // 등록여부 확인
@@ -119,4 +117,5 @@ resetBtn.onclick = function(){
         alert("등록된 내용을 유지하였습니다.");
     }
 }
+
 

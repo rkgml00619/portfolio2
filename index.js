@@ -90,11 +90,8 @@ app.get('/shop/edit/register', (req, res) => {
   res.render("shop/shop_register.ejs")
 })
 // 제품 등록 데이터
-
 const cpUpload = upload.fields([{ name: 'prdImg'}, {name: 'addPrdImg'} ,{ name: 'detailImg'}]);
-
 app.post("/shop/edit/register/data",cpUpload,(req,res)=>{
-
   // console.log(req.files)
   // console.log(req.files["prdImg"])
   // console.log(req.files["detailImg"])
@@ -116,22 +113,23 @@ app.post("/shop/edit/register/data",cpUpload,(req,res)=>{
     detailImgs[i] =  req.files["detailImg"][i].filename;
   }
 
-  // db.collection("count").findOne({title: "상품갯수"}, (err, countResult)=>{
-  //   db.collection("product").insertOne({
-  //     num: countResult.num,
-  //     category: req.body.category,
-  //     prdName: req.body.prdName,
-  //     prdImg : prdImgs,
-  //     addPrdImg : addPrdImgs,
-  //     detailImg:detailImgs,
-  //     price: req.body.price,
-  //     color: req.body.color,
-  //     size: req.body.size,
+  db.collection("count").findOne({title: "상품갯수"}, (err, countResult)=>{
+    db.collection("product").insertOne({
+      num: countResult.num,
+      category: req.body.category,
+      prdName: req.body.prdName,
+      prdImg : prdImgs,
+      addPrdImg : addPrdImgs,
+      detailImg: detailImgs,
+      detailTxt: req.body.detailTxt,
+      price: req.body.price,
+      color: req.body.color,
+      size: req.body.size,
       
-  //   }, (err, result)=>{
-  //     db.collection("count").updateOne({title: "상품갯수"}, {$inc: {num:1}}, (err, result)=>{
-  //       res.redirect(`/shop/detail/${countResult.num}`);
-  //     })
-  //   })
-  // })
+    }, (err, result)=>{
+      db.collection("count").updateOne({title: "상품갯수"}, {$inc: {num:1}}, (err, result)=>{
+        res.redirect(`/shop/detail/${countResult.num}`);
+      })
+    })
+  })
 })

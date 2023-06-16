@@ -1,3 +1,9 @@
+// 변수 세팅
+
+$center: 80%;
+$smallCenter: 65%;
+
+// 폰트 지정
 @font-face {
     font-family: 'CWDangamAsac-Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
@@ -37,7 +43,6 @@ input::placeholder, textarea::placeholder {
 .poppins {
     font-family: 'Poppins', sans-serif;
 }
-$center: 80%;
 
 
 // shop 컬러
