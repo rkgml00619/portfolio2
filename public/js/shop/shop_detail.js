@@ -236,5 +236,13 @@ for(let i = 0; i < sizes.length; i++){
     }
 }
 
+
+// 상세페이지 추가 텍스트 앞뒤 공백 제거
 const detailText = document.querySelector(".cont2 .detailPage .detailText");
-console.log(detailText.innerHTML);
+
+detailText.innerText = detailText.innerText.trim();
+
+// topMove 버튼 제어
+const topPosition = document.querySelector(".shop_detail .cont2");
+
+goTopBtnMove(topPosition);

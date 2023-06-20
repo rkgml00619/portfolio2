@@ -8,10 +8,13 @@ const header = document.querySelector("#header");
 const headerLogo = document.querySelectorAll("#header .t_logo img");
 const headerBtn = document.querySelectorAll("#header .menuBtn span");
 
+const headerDetailCircle = document.querySelector("#header_detail .hdetail_bot .center .circleText");
+
 // 반응형 화면 사이즈 확인
 const pc = matchMedia("screen and (min-width: 1201px)");
 const tablet = matchMedia("screen and (max-width: 1200px)");
 const mobile = matchMedia("screen and (max-width: 768px)");
+
 // 접속 페이지 확인
 const mainLink = window.location.pathname;
 
@@ -32,11 +35,13 @@ if(mainLink !== "/" && mainLink !== "/m"){
 menuBtn.onclick = function(){
     menuDetail.style.height = "100vh";
     menuDetail.style.opacity = "1";
+    headerDetailCircle.style.opacity = "1";
 
 }
 cleseBtn.onclick = function(){
     menuDetail.style.height = "0";
     menuDetail.style.opacity = "0";
+    headerDetailCircle.style.opacity = "0";
 }
 
 // gnb 풀화면 내 마우스 호버 시 디자인 제어

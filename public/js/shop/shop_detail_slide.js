@@ -14,7 +14,15 @@ const subArrowNext = document.querySelector(".cont1 .left .subImgList .next");
 const subImgsAttribute = [];
 
 // 서브이미지 갯수에 따라 width값 조정하기 위한 변수 세팅
-let viewcount = 5;
+let viewcount;
+
+if(pc.matches || tablet.matches && !mobile.matches){
+    viewcount = 5;
+}
+else if(mobile.matches){
+    viewcount = 4;
+}
+
 let subImgWrapNum = Math.ceil(subImgs.length / viewcount);
 
 // 서브이미지 갯수에 따라 subImgWrap 박스를 width값 조정
@@ -43,7 +51,7 @@ prevArrow.onclick = function(){
     prevClickImgCountChange(prevArrow); 
     
     changeImgHref(); // 메인이미지 주소 변경
-    subImgsSelect(); // 서브이미지 리스트 셀렉트 클래스 추가/제거
+    subImgsSelect(); // 서브이미지 리스트 셀렉트 클래스 추가/제거제거
 }
 // 메인이미지 이후버튼 클릭 시
 nextArrow.onclick = function(){
@@ -51,7 +59,7 @@ nextArrow.onclick = function(){
     nextClickImgCountChange(nextArrow);
     
     changeImgHref(); // 메인이미지 주소 변경
-    subImgsSelect(); // 서브이미지 리스트 셀렉트 클래스 추가/제거
+    subImgsSelect(); // 서브이미지 리스트 셀렉트 클래스 추가/
 }
 
 
@@ -85,11 +93,8 @@ for(let i = 0; i < subImgs.length; i++){
     }
 }
 
-
-
-
-
-
+// 반응형 넘어가는 marginLeft값
+let pagingNum;
 
 // Prev 버튼 클릭 시
 function prevClickImgCountChange(arrow){
@@ -98,10 +103,12 @@ function prevClickImgCountChange(arrow){
     }
     else {
         imgCount--;
-
-        if (imgCount === 4){
-            subImgWrap.style.marginLeft = "0%";
-        }
+    }
+    
+    pagingNum = Math.floor(imgCount/viewcount);
+    
+    if(imgCount % viewcount !== 0){
+        subImgWrap.style.marginLeft = `${pagingNum * -100}%`;
     }
 }
 // Next 버튼 클릭 시
@@ -111,11 +118,15 @@ function nextClickImgCountChange(arrow){
     }
     else {
         imgCount++;
-
-        if (imgCount === 5){
-            subImgWrap.style.marginLeft = "-100%";
-        }
     }
+    
+    pagingNum = Math.floor(imgCount/viewcount);
+
+    if(imgCount % viewcount === 0){
+        subImgWrap.style.marginLeft = `${pagingNum * -100}%`;
+    }
+
+    
 }
 
 

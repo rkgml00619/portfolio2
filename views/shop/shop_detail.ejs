@@ -1,4 +1,4 @@
-<%- include('../header', jsFiles=["shop/shop_detail.js", "shop/shop_detail_slide.js"], cssFiles=[]) %>
+<%- include('../header.ejs', jsFiles=["sub_common.js", "shop/shop_detail.js", "shop/shop_detail_slide.js"], cssFiles=[]) %>
     <div id="container" class="shop_detail">
         <div class="cont1">
             <div class="center">
@@ -36,25 +36,25 @@
                             <!-- 색상 -->
                             <div class="infoWrap">
                                 <p class="detailTitle">색상</p>
-                                <% for( let i = 0; i < data.color.length; i++ ) { %>
-                                    <div class="colorWrap inputWrap">
+                                <div class="colorWrap inputWrap">
+                                    <% for( let i = 0; i < data.color.length; i++ ) { %>
                                         <input type="radio" name="color" id="<%- data.color[i] %>" value="<%- data.color[i] %>">
                                         <label for="<%- data.color[i] %>" class="color <%- data.color[i] %>">
                                             <span class="material-symbols-outlined checkIcon">
                                                 check</span>
                                         </label>
-                                    </div>
-                                <% } %>
+                                    <% } %>
+                                </div>
                             </div>
                             <!-- 사이즈 -->
                             <div class="infoWrap">
                                 <p class="detailTitle">사이즈</p>
-                                <% for( let i = 0; i < data.size.length; i++ ) { %>
-                                    <div class="sizeWrap inputWrap">
+                                <div class="sizeWrap inputWrap">
+                                    <% for( let i = 0; i < data.size.length; i++ ) { %>
                                         <input type="radio" name="size" id="<%- data.size[i] %>" value="<%- data.size[i] %>">
                                         <label for="<%- data.size[i] %>"><%- data.size[i] %></label>
-                                    </div>
-                                <% } %>
+                                    <% } %>
+                                </div>
                             </div>
                             <!-- 혜택 -->
                             <div class="infoWrap benefitWrap">
@@ -133,12 +133,14 @@
                     <% } %>
                     <div class="detailImg">
                         <% for( let i = 0; i < data.detailImg.length; i++ ) { %>
-                            <img src="/upload/<%- data.detailImg[i] %>" alt="">
+                            <img src="/upload/<%- data.detailImg[i] %>">
                         <% } %>
                     </div>
                 </div>
             </div>
         </div>
+
+        <%- include('../common/goTop.ejs') %>
     </div>
 </body>
 </html>

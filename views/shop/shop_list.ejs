@@ -1,4 +1,4 @@
-<%- include('../header', jsFiles=[], cssFiles=[]) %>
+<%- include('../header', jsFiles=["sub_common.js", "shop/shop_list.js"], cssFiles=[]) %>
     <div id="container" class="shop_list">
         <div class="cont1">
             <div class="center">
@@ -16,10 +16,11 @@
                             <a href="/shop/detail/<%- data[i].num %>">
                                 <div class="imgWrap">
                                     <img src="/upload/<%- data[i].prdImg[0] %>" alt="">
+                                    <img src="/upload/<%- data[i].addPrdImg[0] %>" alt="">
                                 </div>
                                 <div class="textWrap">
                                     <h5 class="prdName"><%- data[i].prdName %></h5>
-                                    <p class="price"><%- data[i].price %>원</p>
+                                    <p class="price"><span><%- data[i].price %></span>원</p>
                                 </div>
                             </a>
                         </div>
@@ -27,41 +28,42 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        const mainTitle = document.querySelector(".cont1 .titleWrap .mainTitle");
-        const subTitle = document.querySelector(".cont1 .titleWrap .subTitle");
-        const accList = document.querySelectorAll(".cont2 .lists .acc");
-        const clothesList = document.querySelectorAll(".cont2 .lists .clothes");
-        const hrefText = window.location.pathname;
+        <!-- 페이징 번호-->
+        <div class="pagingWrap">
+            <div class="center">
+                <ul class="paging">
+                    <!-- 이전버튼 생성 -->
+                    <% if (blockStart > totalBlock) { %>
+                        <li><a href="?page=<%- blockStart - 1 %>">이전</a></li>
+                    <% } %>
+                    <!-- 페이징 번호 생성 -->
+                    <% for( let i = blockStart; i <= blockEnd; i++ ) { %>
+                        <% if (pageNumber == i) { %>
+                            <li class="highlight">
+                                <a class="poppins" href="?page=<%- i %>"><%- i %></a>
+                            </li>
+                        <% } else { %>
+                            <li>
+                                <a href="?page=<%- i %>"><%- i %></a>
+                            </li>
+                        <% } %>
+                    <% } %>
+                    <!-- 다음 버튼 생성작업 -->
+                    <% if (blockNum < totalBlock) { %>
+                        <li><a href="?page=<%- blockEnd + 1 %>">다음</a></li>
+                    <% } %>
+                </ul>
+    
+                <div class="editBtns">
+                    <a href="/shop/edit/register">제품등록</a>
+                </div>
+            </div>
+        </div>
 
-        console.log(mainTitle)
-        console.log(accList)
-        console.log(clothesList)
-        console.log(hrefText)
+        <%- include('../common/goTop.ejs') %>
 
-        if(hrefText.includes("acc")){
-            mainTitle.innerText = "Acc";
-            subTitle.innerText = "Petshoinsta Must-have Items";
-            clothesList.forEach(function(clothes){
-                clothes.classList.remove("show");
-            })
-            accList.forEach(function(acc){
-                acc.classList.add("show");
-            })
-        }
-        else if(hrefText.includes("clothes")){
-            mainTitle.innerText = "Clothes";
-            subTitle.innerText = "We are Soulmate Fashion, too";
-            accList.forEach(function(acc){
-                acc.classList.remove("show");
-            })
-            clothesList.forEach(function(clothes){
-                clothes.classList.add("show");
-            })
-        }
         
-    </script>
+    </div>
 </body>
 </html>

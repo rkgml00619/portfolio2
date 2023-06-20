@@ -107,15 +107,22 @@ for (let i = 0; i < colorLabel.length; i++) {
 
 // 제품등록 리셋 시 여부 확인
 resetBtn.onclick = function(){
-    let resetCheck = window.confirm("등록된 내용을 모두 지우시겠습니까?");
+    let resetCheck = window.confirm("제품 등록을 취소하시겠습니까?");
 
     if(resetCheck){
         registerForm.reset();
         alert("등록된 내용을 모두 삭제하였습니다.");
+
+        history.back();
     }
     else {
         alert("등록된 내용을 유지하였습니다.");
     }
 }
 
+
+// topMove 버튼 제어
+const topPosition = document.querySelector(".shop_register .cont1");
+
+goTopBtnMove(topPosition);
 

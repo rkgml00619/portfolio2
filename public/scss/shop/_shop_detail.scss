@@ -16,8 +16,8 @@
                 .mainImg {
                     width: 100%;
                     margin-bottom: 20px;
-                    background: #f9f9f9;
-                    border: 1px solid #ddd;
+                    // border-top: 1px solid #000;
+                    // border-bottom: 1px solid #000;
                     border-radius: 5px;
                     box-sizing: border-box;
                     display: flex;
@@ -29,6 +29,7 @@
                         width: 100%;
                     }
                     span.arrowIcon {
+                        display: none;
                         position: absolute;
                         top: 50%;
                         transform: translateY(-50%);
@@ -70,7 +71,7 @@
                         right: 0;
                     }
                     .subImg {
-                        width: 88%;
+                        width: 85%;
                         position: relative;
                         overflow: hidden;
                         .subImgWrap {
@@ -89,7 +90,7 @@
                                 transform: translateX();
                                 border: 2px solid transparent;
                                 box-sizing: border-box;
-                                &:last-child {
+                                &:nth-child(5n) {
                                     margin-right: 0;
                                 }
                                 img {
@@ -116,6 +117,8 @@
                 .prdName {
                     font-size: 34px;
                     margin-bottom: 30px;
+                    word-break: keep-all;
+                    line-height: 1.4;
                 }
                 .price {
                     font-size: 24px;
@@ -139,11 +142,8 @@
                                 width: 100px;
                             }
                             .inputWrap {
-                                &:last-child {
-                                    label {
-                                        margin-right: 0;
-                                    }
-                                }
+                                display: flex;
+                                margin-right: 10px;
                                 input[type="radio"] {
                                     width: 0; height: 0;
                                     overflow: hidden;
@@ -183,35 +183,6 @@
                                 label.select {
                                     background: #000;
                                     color: #fff;
-                                }
-                            }
-                            .amountWrap {
-                                display: flex;
-                                align-items: center;
-                                border: 1px solid #ccc;
-                                .amountBtn {
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    background: #fff;
-                                    border: 0;
-                                    border-radius: 3px;
-                                    width: 30px; height: 30px;
-                                    cursor: pointer;
-                                    
-                                    span.amountIcon {
-                                        font-variation-settings: "wght" 300;
-                                        font-size: 20px;
-                                        color: #000;
-                                    }
-                                }
-                                .amount {
-                                    border-top: 0;
-                                    border-bottom: 0;
-                                    text-align: center;
-                                    width: 60px; height: 30px;
-                                    font-size: 16px;
-                                    font-weight: 300;
                                 }
                             }
                         }
@@ -370,20 +341,251 @@
             padding: 60px 0;
             .detailPage {
                 .detailText {
-                    width: 50%;
                     font-size: 18px;
                     font-weight: 300;
                     line-height: 1.8;
                     margin: 0 auto;
                     margin-bottom: 60px;
                     word-break: keep-all;
-                    text-align: center;
+                    white-space: pre-wrap;
                 }
                 .detailImg {
                     display: flex;
                     justify-content: center;
                     img {
+                        width: 100%;
                         display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .shop_detail {
+        .cont1 {
+            .center {
+                width: 90%;
+                .left {
+                    .subImgList {
+                        .subImg {
+                            .subImgWrap {
+                                .imglist {
+                                    &:nth-child(5n) {
+                                        margin-right: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .cont2 {
+            .center {
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .shop_detail {
+        .cont1 {
+            .center {
+                width: 90%;
+                display: block;
+                padding: 20px 0;
+                .left {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 60px;
+                    .mainImg {
+                        span.arrowIcon {
+                            font-size: 50px;
+                        }
+                    }
+                    .subImgList {
+                        width: 100%;
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        .subImg {
+                            width: 80%;
+                            .subImgWrap {
+                                .imglist {
+                                    &:nth-child(5n) {
+                                        margin-right: 10px;
+                                    }
+                                    &:nth-child(4n) {
+                                        margin-right: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .right {
+                    width: 100%;
+                    .prdName {
+                        font-size: 22px;
+                        margin-bottom: 10px;
+                    }
+                    .price {
+                        font-size: 20px;
+                        margin-bottom: 20px;
+                    }
+                    .subInfo {
+                        .subInfoWrap {
+                            padding: 40px 0;
+                            border-bottom: 1px solid #000;
+                            .infoWrap {
+                                display: block;
+                                align-items: center;
+                                margin-bottom: 30px;
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+                                .detailTitle {
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                    width: 100%;
+                                    margin-bottom: 15px;
+                                }
+                                .inputWrap {
+                                    display: flex;
+                                    &:last-child {
+                                        label {
+                                            margin-right: 8px;
+                                        }
+                                    }
+                                }
+                                .colorWrap {
+                                    label {
+                                        width: 25px; height: 25px;
+                                        span.checkIcon {
+                                            font-size: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                            .benefitWrap {
+                                align-items: flex-start;
+                                .benefit {
+                                    p {
+                                        margin-bottom: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .selInfoForm {
+                        .selResult {
+                            display: none;
+                            .selInfo {
+                                border-bottom: 1px solid #000;
+                                padding: 30px 0;
+                                .selPrdName {
+                                    input {
+                                        font-size: 18px;
+                                    }
+                                }
+                                .selInfoWrap {
+                                    width: 100%;
+                                    .selColorSizeWrap {
+                                        width: 60%;
+                                        display: flex;
+                                        align-items: center;
+                                        > p {
+                                            &::after {
+                                                margin-left: 6px;
+                                            }
+                                            input {
+                                                margin-left: 6px;
+                                            }
+                                        }
+                                    }
+                                    .selAmoutWrap {
+                                        .amountControl {
+                                            input {
+                                                width: 30px; height: 30px;
+                                            }
+                                            .subAmountIcon {
+                                                width: 30px; height: 30px;
+                                                font-size: 20px;
+                                            }
+                                        }
+                                        .remove {
+                                            width: 20px; height: 20px;
+                                        }
+                                    }
+                                }
+                            }
+                            .totalPrice {
+                                display: none;
+                                align-items: center;
+                                justify-content: flex-end;
+                                margin-top: 20px;
+                                .totalText {
+                                    margin-right: 20px;
+                                    font-size: 18px;
+                                }
+                                .priceResult {
+                                    .priceText {
+                                        font-size: 26px;
+                                    }
+                                }
+                            }
+                            .totalPrice.show {
+                                display: flex;
+                            }
+                        }
+                        .btnsWrap {
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 40px 0 20px;
+                            button {
+                                width: calc(100% - 10px / 2);
+                                margin-right: 10px;
+                                color: #fff;
+                                padding: 15px 0;
+                                font-size: 16px;
+                                border-radius: 3px;
+                                cursor: pointer;
+                                &:last-child {
+                                    margin-right: 0;
+                                }
+                            }
+                            .purchase {
+                                background: #000;
+                            }
+                            .cart {
+                                background: #ccc;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .cont2 {
+            .center {
+                width: 90%;
+                padding: 40px 0;
+                .detailPage {
+                    .detailText {
+                        font-size: 16px;
+                        margin-bottom: 40px;
+                    }
+                    .detailImg {
+                        display: flex;
+                        justify-content: center;
+                        img {
+                            width: 100%;
+                            display: block;
+                        }
                     }
                 }
             }

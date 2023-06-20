@@ -1,0 +1,138 @@
+<%- include('../header', jsFiles=["sub_common.js", "members/cdn.jsdelivr.net_npm_axios_dist_axios.min.js" ,"members/join.js"], cssFiles=[]) %>
+    <div id="container" class="members_join">
+        <div class="cont1">
+            <div class="center">
+                <div class="titleWrap">
+                    <h2 class="mainTitle poppins">Join us</h2>
+                    <p class="subTitle">MLB PET 회원가입을 환영합니다.</p>
+                </div>
+
+                <form action="/members/join/data" method="post" id="join">
+                    <div class="formLeft">
+                        <div class="privacyInfo">
+                            <h5 class="formGroupTit">개인정보</h5>
+
+                            <div class="privacyInfoWrap">
+                                <!-- 이름 -->
+                                <div class="inputWrap">
+                                    <label for="meberName">이름</label>
+                                    <input type="text" name="meberName" id="meberName" placeholder="이름을 입력해주세요" >
+                                    <p class="errText nameErr">이름을 입력해주세요</p>
+                                </div>
+                                <!-- 전화번호 -->
+                                <div class="inputWrap telWrap">
+                                    <label for="memberTel">전화번호</label>
+                                    <div class="telInputWrap">
+                                        <div class="telInputs">
+                                            <input type="tel" name="memberTel_one" id="memberTel_one" placeholder="010" value="010">
+    
+                                            <p class="symbol">-</p>
+    
+                                            <input type="tel" name="memberTel" id="memberTel" placeholder="0000" >
+    
+                                            <p class="symbol">-</p>
+    
+                                            <input type="tel" name="memberTel_three" id="memberTel_three" placeholder="0000" >
+                                        </div>
+                                        <p class="errText telErr">전화번호를 입력해주세요</p>
+                                    </div>
+                                    
+                                </div>
+                                <!-- 이메일 -->
+                                <div class="inputWrap emailWrap">
+                                    <label for="membersEmail">이메일</label>
+                                    <div class="emailInputWrap">
+                                        <div class="emailInputs">
+                                            <input type="text" name="memberEmail" id="memberEmail" placeholder="이메일 입력" >
+            
+                                            <p class="symbol">@</p>
+            
+                                            <input type="text" name="emailTextSel" id="emailTextSel" placeholder="" >
+            
+                                            <select name="membersEmail" id="emailSel">
+                                                <option value="">직접입력</option>
+                                                <option value="naver.com">naver.com</option>
+                                                <option value="hanmail.net">hanmail.net</option>
+                                                <option value="gmail.com">gmail.com</option>
+                                                <option value="nate.com">nate.com</option>
+                                                <option value="hotmail.com">hotmail.com</option>
+                                            </select>
+                                        </div>                                        
+                                        <p class="errText emailErr">이메일을 입력해주세요</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="joinInfo">
+                            <h5 class="formGroupTit">회원정보</h5>
+
+                            <div class="joinInfoWrap">
+                                <!-- 아이디 -->
+                                <div class="inputWrap">
+                                    <label for="memberId">아이디</label>
+                                    <input type="text" name="memberId" id="memberId" placeholder="아이디를 입력해주세요" >
+                                    <a href="#" class="checkBtn idCheck">중복체크</a>
+                                    <p class="errText idErr">아이디를 입력해주세요</p>
+                                </div>
+                                <!-- 비밀번호 -->
+                                <div class="inputWrap">
+                                    <label for="memberPass">비밀번호</label>
+                                    <input type="password" name="memberPass" id="memberPass" placeholder="비밀번호를 입력해주세요" >
+                                    <p class="errText passErr">비밀번호를 입력해주세요</p>
+                                </div>
+                                <!-- 비밀번호 체크 -->
+                                <div class="inputWrap">
+                                    <label for="memberPassCheck">비밀번호 확인</label>
+                                    <input type="password" name="memberPassCheck" id="memberPassCheck" placeholder="비밀번호를 입력해주세요" >
+                                    <a href="#" class="checkBtn passCheck">비밀번호 확인</a>
+                                    <p class="errText passCheckErr">비밀번호를 확인해주세요</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 이용약관 -->
+                        <div class="agreementWrap">
+                            <h5 class="formGroupTit">이용약관</h5>
+
+                            <div class="inputWrap">
+                                <p class="label">개인정보이용동의</p>
+
+                                <%- include('privacyAgreement.ejs') %>
+
+                                <div class="agreeInputs">
+                                    <input type="checkbox" id="privacyAgreement" name="privacyAgreement" >
+                                    <label for="privacyAgreement"><span>
+                                        <span class="material-symbols-outlined checkIcon">check</span>
+                                    </span>개인정보이용동의에 대한 동의(필수)</label>
+                                    <p class="errText privacyCheckErr">비밀번호를 확인해주세요</p>
+                                </div>
+                            </div>
+                            <div class="inputWrap">
+                                <p class="label">필수 이용약관</p>
+
+                                <%- include('serviceAgreement.ejs') %>
+
+                                <div class="agreeInputs">
+                                    <input type="checkbox" id="serviceAgree" name="serviceAgree" >
+                                    <label for="serviceAgree"><span>
+                                        <span class="material-symbols-outlined checkIcon">check</span>
+                                    </span>필수 이용약관에 대한 동의(필수)</label>
+                                    <p class="errText serviceCheckErr">비밀번호를 확인해주세요</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formRight">
+                        <button type="cancel" class="cancel">취소</button>
+                        <button type="submit" class="join">회원가입</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <%- include('../common/goTop.ejs') %>
+    </div>
+</body>
+</html>

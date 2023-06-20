@@ -1,4 +1,4 @@
-<%- include('../header', jsFiles=["shop/shop_register.js"], cssFiles=[]) %>
+<%- include('../header', jsFiles=["sub_common.js", "shop/shop_register.js"], cssFiles=[]) %>
     <div id="container" class="shop_register">
         <div class="cont1">
             <div class="center">
@@ -44,7 +44,7 @@
                         </div>
                         <!-- 추가 썸네일 이미지 -->
                         <div class="inputWrap addImgWrap">
-                            <label for="addPrdImg">추가 썸네일 이미지<span>(최대 4개까지 업로드 가능합니다.)</span></label>
+                            <label for="addPrdImg">추가 썸네일 이미지</label>
                             <input type="file" name="addPrdImg" id="addPrdImg" multiple>
                         </div>
                         <!-- 색상 -->
@@ -117,6 +117,13 @@
                                         <span class="material-symbols-outlined selectColor">check</span>
                                     </label>
                                 </span>
+                                </span>
+                                <span>
+                                    <input type="checkbox" name="color" id="coral" class="colorCheck" value="coral">
+                                    <label for="coral" class="coral colorLabel">
+                                        <span class="material-symbols-outlined selectColor">check</span>
+                                    </label>
+                                </span>
                             </div>
                         </div>
                         <!-- 사이즈 -->
@@ -164,6 +171,8 @@
                 </form>
             </div>
         </div>
+
+        <%- include('../common/goTop.ejs') %>
     </div>
 </body>
 </html>

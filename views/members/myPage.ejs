@@ -1,0 +1,83 @@
+<%- include('../header', jsFiles=["sub_common.js"], cssFiles=[]) %>
+<div id="container" class="members_mypage">
+    <div class="cont1">
+        <div class="center">
+            <div class="titleWrap">
+                <h2 class="mainTitle poppins">My Page</h2>
+                <p class="subTitle">000님, 가입된 정보들을 확인해보세요.</p>
+            </div>
+
+            <form action="/members/join/data" method="post" id="join">
+                <div class="formLeft">                 
+                    <div class="joinInfo">
+                        <h5 class="formGroupTit">회원정보</h5>
+
+                        <div class="joinInfoWrap">
+                            <!-- 아이디 -->
+                            <div class="inputWrap">
+                                <label for="memberId">아이디</label>
+                                <input type="text" name="memberId" id="memberId" placeholder="아이디를 입력해주세요">
+                            </div>
+                            <!-- 비밀번호 -->
+                            <div class="inputWrap">
+                                <label for="memberPass">비밀번호</label>
+                                <input type="password" name="memberPass" id="memberPass" placeholder="비밀번호를 입력해주세요">
+                            </div>
+                            <!-- 비밀번호 체크 -->
+                            <div class="inputWrap">
+                                <label for="memberPassCheck">비밀번호 확인</label>
+                                <input type="password" name="memberPassCheck" id="memberPassCheck" placeholder="비밀번호를 입력해주세요" required>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="privacyInfo">
+                        <h5 class="formGroupTit">개인정보</h5>
+
+                        <div class="privacyInfoWrap">
+                            <!-- 이름 -->
+                            <div class="inputWrap">
+                                <label for="meberName">이름</label>
+                                <input type="text" name="meberName" id="meberName" placeholder="이름을 입력해주세요" required>
+                            </div>
+                            <!-- 전화번호 -->
+                            <div class="inputWrap">
+                                <label for="memberTel">전화번호</label>
+                                <input type="tel" name="memberTel" id="memberTel" placeholder="전화번호를 입력해주세요" required>
+                            </div>
+                            <!-- 이메일 -->
+                            <div class="inputWrap emailWrap">
+                                <label for="membersEmail">이메일</label>
+                                <div class="emailInputWrap">
+                                    <input type="text" name="memberEmail" id="memberEmail" placeholder="이메일 입력" required>
+    
+                                    <p class="symbol">@</p>
+    
+                                    <input type="text" name="emailTextSel" id="emailTextSel" placeholder="" required>
+    
+                                    <select name="membersEmail" id="emailSel">
+                                        <option value="">직접입력</option>
+                                        <option value="naver.com">naver.com</option>
+                                        <option value="hanmail.net">hanmail.net</option>
+                                        <option value="gmail.com">gmail.com</option>
+                                        <option value="nate.com">nate.com</option>
+                                        <option value="hotmail.com">hotmail.com</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+                <div class="formRight">
+                    <button type="cancel" class="cancel">취소</button>
+                    <button type="submit" class="join">회원가입</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <%- include('../common/goTop.ejs') %>
+</div>
+</body>
+</html>
