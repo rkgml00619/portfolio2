@@ -1,3 +1,53 @@
 .login {
-    
+    width: 100%; height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .center {
+        .titleWrap {
+            text-align: center;
+            margin-bottom: 60px;
+            .mainTitle {
+                font-size: 60px;
+                margin-bottom: 10px;
+            }
+            .subTitle {
+                font-size: 30px;
+                font-weight: 300;
+            }
+        }
+
+        #login_form {
+            border: 1px solid #ccc;
+            padding: 40px;
+            .inputWrap {
+                .inputs {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 20px;
+                    label {
+                        width: 100px;
+                        margin-right: 20px;
+                    }
+                    input {                        
+                        width: 100%; height: 50px;
+                        padding: 10px;
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                    }
+                }
+                button {
+                    width: 100%; height: 50px;
+                    background: #000;
+                    color: #fff;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    font-weight: 300;
+                    margin-bottom: 60px;
+                }
+                .joinWrap {
+                }
+            }
+        }
+    }
 }

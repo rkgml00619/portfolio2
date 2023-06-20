@@ -3466,3 +3466,53 @@ input::placeholder, textarea::placeholder {
 .members_mypage .cont1 .center form .formRight .join {
   background: #000;
 }
+
+.login {
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login .center .titleWrap {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.login .center .titleWrap .mainTitle {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+.login .center .titleWrap .subTitle {
+  font-size: 30px;
+  font-weight: 300;
+}
+.login .center #login_form {
+  border: 1px solid #ccc;
+  padding: 40px;
+}
+.login .center #login_form .inputWrap .inputs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.login .center #login_form .inputWrap .inputs label {
+  width: 100px;
+  margin-right: 20px;
+}
+.login .center #login_form .inputWrap .inputs input {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.login .center #login_form .inputWrap button {
+  width: 100%;
+  height: 50px;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 60px;
+}
