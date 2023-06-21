@@ -54,10 +54,15 @@
                         <li><a href="?page=<%- blockEnd + 1 %>">다음</a></li>
                     <% } %>
                 </ul>
-    
-                <div class="editBtns">
-                    <a href="/shop/edit/register">제품등록</a>
-                </div>
+                
+                <% if (login) { %>
+                    <% if (login.memberId === "admin") { %>
+                        <div class="editBtns">
+                            <a href="/shop/edit/register">제품등록</a>
+                        </div>
+                    <% } %>
+                <% } %>
+                 
             </div>
         </div>
 

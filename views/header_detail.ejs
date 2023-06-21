@@ -6,11 +6,25 @@
                         <img src="/img/logo_bk.png">
                     </a>
                 </h1>
-                <a class="menuBtn" href="#">
-                    <span class="menuIcon one"></span>
-                    <span class="menuIcon two"></span>
-                    <span class="menuIcon three"></span>
-                </a>
+
+                <div class="headerBtns">
+                    <% if (login) { %>                    
+                        <div class="login">
+                            <a class="poppins" href="/members/mypage">My Page</a>
+                            <a class="poppins" href="/logout">Logout</a>
+                        </div>
+                    <% } else { %>
+                        <div class="notLogin">
+                            <a class="poppins" href="/members/login">Login</a>
+                            <a class="poppins" href="/members/join">Join</a>
+                        </div>
+                    <% } %>
+                    <a class="menuBtn" href="#">
+                        <span class="menuIcon one"></span>
+                        <span class="menuIcon two"></span>
+                        <span class="menuIcon three"></span>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="hdetail_bot">

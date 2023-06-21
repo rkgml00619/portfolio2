@@ -229,13 +229,28 @@ input::placeholder, textarea::placeholder {
 #header .center .headerBtns > div a {
   margin-right: 20px;
   color: #fff;
-  text-transform: uppercase;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
+  letter-spacing: 0.2px;
+  transition: all 0.5s;
+}
+#header .center .headerBtns > div a:hover {
+  animation: memberBtnHover 0.8s;
+}
+@keyframes memberBtnHover {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 #header .center .headerBtns .menuBtn {
   display: block;
-  width: 35px;
+  width: 40px;
   height: 25px;
   position: relative;
 }
@@ -282,6 +297,16 @@ input::placeholder, textarea::placeholder {
   #header .center {
     width: 90%;
   }
+  #header .center .headerBtns > div {
+    margin-right: 20px;
+  }
+  #header .center .headerBtns > div a {
+    margin-right: 10px;
+  }
+  #header .center .headerBtns .menuBtn {
+    width: 30px;
+    height: 20px;
+  }
 }
 @media screen and (max-width: 768px) {
   #header {
@@ -295,42 +320,17 @@ input::placeholder, textarea::placeholder {
     width: 60px;
     position: relative;
   }
-  #header .center .menuBtn {
+  #header .center .headerBtns > div {
+    margin-right: 20px;
+  }
+  #header .center .headerBtns > div a {
+    margin-right: 10px;
+  }
+  #header .center .headerBtns .menuBtn {
     display: block;
-    width: 30px;
+    width: 25px;
     height: 20px;
     position: relative;
-  }
-  #header .center .menuBtn:hover .menuIcon:nth-child(1) {
-    width: 60%;
-  }
-  #header .center .menuBtn:hover .menuIcon:nth-child(2) {
-    width: 100%;
-  }
-  #header .center .menuBtn:hover .menuIcon:nth-child(3) {
-    width: 60%;
-  }
-  #header .center .menuBtn .menuIcon {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: #fff;
-    margin-bottom: 10px;
-    transition: all 0.5s;
-  }
-  #header .center .menuBtn .menuIcon:nth-child(1) {
-    top: 0;
-  }
-  #header .center .menuBtn .menuIcon:nth-child(2) {
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-  #header .center .menuBtn .menuIcon:nth-child(3) {
-    bottom: 0;
-    margin-bottom: 0;
   }
   #header .center .detailWrap {
     display: none;
@@ -367,7 +367,35 @@ input::placeholder, textarea::placeholder {
 #header_detail .hdetail_top .center .t_logo a img {
   width: 100%;
 }
-#header_detail .hdetail_top .center .menuBtn {
+#header_detail .hdetail_top .center .headerBtns {
+  display: flex;
+  align-items: center;
+}
+#header_detail .hdetail_top .center .headerBtns > div {
+  margin-right: 20px;
+}
+#header_detail .hdetail_top .center .headerBtns > div a {
+  margin-right: 20px;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+#header_detail .hdetail_top .center .headerBtns > div a:hover {
+  animation: memberBtnHover 0.8s;
+}
+@keyframes memberBtnHover {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#header_detail .hdetail_top .center .headerBtns .menuBtn {
   display: block;
   width: 40px;
   height: 30px;
@@ -375,7 +403,7 @@ input::placeholder, textarea::placeholder {
   overflow: hidden;
   transition: all 0.5s;
 }
-#header_detail .hdetail_top .center .menuBtn:hover {
+#header_detail .hdetail_top .center .headerBtns .menuBtn:hover {
   animation: closebtn 0.5s;
 }
 @keyframes closebtn {
@@ -389,7 +417,7 @@ input::placeholder, textarea::placeholder {
     transform: scale(1);
   }
 }
-#header_detail .hdetail_top .center .menuBtn .menuIcon {
+#header_detail .hdetail_top .center .headerBtns .menuBtn .menuIcon {
   position: absolute;
   left: 0;
   display: block;
@@ -399,16 +427,16 @@ input::placeholder, textarea::placeholder {
   margin-bottom: 10px;
   transition: all 0.5s;
 }
-#header_detail .hdetail_top .center .menuBtn .menuIcon:nth-child(1) {
+#header_detail .hdetail_top .center .headerBtns .menuBtn .menuIcon:nth-child(1) {
   top: 50%;
   transform: translateY(-50%) rotate(45deg) scale(1);
 }
-#header_detail .hdetail_top .center .menuBtn .menuIcon:nth-child(2) {
+#header_detail .hdetail_top .center .headerBtns .menuBtn .menuIcon:nth-child(2) {
   top: 50%;
   transform: translateY(-50%);
   left: -40px;
 }
-#header_detail .hdetail_top .center .menuBtn .menuIcon:nth-child(3) {
+#header_detail .hdetail_top .center .headerBtns .menuBtn .menuIcon:nth-child(3) {
   top: 50%;
   transform: translateY(-50%) rotate(-45deg) scale(1);
   margin-bottom: 0;
@@ -516,6 +544,16 @@ input::placeholder, textarea::placeholder {
   #header_detail .hdetail_top .center {
     width: 90%;
   }
+  #header_detail .hdetail_top .center .headerBtns > div {
+    margin-right: 20px;
+  }
+  #header_detail .hdetail_top .center .headerBtns > div a {
+    margin-right: 10px;
+  }
+  #header_detail .hdetail_top .center .headerBtns .menuBtn {
+    width: 30px;
+    height: 30px;
+  }
   #header_detail .hdetail_bot .center {
     width: 90%;
   }
@@ -542,10 +580,17 @@ input::placeholder, textarea::placeholder {
   #header_detail .hdetail_top .center .t_logo {
     width: 60px;
   }
-  #header_detail .hdetail_top .center .menuBtn {
+  #header_detail .hdetail_top .center .headerBtns > div {
+    margin-right: 20px;
+  }
+  #header_detail .hdetail_top .center .headerBtns > div a {
+    margin-right: 10px;
+  }
+  #header_detail .hdetail_top .center .headerBtns .menuBtn {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+    position: relative;
   }
   #header_detail .hdetail_bot .center {
     width: 90%;
@@ -1498,100 +1543,6 @@ input::placeholder, textarea::placeholder {
     display: none !important;
   }
 }
-.main_m .textWrap {
-  width: 90%;
-}
-.main_m .textWrap .mainTitle {
-  font-size: 60px;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 30px;
-}
-.main_m .textWrap .subTitle {
-  font-size: 30px;
-  font-weight: 300;
-  color: #fff;
-}
-.main_m .cont1 {
-  width: 100%;
-  height: 90vh;
-}
-.main_m .cont1 .mainConts {
-  width: 100%;
-  height: 100%;
-}
-.main_m .cont1 .mainConts .bgVideo {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.main_m .cont1 .mainConts .bgVideo .overlay {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 10;
-}
-.main_m .cont1 .mainConts .bgVideo video {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.main_m .cont1 .mainConts .bigBox {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.main_m .cont1 .mainConts .bigBox .mainTitle {
-  font-size: 80px;
-}
-.main_m .cont1 .mainConts .rightBox {
-  background: #000;
-}
-.main_m .conts {
-  height: auto;
-}
-.main_m .conts .contsWrap {
-  height: 100%;
-}
-.main_m .conts .contsWrap .bigBox {
-  height: 50vh;
-  display: flex;
-  justify-content: center;
-  padding-top: 10%;
-}
-.main_m .conts .contsWrap .bigBox .textWrap {
-  width: 90%;
-}
-.main_m .conts .contsWrap .rightBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.main_m .conts .contsWrap .rightBox .textWrap {
-  width: 90%;
-}
-.main_m .conts .contsWrap .rightBox .textWrap .mainTitle {
-  color: #000;
-}
-.main_m .conts .contsWrap .rightBox .textWrap .subTitle {
-  color: #000;
-}
-.main_m .cont2 .contsWrap .bigBox {
-  background: url(../img/main/main_bg_m_2.png) no-repeat center bottom/cover;
-}
-
 .shop_list .cont1 {
   width: 100%;
   display: flex;
@@ -2834,7 +2785,9 @@ input::placeholder, textarea::placeholder {
   display: none;
   margin-left: 10px;
   font-size: 16px;
+  line-height: 1.4;
   font-weight: 300;
+  word-break: keep-all;
   color: red;
 }
 .members_join .cont1 .center form .formLeft > div > div .inputWrap .errText.err {
@@ -2931,7 +2884,9 @@ input::placeholder, textarea::placeholder {
   margin-left: 10px;
   font-size: 16px;
   font-weight: 300;
+  word-break: keep-all;
   color: red;
+  line-height: 1.4;
 }
 .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs .errText.err {
   display: inline-block;
@@ -2953,6 +2908,8 @@ input::placeholder, textarea::placeholder {
   box-sizing: border-box;
   border-bottom: 1px solid #ccc;
   font-size: 16px;
+  line-height: 1.4;
+  word-break: keep-all;
   background: #fff;
 }
 .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr th {
@@ -3032,48 +2989,152 @@ input::placeholder, textarea::placeholder {
 }
 
 @media screen and (max-width: 1200px) {
-  .shop_register .cont1 {
+  .members_join .cont1 {
     margin-top: 50px;
   }
-  .shop_register .cont1 .center {
+  .members_join .cont1 .center {
     width: 90%;
   }
-  .shop_register .cont1 .center .titleWrap {
+  .members_join .cont1 .center .titleWrap {
     margin-bottom: 50px;
   }
-  .shop_register .cont1 .center .titleWrap .mainTitle {
+  .members_join .cont1 .center .titleWrap .mainTitle {
     font-size: 60px;
     margin-bottom: 30px;
   }
-  .shop_register .cont1 .center .titleWrap .subTitle {
+  .members_join .cont1 .center .titleWrap .subTitle {
     font-size: 28px;
   }
-  .shop_register .cont1 .center form {
+  .members_join .cont1 .center form {
     padding: 60px 0;
   }
-  .shop_register .cont1 .center form .formLeft {
+  .members_join .cont1 .center form .formLeft {
     width: 100%;
     margin-right: 50px;
     padding-right: 50px;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap label {
-    display: block;
+  .members_join .cont1 .center form .formLeft > div {
+    margin-bottom: 40px;
+  }
+  .members_join .cont1 .center form .formLeft > div .formGroupTit {
+    font-size: 22px;
+  }
+  .members_join .cont1 .center form .formLeft > div p.label {
     font-size: 18px;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap input, .shop_register .cont1 .center form .formLeft .inputWrap textarea, .shop_register .cont1 .center form .formLeft .inputWrap select {
-    width: 80%;
+  .members_join .cont1 .center form .formLeft > div > div {
+    padding: 20px 0;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap textarea {
-    width: 100%;
-    height: 300px;
+  .members_join .cont1 .center form .formLeft > div > div .inputWrap {
+    margin-bottom: 30px;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap .label {
+  .members_join .cont1 .center form .formLeft > div > div .inputWrap label {
     font-size: 18px;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap.categoryWrap .categoryCheck span .categoryLabel {
+  .members_join .cont1 .center form .formLeft > div > div .inputWrap input, .members_join .cont1 .center form .formLeft > div > div .inputWrap select {
+    width: 50%;
+  }
+  .members_join .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
     font-size: 16px;
+    padding: 10px 20px;
   }
-  .shop_register .cont1 .center form .formRight {
+  .members_join .cont1 .center form .formLeft > div > div .inputWrap .errText {
+    display: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 300;
+    color: red;
+  }
+  .members_join .cont1 .center form .formLeft .privacyInfo .telInputWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .members_join .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs {
+    width: 100%;
+  }
+  .members_join .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .members_join .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs {
+    width: 100%;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap {
+    margin-bottom: 40px;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap:last-child {
+    margin-bottom: 0;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap input {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap label {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap label > span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+    position: relative;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon {
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    color: #fff;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-variation-settings: "wght" 300;
+    font-size: 24px;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon.checked {
+    opacity: 1;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+         user-select: none;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs .errText {
+    margin-left: 0;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement {
+    height: 300px;
+    overflow: auto;
+  }
+  .members_join .cont1 .center form .formRight {
     width: calc(40% - 50px);
     height: 400px;
     display: flex;
@@ -3083,7 +3144,7 @@ input::placeholder, textarea::placeholder {
     top: 40px;
     right: 0;
   }
-  .shop_register .cont1 .center form .formRight button {
+  .members_join .cont1 .center form .formRight button {
     display: block;
     width: 100%;
     height: 60px;
@@ -3095,112 +3156,80 @@ input::placeholder, textarea::placeholder {
     cursor: pointer;
     transition: all 0.5s;
   }
-  .shop_register .cont1 .center form .formRight .reset {
+  .members_join .cont1 .center form .formRight .reset {
     background: #ccc;
   }
-  .shop_register .cont1 .center form .formRight .register {
+  .members_join .cont1 .center form .formRight .register {
     background: #000;
   }
 }
 @media screen and (max-width: 768px) {
-  .shop_register .cont1 {
+  .members_join .cont1 {
     width: 100%;
     margin-top: 40px;
   }
-  .shop_register .cont1 .center {
+  .members_join .cont1 .center {
     width: 90%;
   }
-  .shop_register .cont1 .center .titleWrap {
+  .members_join .cont1 .center .titleWrap {
     margin-bottom: 40px;
   }
-  .shop_register .cont1 .center .titleWrap .mainTitle {
+  .members_join .cont1 .center .titleWrap .mainTitle {
     font-size: 36px;
     margin-bottom: 20px;
   }
-  .shop_register .cont1 .center .titleWrap .subTitle {
+  .members_join .cont1 .center .titleWrap .subTitle {
     font-size: 20px;
     font-weight: 300;
     color: #000;
   }
-  .shop_register .cont1 .center form {
+  .members_join .cont1 .center form {
     display: block;
     padding: 40px 0;
   }
-  .shop_register .cont1 .center form .formLeft {
+  .members_join .cont1 .center form .formLeft {
     width: 100%;
     margin-right: 0;
     border-right: 0;
     padding-right: 0;
     box-sizing: border-box;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap {
-    margin-bottom: 20px;
+  .members_join .cont1 .center form .formLeft > div {
+    margin-bottom: 40px;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap label {
-    display: block;
+  .members_join .cont1 .center form .formLeft > div .formGroupTit {
+    font-size: 20px;
+  }
+  .members_join .cont1 .center form .formLeft > div p.label {
     font-size: 18px;
-    margin-bottom: 10px;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap input, .shop_register .cont1 .center form .formLeft .inputWrap textarea, .shop_register .cont1 .center form .formLeft .inputWrap select {
-    display: block;
+  .members_join .cont1 .center form .formLeft > div > div {
+    padding: 20px 0;
+  }
+  .members_join .cont1 .center form .formLeft > div > div .inputWrap input, .members_join .cont1 .center form .formLeft > div > div .inputWrap select {
     width: 100%;
-    height: 50px;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 5px;
+  }
+  .members_join .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
+    display: block;
     font-size: 16px;
+    padding: 15px 20px;
+    margin-left: 0;
+    margin-top: 10px;
+    text-align: center;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap textarea {
-    width: 100%;
-    height: 300px;
+  .members_join .cont1 .center form .formLeft > div > div .inputWrap .errText {
+    margin-left: 0;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap .label {
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap {
+    margin-bottom: 40px;
+  }
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap label {
     font-size: 18px;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap span .categoryCheck, .shop_register .cont1 .center form .formLeft .inputWrap span .colorCheck, .shop_register .cont1 .center form .formLeft .inputWrap span .sizeCheck {
-    width: 0;
-    height: 0;
-    overflow: hidden;
+  .members_join .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
+    padding: 20px;
   }
-  .shop_register .cont1 .center form .formLeft .inputWrap span .categoryLabel, .shop_register .cont1 .center form .formLeft .inputWrap span .colorLabel, .shop_register .cont1 .center form .formLeft .inputWrap span .sizeLabel {
-    display: inline-block;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .shop_register .cont1 .center form .formLeft .inputWrap.categoryWrap .categoryCheck {
-    display: flex;
-  }
-  .shop_register .cont1 .center form .formLeft .inputWrap.categoryWrap .categoryCheck span .categoryLabel {
-    width: 100px;
-    height: 40px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  .shop_register .cont1 .center form .formLeft .inputWrap.categoryWrap .categoryCheck span .categoryLabel.select {
-    background: #000;
-    color: #fff;
-    border: 1px solid #000;
-  }
-  .shop_register .cont1 .center form .formLeft .inputWrap.colorWrap .colorChkWrap {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .shop_register .cont1 .center form .formLeft .inputWrap.sizeWrap .sizeChkWrap {
-    display: flex;
-    width: 100%;
-  }
-  .shop_register .cont1 .center form .formLeft .inputWrap.sizeWrap .sizeChkWrap span {
-    width: calc(100% - 7.5px);
-    display: flex;
-  }
-  .shop_register .cont1 .center form .formLeft .inputWrap.sizeWrap .sizeChkWrap span .sizeLabel {
-    width: 100%;
-    height: 40px;
-  }
-  .shop_register .cont1 .center form .formRight {
+  .members_join .cont1 .center form .formRight {
     width: 100%;
     height: auto;
     display: flex;
@@ -3212,16 +3241,16 @@ input::placeholder, textarea::placeholder {
     right: 0;
     padding: 20px 0;
   }
-  .shop_register .cont1 .center form .formRight button {
+  .members_join .cont1 .center form .formRight button {
     display: block;
     width: calc((100% - 10px) / 2);
     height: 60px;
     margin-bottom: 0;
   }
-  .shop_register .cont1 .center form .formRight .reset {
+  .members_join .cont1 .center form .formRight .reset {
     background: #ccc;
   }
-  .shop_register .cont1 .center form .formRight .register {
+  .members_join .cont1 .center form .formRight .register {
     background: #000;
   }
 }
@@ -3307,136 +3336,32 @@ input::placeholder, textarea::placeholder {
   border-radius: 5px;
   color: #fff;
 }
+.members_mypage .cont1 .center form .formLeft .privacyInfo .telInputWrap {
+  display: flex;
+  align-items: center;
+}
+.members_mypage .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+.members_mypage .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs .symbol {
+  margin: 0 10px;
+}
 .members_mypage .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap {
   display: flex;
   align-items: center;
 }
-.members_mypage .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .symbol {
+.members_mypage .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+.members_mypage .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs .symbol {
   margin: 0 10px;
 }
-.members_mypage .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap #emailTextSel {
+.members_mypage .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs #emailTextSel {
   margin-right: 10px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap {
-  margin-bottom: 40px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap:last-child {
-  margin-bottom: 0;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap input {
-  width: 0;
-  height: 0;
-  display: none;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap label {
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 300;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap label > span {
-  display: block;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-right: 10px;
-  position: relative;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon {
-  opacity: 0;
-  width: 20px;
-  height: 20px;
-  background: #000;
-  color: #fff;
-  z-index: 20;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-variation-settings: "wght" 300;
-  font-size: 24px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon.checked {
-  opacity: 1;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap > div {
-  width: 100%;
-  height: auto;
-  overflow: auto;
-  padding: 30px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-       user-select: none;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement > h5 {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts {
-  width: 100%;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr:last-child th, .members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr:last-child td {
-  border-bottom: 0;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr th, .members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr td {
-  box-sizing: border-box;
-  border-bottom: 1px solid #ccc;
-  font-size: 16px;
-  background: #fff;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr th {
-  background: #f9f9f9;
-  border-right: 1px solid #ccc;
-  font-weight: 300;
-  padding: 10px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr td {
-  padding: 10px;
-  line-height: 1.4;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement .subText {
-  font-size: 14px;
-  line-height: 1.4;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement {
-  height: 300px;
-  overflow: auto;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement > h2 {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap {
-  margin-bottom: 40px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap:last-child {
-  margin-bottom: 0;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap > h5 {
-  margin-bottom: 10px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap > p {
-  margin-bottom: 10px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap ul > li {
-  line-height: 1.2;
-  margin-bottom: 10px;
-  font-weight: 300;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap ul > li ol {
-  margin: 20px 0;
-  margin-left: 20px;
-}
-.members_mypage .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap ul > li ol > li {
-  line-height: 1.2;
-  margin-bottom: 5px;
 }
 .members_mypage .cont1 .center form .formRight {
   width: calc(20% - 60px);
@@ -3448,8 +3373,10 @@ input::placeholder, textarea::placeholder {
   top: 40px;
   right: 0;
 }
-.members_mypage .cont1 .center form .formRight button {
-  display: block;
+.members_mypage .cont1 .center form .formRight a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 60px;
   margin-bottom: 20px;
@@ -3463,50 +3390,904 @@ input::placeholder, textarea::placeholder {
 .members_mypage .cont1 .center form .formRight .cancel {
   background: #ccc;
 }
-.members_mypage .cont1 .center form .formRight .join {
+.members_mypage .cont1 .center form .formRight .mypageBtn {
+  background: #000;
+}
+.members_mypage .cont1 .center form .mypagePassCheck {
+  width: 100%;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0.5s;
+}
+.members_mypage .cont1 .center form .mypagePassCheck .center {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap {
+  width: 50%;
+  background: #fff;
+  border-radius: 5px;
+  padding: 80px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap > p {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+.members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap input {
+  width: 60%;
+  height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 40px;
+}
+.members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap input::-moz-placeholder {
+  font-size: 16px;
+}
+.members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap input::placeholder {
+  font-size: 16px;
+}
+.members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap .passCheckBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+.members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap .passCheckBtns > a {
+  color: #fff;
+  display: block;
+  background: #000;
+  width: calc(50% - 10px);
+  border-radius: 5px;
+  padding: 15px 0;
+}
+.members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap .passCheckBtns a.cancel {
+  background: #ccc;
+}
+.members_mypage .cont1 .center form .mypagePassCheck.show {
+  height: 100vh;
+  opacity: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  .members_mypage .cont1 {
+    margin-top: 50px;
+  }
+  .members_mypage .cont1 .center {
+    width: 90%;
+  }
+  .members_mypage .cont1 .center .titleWrap {
+    margin-bottom: 50px;
+  }
+  .members_mypage .cont1 .center .titleWrap .mainTitle {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+  .members_mypage .cont1 .center .titleWrap .subTitle {
+    font-size: 28px;
+  }
+  .members_mypage .cont1 .center form {
+    padding: 60px 0;
+  }
+  .members_mypage .cont1 .center form .formLeft {
+    width: 100%;
+    margin-right: 50px;
+    padding-right: 50px;
+  }
+  .members_mypage .cont1 .center form .formLeft > div > div .inputWrap {
+    margin-bottom: 30px;
+  }
+  .members_mypage .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypage .cont1 .center form .formLeft > div > div .inputWrap textarea, .members_mypage .cont1 .center form .formLeft > div > div .inputWrap select {
+    width: 60%;
+  }
+  .members_mypage .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs {
+    width: 100%;
+  }
+  .members_mypage .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs {
+    width: 100%;
+  }
+  .members_mypage .cont1 .center form .formRight {
+    width: calc(40% - 50px);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: sticky;
+    top: 40px;
+    right: 0;
+  }
+  .members_mypage .cont1 .center form .formRight button {
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  .members_mypage .cont1 .center form .formRight .reset {
+    background: #ccc;
+  }
+  .members_mypage .cont1 .center form .formRight .register {
+    background: #000;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck {
+    width: 100%;
+    height: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap {
+    width: 60%;
+    background: #fff;
+    border-radius: 5px;
+    padding: 80px 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap > p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap input {
+    width: 80%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin-bottom: 40px;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap input::-moz-placeholder {
+    font-size: 16px;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap input::placeholder {
+    font-size: 16px;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap .passCheckBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap .passCheckBtns > a {
+    color: #fff;
+    display: block;
+    background: #000;
+    width: calc(50% - 10px);
+    border-radius: 5px;
+    padding: 15px 0;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap .passCheckBtns a.cancel {
+    background: #ccc;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck.show {
+    height: 100vh;
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 768px) {
+  .members_mypage .cont1 {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .members_mypage .cont1 .center {
+    width: 90%;
+  }
+  .members_mypage .cont1 .center .titleWrap {
+    margin-bottom: 40px;
+  }
+  .members_mypage .cont1 .center .titleWrap .mainTitle {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .members_mypage .cont1 .center .titleWrap .subTitle {
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+  }
+  .members_mypage .cont1 .center form {
+    width: 100%;
+    display: block;
+    padding: 40px 0;
+  }
+  .members_mypage .cont1 .center form .formLeft {
+    width: 100%;
+    margin-right: 0;
+    border-right: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+  .members_mypage .cont1 .center form .formLeft > div {
+    margin-bottom: 40px;
+  }
+  .members_mypage .cont1 .center form .formLeft > div .formGroupTit {
+    font-size: 22px;
+  }
+  .members_mypage .cont1 .center form .formLeft > div p.label {
+    font-size: 20px;
+  }
+  .members_mypage .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypage .cont1 .center form .formLeft > div > div .inputWrap textarea, .members_mypage .cont1 .center form .formLeft > div > div .inputWrap select {
+    width: 100%;
+  }
+  .members_mypage .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs {
+    width: 100%;
+  }
+  .members_mypage .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs {
+    width: 100%;
+  }
+  .members_mypage .cont1 .center form .formRight {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+  .members_mypage .cont1 .center form .formRight a {
+    width: calc(50% - 10px);
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center {
+    width: 90%;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap {
+    width: 100%;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap input {
+    width: 100%;
+  }
+  .members_mypage .cont1 .center form .mypagePassCheck .center .passCheckInputWrap .passCheckBtns {
+    width: 90%;
+  }
+}
+.members_mypageUpdate .cont1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.members_mypageUpdate .cont1 .center {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.members_mypageUpdate .cont1 .center .titleWrap {
+  margin-bottom: 60px;
+}
+.members_mypageUpdate .cont1 .center .titleWrap .mainTitle {
+  font-size: 100px;
+  font-weight: 900;
+  color: #000;
+  margin-bottom: 40px;
+}
+.members_mypageUpdate .cont1 .center .titleWrap .subTitle {
+  font-size: 40px;
+  font-weight: 300;
+  color: #000;
+}
+.members_mypageUpdate .cont1 .center form {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0;
+  position: relative;
+}
+.members_mypageUpdate .cont1 .center form .formLeft {
+  width: 80%;
+  margin-right: 60px;
+  border-right: 1px solid #ddd;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div {
+  margin-bottom: 40px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div .formGroupTit {
+  font-size: 22px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #000;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div p.label {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div > div {
+  padding: 20px 0;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap {
+  margin-bottom: 30px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap label {
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap select {
+  display: inline-block;
+  width: 40%;
+  height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input.err {
+  border: 1px solid red;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
+  font-size: 16px;
+  margin-left: 20px;
+  background: #ccc;
+  border: 1px solid transparent;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn.ok {
+  border: 1px solid green;
+  color: green;
+  background: #fff;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText {
+  display: none;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 300;
+  color: red;
+}
+.members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText.err {
+  display: inline-block;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap {
+  display: flex;
+  align-items: center;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs .symbol {
+  margin: 0 10px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap {
+  display: flex;
+  align-items: center;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs {
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs .symbol {
+  margin: 0 10px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs #emailTextSel {
+  margin-right: 10px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .joinInfo .joinInfoWrap .inputWrap #originPass {
+  display: none;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap {
+  margin-bottom: 40px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap:last-child {
+  margin-bottom: 0;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap input {
+  width: 0;
+  height: 0;
+  display: none;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 300;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 10px;
+  position: relative;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon {
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  color: #fff;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-variation-settings: "wght" 300;
+  font-size: 24px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon.checked {
+  opacity: 1;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs {
+  display: flex;
+  align-items: center;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs .errText {
+  display: none;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 300;
+  color: red;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs .errText.err {
+  display: inline-block;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement > h5 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr:last-child th, .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr:last-child td {
+  border-bottom: 0;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr th, .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr td {
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  background: #fff;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr th {
+  background: #f9f9f9;
+  border-right: 1px solid #ccc;
+  font-weight: 300;
+  padding: 10px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement table.privacyConts tr td {
+  padding: 10px;
+  line-height: 1.4;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .privacyAgreement .subText {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement {
+  height: 300px;
+  overflow: auto;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement > h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap {
+  margin-bottom: 40px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap:last-child {
+  margin-bottom: 0;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap > h5 {
+  margin-bottom: 10px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap > p {
+  margin-bottom: 10px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap ul > li {
+  line-height: 1.2;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap ul > li ol {
+  margin: 20px 0;
+  margin-left: 20px;
+}
+.members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement .agreeContsWrap ul > li ol > li {
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+.members_mypageUpdate .cont1 .center form .formRight {
+  width: calc(20% - 60px);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: sticky;
+  top: 40px;
+  right: 0;
+}
+.members_mypageUpdate .cont1 .center form .formRight button {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.members_mypageUpdate .cont1 .center form .formRight .cancel {
+  background: #ccc;
+}
+.members_mypageUpdate .cont1 .center form .formRight .join {
   background: #000;
 }
 
-.login {
+@media screen and (max-width: 1200px) {
+  .members_mypageUpdate .cont1 {
+    margin-top: 50px;
+  }
+  .members_mypageUpdate .cont1 .center {
+    width: 90%;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap {
+    margin-bottom: 50px;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap .mainTitle {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap .subTitle {
+    font-size: 28px;
+  }
+  .members_mypageUpdate .cont1 .center form {
+    padding: 60px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft {
+    width: 100%;
+    margin-right: 50px;
+    padding-right: 50px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div .formGroupTit {
+    font-size: 22px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div p.label {
+    font-size: 18px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div {
+    padding: 20px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap {
+    margin-bottom: 30px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap label {
+    font-size: 18px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap select {
+    width: 50%;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText {
+    display: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 300;
+    color: red;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs {
+    width: 100%;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs {
+    width: 100%;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap:last-child {
+    margin-bottom: 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap input {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+    position: relative;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon {
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    color: #fff;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-variation-settings: "wght" 300;
+    font-size: 24px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon.checked {
+    opacity: 1;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+         user-select: none;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs .errText {
+    margin-left: 0;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement {
+    height: 300px;
+    overflow: auto;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight {
+    width: calc(40% - 50px);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: sticky;
+    top: 40px;
+    right: 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight button {
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight .reset {
+    background: #ccc;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight .register {
+    background: #000;
+  }
+}
+@media screen and (max-width: 768px) {
+  .members_mypageUpdate .cont1 {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .members_mypageUpdate .cont1 .center {
+    width: 90%;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap .mainTitle {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap .subTitle {
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+  }
+  .members_mypageUpdate .cont1 .center form {
+    display: block;
+    padding: 40px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft {
+    width: 100%;
+    margin-right: 0;
+    border-right: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div .formGroupTit {
+    font-size: 20px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div p.label {
+    font-size: 18px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div {
+    padding: 20px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap select {
+    width: 100%;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
+    display: block;
+    font-size: 16px;
+    padding: 15px 20px;
+    margin-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText {
+    margin-left: 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label {
+    font-size: 18px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
+    padding: 20px;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 20px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight button {
+    display: block;
+    width: calc((100% - 10px) / 2);
+    height: 60px;
+    margin-bottom: 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight .reset {
+    background: #ccc;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight .register {
+    background: #000;
+  }
+}
+#container.login {
   width: 100%;
   height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.login .center .titleWrap {
-  text-align: center;
-  margin-bottom: 60px;
+#container.login .center {
+  margin-bottom: 80px;
 }
-.login .center .titleWrap .mainTitle {
+#container.login .center .titleWrap {
+  text-align: center;
+  margin-bottom: 40px;
+}
+#container.login .center .titleWrap .mainTitle {
   font-size: 60px;
+  font-weight: 900;
   margin-bottom: 10px;
 }
-.login .center .titleWrap .subTitle {
+#container.login .center .titleWrap .subTitle {
   font-size: 30px;
   font-weight: 300;
 }
-.login .center #login_form {
+#container.login .center #login_form {
   border: 1px solid #ccc;
   padding: 40px;
 }
-.login .center #login_form .inputWrap .inputs {
+#container.login .center #login_form .inputWrap .inputs {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
-.login .center #login_form .inputWrap .inputs label {
+#container.login .center #login_form .inputWrap .inputs label {
   width: 100px;
   margin-right: 20px;
 }
-.login .center #login_form .inputWrap .inputs input {
+#container.login .center #login_form .inputWrap .inputs input {
   width: 100%;
   height: 50px;
   padding: 10px;
   box-sizing: border-box;
   border-radius: 5px;
 }
-.login .center #login_form .inputWrap button {
+#container.login .center #login_form .inputWrap button {
   width: 100%;
   height: 50px;
   background: #000;
@@ -3514,5 +4295,241 @@ input::placeholder, textarea::placeholder {
   border-radius: 5px;
   font-size: 16px;
   font-weight: 300;
-  margin-bottom: 60px;
+  margin: 15px 0 40px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#container.login .center #login_form .inputWrap button:hover {
+  background: #222;
+}
+#container.login .center #login_form .inputWrap .joinWrap {
+  text-align: center;
+}
+#container.login .center #login_form .inputWrap .joinWrap > p {
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+#container.login .center #login_form .inputWrap .joinWrap .join {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 300;
+  transition: all 0.5s;
+}
+#container.login .center #login_form .inputWrap .joinWrap .join:hover {
+  background: #ddd;
+  border: 1px solid #ddd;
+}
+
+@media screen and (max-width: 768px) {
+  #container.login .center {
+    margin-bottom: 0;
+  }
+  #container.login .center .titleWrap {
+    margin-bottom: 40px;
+  }
+  #container.login .center .titleWrap .mainTitle {
+    font-size: 40px;
+  }
+  #container.login .center .titleWrap .subTitle {
+    font-size: 18px;
+  }
+  #container.login .center #login_form {
+    border: 0;
+    padding: 0;
+  }
+}
+.about .cont1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.about .cont1 .center {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px 0 100px;
+}
+.about .cont1 .center .titleWrap .mainTitle {
+  font-size: 100px;
+  font-weight: 900;
+  color: #000;
+  margin-bottom: 20px;
+}
+.about .cont1 .center .titleWrap .subTitle {
+  font-size: 30px;
+  font-weight: 300;
+  color: #000;
+}
+.about .cont2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.about .cont2 .bigImg {
+  width: 100%;
+}
+.about .cont2 .center {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 0;
+}
+.about .cont2 .center .left {
+  width: 30%;
+}
+.about .cont2 .center .left .logoImg {
+  width: 60%;
+  display: block;
+  margin-bottom: 40px;
+}
+.about .cont2 .center .left .linkBtns a {
+  width: 60%;
+  display: block;
+  border: 1px solid #888;
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 300;
+  color: #000;
+  position: relative;
+  transition: all 0.5s;
+}
+.about .cont2 .center .left .linkBtns a:hover {
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+}
+.about .cont2 .center .left .linkBtns a span.arrowIcon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-variation-settings: "wght" 300;
+}
+.about .cont2 .center .right {
+  width: calc(70% - 40px);
+}
+.about .cont2 .center .right .aboutTit {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 40px;
+}
+.about .cont2 .center .right .txt {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  word-break: keep-all;
+}
+.about .cont3 {
+  display: flex;
+  justify-content: center;
+}
+.about .cont3 .center {
+  width: 65%;
+}
+.about .cont3 .center .title {
+  font-size: 30px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 20px;
+}
+.about .cont3 .center .mediaConts {
+  padding: 40px 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+}
+.about .cont3 .center .mediaConts .mediaLeft {
+  width: calc(60% - 10px);
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about .cont3 .center .mediaConts .mediaLeft img {
+  width: 100%;
+}
+.about .cont3 .center .mediaConts .mediaRight {
+  width: calc(40% - 10px);
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.about .cont3 .center .mediaConts .mediaRight .mediaList {
+  width: calc(50% - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about .cont3 .center .mediaConts .mediaRight .mediaList:nth-child(2n) {
+  margin-right: 0;
+}
+.about .cont3 .center .mediaConts .mediaRight .mediaList img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.about .cont4 {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+}
+.about .cont4 .center {
+  width: 65%;
+}
+.about .cont4 .center .videoWrap {
+  width: 100%;
+  position: relative;
+}
+.about .cont4 .center .videoWrap .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+.about .cont4 .center .videoWrap .overlay .playBtn {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.about .cont4 .center .videoWrap .overlay .playBtn img {
+  width: 30%;
+  margin-left: 4px;
+}
+.about .cont4 .center .videoWrap video {
+  width: 100%;
 }

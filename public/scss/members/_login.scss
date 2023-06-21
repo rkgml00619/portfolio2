@@ -1,14 +1,16 @@
-.login {
+#container.login {
     width: 100%; height: calc(100vh - 100px);
     display: flex;
     justify-content: center;
     align-items: center;
     .center {
+        margin-bottom: 80px;
         .titleWrap {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             .mainTitle {
                 font-size: 60px;
+                font-weight: 900;
                 margin-bottom: 10px;
             }
             .subTitle {
@@ -24,7 +26,7 @@
                 .inputs {
                     display: flex;
                     align-items: center;
-                    margin-bottom: 20px;
+                    margin-bottom: 10px;
                     label {
                         width: 100px;
                         margin-right: 20px;
@@ -43,10 +45,59 @@
                     border-radius: 5px;
                     font-size: 16px;
                     font-weight: 300;
-                    margin-bottom: 60px;
+                    margin: 15px 0 40px;
+                    cursor: pointer;
+                    transition: all 0.5s;
+                    &:hover {
+                        background: #222;
+                    }
                 }
                 .joinWrap {
+                    text-align: center;
+                    > p {
+                        margin-bottom: 20px;
+                        line-height: 1.4;
+                    }
+                    .join {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 50px;
+                        border: 1px solid #000;
+                        box-sizing: border-box;
+                        color: #000;
+                        border-radius: 5px;
+                        font-size: 16px;
+                        font-weight: 300;
+                        transition: all 0.5s;
+                        &:hover {
+                            background: #ddd;
+                            border: 1px solid #ddd;
+                        }
+                    }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #container.login {
+        .center {
+            margin-bottom: 0;
+            .titleWrap {
+                margin-bottom: 40px;
+                .mainTitle {
+                    font-size: 40px;
+                }
+                .subTitle {
+                    font-size: 18px;
+                }
+            }
+    
+            #login_form {
+                border: 0;
+                padding: 0;
             }
         }
     }

@@ -4,7 +4,7 @@ const joinForm = document.querySelector("#join");
 const joinBtn = document.querySelector(".formRight .join");
 const cancel = document.querySelector(".formRight .cancel");
 // 이름 태그
-const memberName = document.querySelector(".privacyInfoWrap #meberName");
+const memberName = document.querySelector(".privacyInfoWrap #memberName");
 // 전화번호 태그
 const memberTel1 = document.querySelector(".privacyInfoWrap #memberTel_one");
 const memberTel2 = document.querySelector(".privacyInfoWrap #memberTel");
@@ -47,6 +47,7 @@ idCheckBtn.onclick = function(e){
         //요청이 성공했을 때 > 중복된 값이 있을 때
         alert(response.data.member.memberId + "는 중복된 아이디 입니다.");
         idCrossCheck = false;
+        checkFail(memberId);
     })
     .catch(function (error) {
         //요청이 실패했을 때 > 중복된 값이 없을 때 (data는 null로 뜸)
@@ -61,6 +62,7 @@ idCheckBtn.onclick = function(e){
             alert(memberId.value + "은 사용 불가능한 아이디 입니다");
             errTextFail("idErr", "아이디는 영문과 _ 기호를 조합한 6~12글자만 가능합니다.");
             idCheckBtn.classList.remove("ok");
+            checkFail(memberId);
         }
         idCrossCheck = true;
     });

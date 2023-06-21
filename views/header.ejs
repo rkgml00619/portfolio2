@@ -41,24 +41,22 @@
             </h1>
 
             <div class="headerBtns">
-                <div class="notLogin">
-                    <a class="poppins" href="/members/join">Join</a>
-                    <a class="poppins" href="#">Login</a>
-                </div>
-                <!-- <div class="login">
-                    <a href="#">
-                        <span class="material-symbols-outlined memberIcon mypageIcon">settings</span>
-                    </a>
-                    <a href="#">
-                        <span class="material-symbols-outlined memberIcon logoutIcon">logout</span>
-                    </a>
-                </div> -->
+                <% if (login) { %>                    
+                    <div class="login">
+                        <a class="poppins" href="/members/mypage">My Page</a>
+                        <a class="poppins" href="/logout">Logout</a>
+                    </div>
+                <% } else { %>
+                    <div class="notLogin">
+                        <a class="poppins" href="/members/login">Login</a>
+                        <a class="poppins" href="/members/join">Join</a>
+                    </div>
+                <% } %>
                 <a class="menuBtn" href="#">
                     <span class="menuIcon one"></span>
                     <span class="menuIcon two"></span>
                     <span class="menuIcon three"></span>
                 </a>
-    
             </div>
         </div>
     </div>

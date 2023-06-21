@@ -7,6 +7,7 @@ const fixMenu = document.querySelectorAll(".fixMenu ul > li");
 
 const headerImg = document.querySelectorAll("#header .t_logo img");
 const headerMenuBtn = document.querySelectorAll("#header .menuBtn span");
+const headerMemberBtn= document.querySelectorAll("#header .headerBtns > div a");
 
 let downNum = 120;
 
@@ -332,7 +333,10 @@ function headerColorBK(){
     })                    
     headerImg[1].classList.add("opac1");
     headerMenuBtn.forEach(function(menu){
-        menu.style.background = "#000"
+        menu.style.background = "#000";
+    })
+    headerMemberBtn.forEach(function(menu){
+        menu.style.color = "#000";
     })
 }
 function headerColorWH(){
@@ -342,7 +346,10 @@ function headerColorWH(){
     headerImg[0].classList.add("opac1");
     headerMenuBtn.forEach(function(menu){
         menu.style.background = "#fff"
-    })         
+    })    
+    headerMemberBtn.forEach(function(menu){
+        menu.style.color = "#fff";
+    })     
 }
 
 function fixMenuControl(index){

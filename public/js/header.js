@@ -7,6 +7,7 @@ const menuBtnLine = document.querySelectorAll("#header .menuBtn > span");
 const header = document.querySelector("#header");
 const headerLogo = document.querySelectorAll("#header .t_logo img");
 const headerBtn = document.querySelectorAll("#header .menuBtn span");
+const headerMemberBtns = document.querySelectorAll("#header .headerBtns > div a");
 
 const headerDetailCircle = document.querySelector("#header_detail .hdetail_bot .center .circleText");
 
@@ -28,6 +29,10 @@ if(mainLink !== "/" && mainLink !== "/m"){
     headerLogo[1].classList.add("opac1");
     headerBtn.forEach(function(menu){
         menu.style.background = "#000"
+    })
+    headerMemberBtns.forEach(function(menu){
+        menu.style.color = "#000"
+        menu.style.fontWeight = "400"
     })
 }
 

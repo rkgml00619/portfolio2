@@ -26,42 +26,65 @@
                     }
                 }
             }
-            .menuBtn {
-                display: block;
-                width: 40px; height: 30px;
-                position: relative;
-                overflow: hidden;
-                transition: all 0.5s;
-                &:hover {
-                    animation: closebtn 0.5s;
-                    // animation: name duration timing-function delay iteration-count direction fill-mode;
+            .headerBtns {
+                display: flex;
+                align-items: center;
+                > div {
+                    margin-right: 20px;
+                    a {
+                        margin-right: 20px;
+                        color: #000;
+                        // text-transform: uppercase;
+                        font-size: 16px;
+                        font-weight: 400;
+                        letter-spacing: 0.2px;
+                        &:hover {
+                            animation: memberBtnHover 0.8s;
+                        }
+                    }
+    
+                    @keyframes memberBtnHover {
+                        0% { opacity: 1;}
+                        50% { opacity: 0.5;}
+                        100% { opacity: 1;}
+                    }
                 }
-                @keyframes closebtn {
-                    0% {transform: scale(1);}
-                    50% {transform: scale(1.4);}
-                    100% {transform: scale(1);}                    
-                }
-                .menuIcon {
-                    position: absolute;
-                    left: 0;
+                .menuBtn {
                     display: block;
-                    width: 100%; height: 3px;
-                    background: #000;
-                    margin-bottom: 10px;
+                    width: 40px; height: 30px;
+                    position: relative;
+                    overflow: hidden;
                     transition: all 0.5s;
-                    &:nth-child(1){
-                        top: 50%;
-                        transform: translateY(-50%) rotate(45deg) scale(1);
+                    &:hover {
+                        animation: closebtn 0.5s;
                     }
-                    &:nth-child(2){
-                        top: 50%;
-                        transform: translateY(-50%);
-                        left: -40px;
+                    @keyframes closebtn {
+                        0% {transform: scale(1);}
+                        50% {transform: scale(1.4);}
+                        100% {transform: scale(1);}                    
                     }
-                    &:nth-child(3){
-                        top: 50%;
-                        transform: translateY(-50%) rotate(-45deg) scale(1);
-                        margin-bottom: 0;
+                    .menuIcon {
+                        position: absolute;
+                        left: 0;
+                        display: block;
+                        width: 100%; height: 3px;
+                        background: #000;
+                        margin-bottom: 10px;
+                        transition: all 0.5s;
+                        &:nth-child(1){
+                            top: 50%;
+                            transform: translateY(-50%) rotate(45deg) scale(1);
+                        }
+                        &:nth-child(2){
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: -40px;
+                        }
+                        &:nth-child(3){
+                            top: 50%;
+                            transform: translateY(-50%) rotate(-45deg) scale(1);
+                            margin-bottom: 0;
+                        }
                     }
                 }
             }
@@ -171,6 +194,17 @@
         .hdetail_top {
             .center {
                 width: 90%;
+                .headerBtns {
+                    > div {
+                        margin-right: 20px;
+                        a {
+                            margin-right: 10px;
+                        }
+                    }
+                    .menuBtn {
+                        width: 30px; height: 30px;
+                    }
+                }
             }
         }
         .hdetail_bot {
@@ -203,9 +237,18 @@
                 .t_logo {
                     width: 60px;
                 }
-                .menuBtn {
-                    display: block;
-                    width: 30px; height: 30px;
+                .headerBtns {
+                    > div {
+                        margin-right: 20px;
+                        a {
+                            margin-right: 10px;
+                        }
+                    }
+                    .menuBtn {
+                        display: block;
+                        width: 25px; height: 25px;
+                        position: relative;
+                    }
                 }
             }
         }

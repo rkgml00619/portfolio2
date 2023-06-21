@@ -69,12 +69,12 @@ passport.serializeUser(function (user, done) {
 
 //다른 페이지(서브페이지,게시판 페이지 등 로그인 상태를 계속 표기하기 위한 작업)
 //로그인이 되어있는 상태인지 체크
-                                // 세션의 user.memberid값을 가져오는 것
-                                passport.deserializeUser(function (memberId, done) {
-                                  //db의 값과 // 로그인했을 때 아이디 가 일치하면 로그인 유지
-    db.collection('members').findOne({memberId:memberId }, function (err,result) {
-        done(null, result);
-      })
+// 세션의 user.memberid값을 가져오는 것
+passport.deserializeUser(function (memberId, done) {
+  //db의 값과 // 로그인했을 때 아이디 가 일치하면 로그인 유지
+  db.collection('members').findOne({memberId:memberId }, function (err,result) {
+      done(null, result);
+  })
 });
 
 //파일 첨부 후 서버에 전달 할 때 multer library 설정
@@ -90,6 +90,9 @@ const storage = multer.diskStorage({
 
 //upload는 위의 설정사항을 담은 변수(상수) 
 const upload = multer({ storage: storage })
+
+/*경로지정*********************************************************************/
+
 
 // 메인 페이지
 app.get('/', (req, res) => {
@@ -108,9 +111,15 @@ app.get('/', (req, res) => {
     // console.log(newClothes.length);
     // console.log(newAcc[0].num);
     // console.log(newClothes.length);
-    res.render("index.ejs", {data: result, newClothes: newClothes, newAcc: newAcc});
+    res.render("index.ejs", {data: result, newClothes: newClothes, newAcc: newAcc, login: req.user});
   })
 })
+
+// 어바웃어스 페이지
+app.get("/about", (req, res)=>{
+  res.render("about.ejs", {login: req.user})
+})
+
 // 제품 목록
 app.get('/shop/:category', (req, res) => {
   db.collection("product").findOne({category: req.params.category}, (err, result)=>{
@@ -158,7 +167,7 @@ app.get('/shop/:category', (req, res) => {
           blockNum : blockNum,
           totalBlock : totalBlock,
           pageNumber : pageNumber,
-
+          login: req.user
         })
       })
     })
@@ -167,7 +176,7 @@ app.get('/shop/:category', (req, res) => {
 
 // 제품 등록
 app.get('/shop/edit/register', (req, res) => {
-  res.render("shop/shop_register.ejs")
+  res.render("shop/shop_register.ejs", {login: req.user})
 })
 
 // 제품 등록 데이터
@@ -212,7 +221,6 @@ app.post("/shop/edit/register/data",cpUpload,(req,res)=>{
   })
 })
 
-
 // 제품 상세
 app.get('/shop/detail/:num', (req, res) => {  
   db.collection("product").findOne({num: Number(req.params.num)}, (err, result)=>{
@@ -222,23 +230,26 @@ app.get('/shop/detail/:num', (req, res) => {
       result.color = [result.color]; 
     }
     // console.log(result.detailImg);
-    res.render("shop/shop_detail.ejs", {data: result});
+    res.render("shop/shop_detail.ejs", {data: result, login: req.user});
   })
 })
 
-// 제품 상세 데이터를 기반으로 구매페이지
-app.get("/order", (req, res)=>{
-  
-});
+
 
 // 회원가입 페이지
 app.get("/members/join", (req, res) => {
-  res.render("members/join.ejs")
+  res.render("members/join.ejs", {login: req.user})
 })
 
 //아이디 중복체크 요청
 app.post("/idcheck",(req,res)=>{
   db.collection("members").findOne({memberId: req.body.memberId}, (err, member)=>{
+       res.send({member:member})
+  })
+})
+//비밀번호 중복체크 요청
+app.post("/passCheck",(req,res)=>{
+  db.collection("members").findOne({memberPass: req.body.memberPass}, (err, member)=>{
        res.send({member:member})
   })
 })
@@ -249,7 +260,7 @@ app.post("/members/join/data", (req, res)=>{
     db.collection("count").findOne({title: "회원"}, (err, result)=>{
       db.collection("members").insertOne({
         memberNo: result.memberCount,
-        meberName: req.body.meberName,
+        memberName: req.body.memberName,
         memberTel_one: req.body.memberTel_one,
         memberTel: req.body.memberTel,
         memberTel_three: req.body.memberTel_three,
@@ -267,11 +278,56 @@ app.post("/members/join/data", (req, res)=>{
 });
 
 // 로그인
-app.get("/members/login", (req, res) => {
-  res.render("members/login.ejs")
+app.get("/members/login", (req, res) => {  
+  // 로그인 페이지(ejs)파일에서 input (type=hidden / name=referer)을 만들어서 이전 경로를 삽입하고
+  res.render("members/login.ejs", {login: req.user, referer:req.headers.referer})
+})
+// 로그인 처리 요청 경로
+app.post("/logincheck", passport.authenticate('local', {failureRedirect : '/members/login'}), (req, res)=>{
+  // 로그인 처리 요청 경로에서 이전 경로에 대한
+  // if (req.body.referer && (req.body.referer !== undefined && req.body.referer.slice(-6) !== "/login")) {
+  //   res.redirect(req.body.referer);
+  // } else {
+  //   res.redirect("/");
+  // }
+
+  res.redirect("/members/mypage");
+})
+// 로그아웃 처리 요청 경로
+app.get("/logout", (req, res)=>{
+  req.logout(()=>{
+    // 로그아웃 시 이전 경로로 돌아가기
+    res.send(`<script>
+      if(document.referrer.includes("mypage")){
+        window.location = "/";
+      }
+      else {
+        window.location = document.referrer;
+      }
+    </script>`);
+  })
 })
 
 // 마이페이지
 app.get("/members/mypage", (req, res) => {
-  res.render("members/myPage.ejs")
+  res.render("members/myPage.ejs", {login: req.user})
+})
+// 마이페이지 수정
+app.get("/members/mypage/edit", (req, res) => {
+  res.render("members/mypageEdit.ejs", {login: req.user})
+})
+// 마이페이지 수정된 데이터 업데이트
+app.post("/members/mypage/editUpdate", (req, res) => {
+  console.log(req.body.memberTel_one);
+  db.collection("members").updateOne({memberId: req.user.memberId}, {$set: {
+    memberName: req.body.memberName,
+    memberPass: req.body.changePass,
+    memberTel_one: req.body.memberTel_one,
+    memberTel: req.body.memberTel,
+    memberTel_three: req.body.memberTel_three,
+    memberEmail: req.body.memberEmail,
+    emailTextSel: req.body.emailTextSel,
+  }}, (err, result)=>{
+    res.redirect("/members/login");
+  })
 })
