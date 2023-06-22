@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="cont2">
-        <img class="bigImg" src="/img/about/about_2.JPG" alt="">
+        <img class="bigImg" src="/img/about/about_2.jpg" alt="">
         <div class="center">
             <div class="left">
                 <img class="logoImg" src="/img/about/logo_pet.png">
@@ -37,31 +37,36 @@
     <div class="cont3">
         <div class="center">
             <h2 class="title">미디어룸</h2>
-            <div class="mediaConts">
-                <div class="mediaLeft">
-                    <img src="/img/about/media/media_1.jpg">
-                </div>
-                <div class="mediaRight">
-                    <div class="mediaList">
-                        <img src="/img/about/media/media_1.jpg">
+            <% if (data.length !== 0) { %>
+                <div class="mediaConts">
+                    <div class="mediaLeft">
+                        <img class="mediaMainImg" src="/img/about/media/<%- data[0].mediaUpload[0] %>">
                     </div>
-                    <div class="mediaList">
-                        <img src="/img/about/media/media_2.jpg">
+                    <div class="mediaRight">
+                            <% for( let i = 0; i < data.length; i++ ) { %>
+                                <% for( let h = 0; h < data[i].mediaUpload.length; h++ ) { %>
+                                    <div class="mediaList">
+                                        <img src="/img/about/media/<%- data[i].mediaUpload[h] %>">
+                                    </div>
+                                <% } %>
+                            <% } %>
                     </div>
-                    <div class="mediaList">
-                        <img src="/img/about/media/media_3.jpg">
-                    </div>
-                    <div class="mediaList">
-                        <img src="/img/about/media/media_4.jpg">
-                    </div>
-                    <div class="mediaList">
-                        <img src="/img/about/media/media_5.jpg">
-                    </div>
-                    <div class="mediaList">
-                        <img src="/img/about/media/media_6.jpg">
-                    </div>
-                </div>
-            </div>
+                </div>            
+            <% } else { %>
+                <div></div>
+            <% } %>
+             
+
+            <% if (login) { %>
+                <% if (login.memberId === "admin") { %>
+                    <form id="mediaUploadForm" action="/mediaUpload" method="get" enctype="multipart/form-data">
+                        <input type="file" id="mediaUpload" name="mediaUpload" multiple>
+
+                        <button class="mediaUploadBtn" type="submit">이미지 등록</button>
+                    </form>
+                <% } %>
+            <% } %>
+             
         </div>
     </div>
 
@@ -70,8 +75,8 @@
             <div class="videoWrap">
                 <div class="overlay">
                     <div class="playBtn">
-                        <img src="/img/about/play_icon_wh.svg">
                     </div>
+                    <img class="playIcon" src="/img/about/play_icon_wh.svg">
                 </div>
                 <video muted loop>
                     <source src="/img/about/about_video.mp4">
@@ -79,6 +84,8 @@
             </div>
         </div>
     </div>
+
+    <%- include('common/goTop.ejs') %>
 </div>
 
 </body></html>

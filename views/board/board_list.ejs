@@ -1,0 +1,69 @@
+<%- include('../header', jsFiles=["sub_common.js", "board/isotope.pkgd.min", "board/board_list.js"], cssFiles=[]) %>
+<div id="container" class="board_list">
+    <div class="cont1">
+        <div class="center">
+            <div class="titleWrap">
+                <h2 class="mainTitle poppins">MLB Pet Board</h2>
+                <p class="subTitle">MLB PET의 다양한 소식들을 확인해보세요.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cont2">
+        <div class="center">
+            <div class="boardTop">
+                <ul class="boardBtns">
+                    <li class="poppins on" data-board="*"><a href="#">All</a></li>
+                    <li class="poppins" data-board=".notice"><a href="#">Notice</a></li>
+                    <li class="poppins" data-board=".Press"><a href="#">Press</a></li>
+                </ul>
+
+                <form id="boardSearch" action="/board/search" method="get">
+                    <div class="selectTag">
+                        <a class="searchSelect" href="#">
+                            <span class="searchOptionValue">제목</span>
+                            <span class="material-symbols-outlined arrowIcon">
+                                expand_more</span>
+                        </a>
+                        <ul class="searchOption">
+                            <li data-value="boardTitle">제목</li>
+                            <li data-value="boardCategory">카테고리</li>
+                        </ul>
+                        <input type="hidden" name="search">
+                    </div>
+                    <!-- 검색어 입력 데이터 -->
+                    <input id="searchText" type="text" name="inputText" value="">
+            
+                    <button id="searchBtn" type="submit">
+                        <img src="/img/icon/search_icon.svg" alt="">
+                    </button>
+                </form>
+            </div>
+            <div class="boardList" id="grid">
+                <% if (data) { %>
+                    <% for( let i = 0; i < data.length; i++ ) { %>
+                        <div class="grid-item list">
+                            <a href="/board/detail/<%- data[i].num %>">
+                                <div class="imgWrap">
+                                    <img src="/upload/<%- data[i].boardImg[0] %>">
+                                </div>
+                                <div class="textWrap">
+                                    <h2 class="brdTitle">
+                                        <%- data[i].boardTitle %>
+                                    </h2>
+                                    <p class="brdDate">
+                                        <%- data[i].boardDate %>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    <% } %>
+                 
+                <% } %>
+              </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

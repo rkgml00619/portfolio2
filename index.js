@@ -116,9 +116,73 @@ app.get('/', (req, res) => {
 })
 
 // 어바웃어스 페이지
-app.get("/about", (req, res)=>{
-  res.render("about.ejs", {login: req.user})
+app.get("/about", (req, res)=>{ 
+  db.collection("media").find().toArray((err,result)=>{
+    res.render("about.ejs", {login: req.user, data: result})
+    console.log(result);
+  })
 })
+// 어바웃어스 미디어 등록 경로
+app.get("/mediaUpload", (req, res)=>{
+  db.collection("count").findOne({title: "미디어"}, (err, mediaNum)=>{
+    db.collection("media").insertOne({
+      num: mediaNum.mediaCount,
+      mediaUpload: req.query.mediaUpload,
+    }, (err, result)=>{
+      db.collection("count").updateOne({title: "미디어"}, {$inc: {mediaCount:1}}, (err, result)=>{
+        res.redirect("/about");
+      })
+    })
+  })
+})
+
+// 게시판 페이지
+app.get("/board", (req, res)=>{ 
+  db.collection("board").find().sort({boardCount: -1}).toArray((err, result)=>{
+    res.render("board/board_list.ejs", {login: req.user, data: result})
+  })
+})
+// 게시판 상세 페이지
+app.get("/board/detail/:num", (req, res)=>{ 
+  db.collection("board").findOne({num: Number(req.params.num)}, (err, result)=>{    
+    // console.log(result);
+    res.render("board/board_detail.ejs", {login: req.user, data: result})
+  })
+})
+
+// 게시판 등록 페이지
+app.get("/board/upload", (req, res)=>{ 
+  res.render("board/board_upload.ejs", {login: req.user})
+})
+// 게시판 등록 데이터 전달
+const brdImgUpload = upload.fields([{name: 'boardImg'}]);
+
+app.post("/board/upload/data", brdImgUpload, (req, res)=>{   
+  // console.log(req.files["boardImg"]);
+  let brdImgs = [];
+
+  for(let i = 0; i < req.files["boardImg"].length; i++){
+    brdImgs[i] = req.files["boardImg"][i].filename;
+  }
+
+  db.collection("count").findOne({title: "게시판"}, (err, boardNum)=>{
+    db.collection("board").insertOne({
+      num: boardNum.boardCount,
+      boardCategory: req.body.boardCategory,
+      memberId: req.body.memberId,
+      boardDate: req.body.boardDate,
+      boardTitle: req.body.boardTitle,
+      boardImg: brdImgs,
+      boardConts: req.body.boardConts,
+    }, (err, result)=>{
+      db.collection("count").findOne({title: "게시판"}, {$inc:{boardCount:1}}, (err, result)=>{
+        res.redirect("/board")
+      })
+    })
+  })
+})
+
+
 
 // 제품 목록
 app.get('/shop/:category', (req, res) => {
@@ -285,13 +349,11 @@ app.get("/members/login", (req, res) => {
 // 로그인 처리 요청 경로
 app.post("/logincheck", passport.authenticate('local', {failureRedirect : '/members/login'}), (req, res)=>{
   // 로그인 처리 요청 경로에서 이전 경로에 대한
-  // if (req.body.referer && (req.body.referer !== undefined && req.body.referer.slice(-6) !== "/login")) {
-  //   res.redirect(req.body.referer);
-  // } else {
-  //   res.redirect("/");
-  // }
-
-  res.redirect("/members/mypage");
+  if (req.body.referer && (req.body.referer !== undefined && req.body.referer.slice(-6) !== "/login")) {
+    res.redirect(req.body.referer);
+  } else {
+    res.redirect("/");
+  }
 })
 // 로그아웃 처리 요청 경로
 app.get("/logout", (req, res)=>{

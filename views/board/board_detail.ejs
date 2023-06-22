@@ -1,0 +1,46 @@
+<%- include('../header', jsFiles=["sub_common.js", "board/board_detail.js"], cssFiles=[]) %>
+<div id="container" class="board_detail">
+    <div class="cont1">
+        <div class="center">
+            <div class="titleWrap">
+                <h2 class="mainTitle poppins">MLB Pet Board</h2>
+                <p class="subTitle">MLB PET의 다양한 소식들을 확인해보세요.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cont2">
+        <div class="center">
+            <div class="detailTop">
+                <div class="left">
+                    <p class="poppins brdCategory"><%- data.boardCategory %></p>
+                    <h2 class="brdTitle"><%- data.boardTitle %></h2>
+                </div>
+                <p class="brdDate"><%- data.boardDate %></p>
+            </div>
+            <div class="content">
+                <% for( let i = 0; i < data.boardImg.length; i++ ) { %>
+                    <img src="/upload/<%- data.boardImg[i] %>">
+                <% } %>
+                <p>
+                    <%- data.boardConts %>
+                </p>
+            </div>
+
+            <div class="btnWrap">
+                <a class="goList" href="/board">목록</a>
+                <% if (login) { %>
+                    <% if (login.memberId === "admin") { %>
+                        <div class="adminBtn">
+                            <a class="edit" href="#">수정</a>
+                            <a class="remove" href="#">삭제</a>
+                        </div>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
