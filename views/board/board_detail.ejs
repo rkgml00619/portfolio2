@@ -1,4 +1,4 @@
-<%- include('../header', jsFiles=["sub_common.js", "board/board_detail.js"], cssFiles=[]) %>
+<%- include('../header', jsFiles=["axios_dist_axios.min.js", "sub_common.js", "board/board_detail.js"], cssFiles=[]) %>
 <div id="container" class="board_detail">
     <div class="cont1">
         <div class="center">
@@ -32,8 +32,8 @@
                 <% if (login) { %>
                     <% if (login.memberId === "admin") { %>
                         <div class="adminBtn">
-                            <a class="edit" href="#">수정</a>
-                            <a class="remove" href="#">삭제</a>
+                            <a class="remove" href="/board/detail/delete/<%- data.boardCount %>">삭제</a>
+                            <a class="edit" href="/board/update/<%- data.boardCount %>">수정</a>
                         </div>
                     <% } %>
                 <% } %>

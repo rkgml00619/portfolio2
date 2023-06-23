@@ -4844,31 +4844,47 @@ input::placeholder, textarea::placeholder {
   align-items: center;
   margin-bottom: 60px;
 }
-.board_list .cont2 .center .boardTop .boardBtns {
+.board_list .cont2 .center .boardTop .boardMenus {
   width: 100%;
   display: flex;
 }
-.board_list .cont2 .center .boardTop .boardBtns li {
+.board_list .cont2 .center .boardTop .boardMenus li {
   display: flex;
   align-items: center;
 }
-.board_list .cont2 .center .boardTop .boardBtns li::after {
+.board_list .cont2 .center .boardTop .boardMenus li::after {
   content: "|";
   margin: 0 40px;
   font-size: 30px;
   font-weight: 200;
   color: #999;
 }
-.board_list .cont2 .center .boardTop .boardBtns li:last-child::after {
+.board_list .cont2 .center .boardTop .boardMenus li:hover a {
+  color: #333;
+  animation: boardMenusHover 0.8s infinite;
+}
+.board_list .cont2 .center .boardTop .boardMenus li:last-child::after {
   display: none;
 }
-.board_list .cont2 .center .boardTop .boardBtns li a {
-  font-size: 24px;
+.board_list .cont2 .center .boardTop .boardMenus li a {
+  font-size: 22px;
   font-weight: 400;
   color: #ccc;
+  transition: all 0.5s;
 }
-.board_list .cont2 .center .boardTop .boardBtns li.on a {
+.board_list .cont2 .center .boardTop .boardMenus li.on a {
   color: #000;
+}
+@keyframes boardMenusHover {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .board_list .cont2 .center .boardTop #boardSearch {
   width: 60%;
@@ -4913,16 +4929,24 @@ input::placeholder, textarea::placeholder {
   display: flex;
   align-items: center;
   border-bottom: 1px solid transparent;
+  transition: all 0.5s;
 }
 .board_list .cont2 .center .boardTop #boardSearch .selectTag .searchOption li:last-child {
   border-bottom: 0;
 }
+.board_list .cont2 .center .boardTop #boardSearch .selectTag .searchOption li:hover {
+  background: #f8f8f8;
+}
 .board_list .cont2 .center .boardTop #boardSearch .selectTag .searchOption.on {
   height: 100px;
   border: 1px solid #ccc;
+  border-top: 0;
 }
 .board_list .cont2 .center .boardTop #boardSearch .selectTag .searchOption.on li {
   border-bottom: 1px solid #ccc;
+}
+.board_list .cont2 .center .boardTop #boardSearch .selectTag #searchOptionSel {
+  display: none;
 }
 .board_list .cont2 .center .boardTop #boardSearch #searchText {
   width: 60%;
@@ -4936,31 +4960,46 @@ input::placeholder, textarea::placeholder {
   height: 50px;
   background: #000;
   border: 1px solid #000;
+  box-sizing: border-box;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .board_list .cont2 .center .boardTop #boardSearch #searchBtn img {
-  width: 50%;
+  width: 45%;
 }
 .board_list .cont2 .center .boardList {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
 }
 .board_list .cont2 .center .boardList .list {
-  width: calc(25% - 40px);
+  width: calc((100% - 120px) / 4);
   margin-right: 40px;
+  display: none;
+  opacity: 0;
+  transition: all 0.5s;
 }
-.board_list .cont2 .center .boardList .list:nth-child(3n) {
+.board_list .cont2 .center .boardList .list:nth-child(4n) {
   margin-right: 0;
+}
+.board_list .cont2 .center .boardList .list:nth-child(-n+8) {
+  display: block;
+  opacity: 1;
+  margin-bottom: 40px;
 }
 .board_list .cont2 .center .boardList .list .imgWrap {
   width: 100%;
-  height: 250px;
+  height: 260px;
   overflow: hidden;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .board_list .cont2 .center .boardList .list .imgWrap img {
   width: 100%;
@@ -4970,6 +5009,7 @@ input::placeholder, textarea::placeholder {
   width: 100%;
   height: 80px;
   margin: 20px 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -4991,47 +5031,183 @@ input::placeholder, textarea::placeholder {
   font-weight: 300;
   color: #999;
 }
+.board_list .cont2 .center .boardList .list.on {
+  display: block;
+  margin-bottom: 40px;
+}
+.board_list .cont2 .center .boardList .list.on.show {
+  opacity: 1;
+}
+.board_list .cont2 .center .moreWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+.board_list .cont2 .center .moreWrap .moreBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #333;
+  border-radius: 100%;
+  transition: all 0.5s;
+}
+.board_list .cont2 .center .moreWrap .moreBtn:hover {
+  background: #000;
+}
+.board_list .cont2 .center .moreWrap .moreBtn:hover span.plusIcon {
+  color: #fff;
+}
+.board_list .cont2 .center .moreWrap .moreBtn span.plusIcon {
+  font-size: 35px;
+  color: #000;
+  transition: all 0.5s;
+}
+.board_list .cont2 .center .boardAdminBtn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px 0;
+}
+.board_list .cont2 .center .boardAdminBtn a.uploadBtn {
+  padding: 18px 30px;
+  border: 1px solid #000;
+  color: #000;
+  transition: all 0.5s;
+}
+.board_list .cont2 .center .boardAdminBtn a.uploadBtn:hover {
+  background: #000;
+  color: #fff;
+}
 
 @media screen and (max-width: 1200px) {
-  .about .cont1 {
-    width: 100%;
-  }
-  .about .cont1 .center {
+  .board_list .cont1 .center {
     width: 90%;
     padding: 40px 0;
   }
-  .about .cont1 .center .titleWrap .mainTitle {
+  .board_list .cont1 .center .titleWrap .mainTitle {
     font-size: 80px;
     margin-bottom: 20px;
   }
-  .about .cont1 .center .titleWrap .subTitle {
+  .board_list .cont1 .center .titleWrap .subTitle {
     font-size: 26px;
   }
-  .about .cont2 .center {
+  .board_list .cont2 .center {
     width: 90%;
   }
-  .about .cont2 .center .left {
-    width: 20%;
+  .board_list .cont2 .center .boardList .list {
+    width: calc(33.333333% - 30px);
+    margin-right: 30px;
+    display: none;
+    opacity: 0;
+    transition: all 0.5s;
   }
-  .about .cont2 .center .left .logoImg {
+  .board_list .cont2 .center .boardList .list:nth-child(4n) {
+    margin-right: 30px;
+  }
+  .board_list .cont2 .center .boardList .list:nth-child(3n) {
+    margin-right: 0;
+  }
+  .board_list .cont2 .center .boardList .list:nth-child(-n+8) {
+    display: none;
+    opacity: 0;
+    margin-bottom: 0;
+  }
+  .board_list .cont2 .center .boardList .list:nth-child(-n+6) {
+    display: block;
+    opacity: 1;
+    margin-bottom: 30px;
+  }
+  .board_list .cont2 .center .boardList .list .imgWrap {
     width: 100%;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .about .cont2 .center .left .linkBtns a {
+  .board_list .cont2 .center .boardList .list .imgWrap img {
     width: 100%;
+    height: 100%;
   }
-  .about .cont2 .center .right {
-    width: calc(80% - 80px);
+  .board_list .cont2 .center .boardList .list .textWrap {
+    width: 100%;
+    height: 80px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
-  .about .cont3 .center {
-    width: 90%;
+  .board_list .cont2 .center .boardList .list .textWrap .brdTitle {
+    color: #000;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 500;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
-  .about .cont3 .center .mediaConts .mediaRight .mediaList {
-    width: calc(50% - 10px);
-    margin-right: 10px;
-    margin-bottom: 10px;
+  .board_list .cont2 .center .boardList .list .textWrap .brdDate {
+    font-size: 15px;
+    font-weight: 300;
+    color: #999;
   }
-  .about .cont4 .center {
-    width: 90%;
+  .board_list .cont2 .center .boardList .list.on {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .board_list .cont2 .center .boardList .list.on.show {
+    opacity: 1;
+  }
+  .board_list .cont2 .center .moreWrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+  .board_list .cont2 .center .moreWrap .moreBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #333;
+    border-radius: 100%;
+    transition: all 0.5s;
+  }
+  .board_list .cont2 .center .moreWrap .moreBtn:hover {
+    background: #000;
+  }
+  .board_list .cont2 .center .moreWrap .moreBtn:hover span.plusIcon {
+    color: #fff;
+  }
+  .board_list .cont2 .center .moreWrap .moreBtn span.plusIcon {
+    font-size: 35px;
+    color: #000;
+    transition: all 0.5s;
+  }
+  .board_list .cont2 .center .boardAdminBtn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 40px 0;
+  }
+  .board_list .cont2 .center .boardAdminBtn a.uploadBtn {
+    padding: 18px 30px;
+    border: 1px solid #000;
+    color: #000;
+    transition: all 0.5s;
+  }
+  .board_list .cont2 .center .boardAdminBtn a.uploadBtn:hover {
+    background: #000;
+    color: #fff;
   }
 }
 @media screen and (max-width: 768px) {
@@ -5924,5 +6100,419 @@ input::placeholder, textarea::placeholder {
   }
   .about .cont4 .center .videoWrap video {
     width: 100%;
+  }
+}
+.board_update .cont1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #000;
+}
+.board_update .cont1 .center {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px 0 100px;
+}
+.board_update .cont1 .center .titleWrap .mainTitle {
+  font-size: 100px;
+  font-weight: 900;
+  color: #000;
+  margin-bottom: 20px;
+}
+.board_update .cont1 .center .titleWrap .subTitle {
+  font-size: 30px;
+  font-weight: 300;
+  color: #000;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+.board_update .cont2 {
+  display: flex;
+  justify-content: center;
+}
+.board_update .cont2 .center {
+  width: 80%;
+}
+.board_update .cont2 .center form {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0;
+  position: relative;
+}
+.board_update .cont2 .center form .formLeft {
+  width: 80%;
+  margin-right: 60px;
+  border-right: 1px solid #ddd;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap {
+  margin-bottom: 40px;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap {
+  margin-bottom: 30px;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap p.label, .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap label {
+  display: block;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap input, .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap select {
+  display: inline-block;
+  width: 40%;
+  height: 50px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap textarea {
+  border-radius: 5px;
+  width: 100%;
+  height: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap #boardTitle {
+  width: 80%;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .twoWrap {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap {
+  width: calc(50% - 10px);
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap input {
+  width: 100%;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys {
+  display: flex;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span input {
+  width: 0;
+  height: 0;
+  display: none;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel {
+  width: 140px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel:hover {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+.board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel.select {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+.board_update .cont2 .center form .formRight {
+  width: calc(20% - 60px);
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: sticky;
+  top: 40px;
+  right: 0;
+}
+.board_update .cont2 .center form .formRight button {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.board_update .cont2 .center form .formRight .cancel {
+  background: #ccc;
+}
+.board_update .cont2 .center form .formRight .join {
+  background: #000;
+}
+
+@media screen and (max-width: 1200px) {
+  .members_mypageUpdate .cont1 {
+    margin-top: 50px;
+  }
+  .members_mypageUpdate .cont1 .center {
+    width: 90%;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap {
+    margin-bottom: 50px;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap .mainTitle {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap .subTitle {
+    font-size: 28px;
+  }
+  .members_mypageUpdate .cont1 .center form {
+    padding: 60px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft {
+    width: 100%;
+    margin-right: 50px;
+    padding-right: 50px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div .formGroupTit {
+    font-size: 22px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div p.label {
+    font-size: 18px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div {
+    padding: 20px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap {
+    margin-bottom: 30px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap label {
+    font-size: 18px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap select {
+    width: 50%;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText {
+    display: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 300;
+    color: red;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs {
+    width: 100%;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs {
+    width: 100%;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap:last-child {
+    margin-bottom: 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap input {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+    position: relative;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon {
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    color: #fff;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-variation-settings: "wght" 300;
+    font-size: 24px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon.checked {
+    opacity: 1;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    padding: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+         user-select: none;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs .errText {
+    margin-left: 0;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement {
+    height: 300px;
+    overflow: auto;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight {
+    width: calc(40% - 50px);
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: sticky;
+    top: 40px;
+    right: 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight button {
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight .reset {
+    background: #ccc;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight .register {
+    background: #000;
+  }
+}
+@media screen and (max-width: 768px) {
+  .members_mypageUpdate .cont1 {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .members_mypageUpdate .cont1 .center {
+    width: 90%;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap .mainTitle {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .members_mypageUpdate .cont1 .center .titleWrap .subTitle {
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+  }
+  .members_mypageUpdate .cont1 .center form {
+    display: block;
+    padding: 40px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft {
+    width: 100%;
+    margin-right: 0;
+    border-right: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div .formGroupTit {
+    font-size: 20px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div p.label {
+    font-size: 18px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div {
+    padding: 20px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap select {
+    width: 100%;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
+    display: block;
+    font-size: 16px;
+    padding: 15px 20px;
+    margin-left: 0;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText {
+    margin-left: 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap {
+    margin-bottom: 40px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label {
+    font-size: 18px;
+  }
+  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
+    padding: 20px;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 20px 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight button {
+    display: block;
+    width: calc((100% - 10px) / 2);
+    height: 60px;
+    margin-bottom: 0;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight .reset {
+    background: #ccc;
+  }
+  .members_mypageUpdate .cont1 .center form .formRight .register {
+    background: #000;
   }
 }

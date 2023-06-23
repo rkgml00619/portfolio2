@@ -136,19 +136,97 @@ app.get("/mediaUpload", (req, res)=>{
   })
 })
 
-// 게시판 페이지
-app.get("/board", (req, res)=>{ 
+// 게시판 전체 목록 페이지
+app.get("/board", (req, res)=>{
   db.collection("board").find().sort({boardCount: -1}).toArray((err, result)=>{
-    res.render("board/board_list.ejs", {login: req.user, data: result})
+    res.render("board/board_list.ejs", {login: req.user, data: result, searchText: ""})
   })
 })
+// 게시판 Notice 목록 페이지
+app.get("/board/notice", (req, res)=>{
+  db.collection("board").find().sort({boardCount: -1}).toArray((err, result)=>{
+    res.render("board/board_list_notice.ejs", {login: req.user, data: result, searchText: ""})
+  })
+})
+// 게시판 Press 목록 페이지
+app.get("/board/press", (req, res)=>{
+  db.collection("board").find().sort({boardCount: -1}).toArray((err, result)=>{
+    res.render("board/board_list_press.ejs", {login: req.user, data: result, searchText: ""})
+  })
+})
+// 게시판 목록 검색 데이터 전달
+app.get("/board/search", (req, res)=>{
+  let check = [
+    {
+      $search: {
+        index: "mlb_board_search",
+        text: {
+          query: req.query.searchText,
+          path: req.query.searchOption
+        }
+      }
+    },
+    {
+      $sort: {boardCount: -1}
+    }
+  ]
+  
+  db.collection("board").aggregate(check).toArray((err, result)=>{
+    res.render("board/board_list.ejs", {data: result, searchText: "", login: req.user})
+  })
+})
+
 // 게시판 상세 페이지
 app.get("/board/detail/:num", (req, res)=>{ 
-  db.collection("board").findOne({num: Number(req.params.num)}, (err, result)=>{    
-    // console.log(result);
+  db.collection("board").findOne({boardCount: Number(req.params.num)}, (err, result)=>{  
     res.render("board/board_detail.ejs", {login: req.user, data: result})
   })
 })
+// 게시물 수정 페이지
+app.get("/board/update/:num", (req, res)=>{
+  db.collection("board").findOne({boardCount: Number(req.params.num)}, (err, result)=>{
+    res.render("board/board_update.ejs", {data: result, login: req.user})
+  })
+})
+// 게시물 수정 요청
+app.post("/board/update/data", upload.array("boardImg"), (req, res)=>{
+  let imgNames = [];
+  let changeDatas = {};
+
+  if(req.files.length > 0){
+    for(let i = 0; i < req.files.length; i++){
+      imgNames[i] = req.files[i].filename;
+    }
+
+    changeDatas = {
+      boardCategory : req.body.boardCategory,
+      boardDate : req.body.boardDate,
+      boardTitle : req.body.boardTitle,
+      boardImg : imgNames,
+      boardConts : req.body.boardConts,
+    }
+  }
+  else {
+    changeDatas = {
+      boardCategory : req.body.boardCategory,
+      boardDate : req.body.boardDate,
+      boardTitle : req.body.boardTitle,
+      boardConts : req.body.boardConts,
+    }
+  }
+
+  db.collection("board").updateOne({boardCount: Number(req.body.boardCount)}, {$set: changeDatas}, (err, result)=>{
+    res.redirect(`/board/detail/${req.body.boardCount}`)
+  })
+})
+
+// 게시물 삭제 요청
+app.get("/board/detail/delete/:num", (req, res)=>{
+  db.collection("board").deleteOne({boardCount: Number(req.params.num)}, (err, result)=>{
+    res.redirect("/board")
+  })
+})
+
 
 // 게시판 등록 페이지
 app.get("/board/upload", (req, res)=>{ 
@@ -158,16 +236,17 @@ app.get("/board/upload", (req, res)=>{
 const brdImgUpload = upload.fields([{name: 'boardImg'}]);
 
 app.post("/board/upload/data", brdImgUpload, (req, res)=>{   
-  // console.log(req.files["boardImg"]);
   let brdImgs = [];
 
-  for(let i = 0; i < req.files["boardImg"].length; i++){
-    brdImgs[i] = req.files["boardImg"][i].filename;
+  if(req.files.length > 0){
+    for(let i = 0; i < req.files.length; i++){
+      brdImgs[i] = req.files[i].filename;
+    }
   }
-
-  db.collection("count").findOne({title: "게시판"}, (err, boardNum)=>{
-    db.collection("board").insertOne({
-      num: boardNum.boardCount,
+  db.collection("count").findOne({title: "게시판"}, (err, boardNum)=>{   
+    // console.log(boardNum);
+    db.collection("board").insertOne({      
+      boardCount: boardNum.boardCount,
       boardCategory: req.body.boardCategory,
       memberId: req.body.memberId,
       boardDate: req.body.boardDate,
@@ -175,13 +254,12 @@ app.post("/board/upload/data", brdImgUpload, (req, res)=>{
       boardImg: brdImgs,
       boardConts: req.body.boardConts,
     }, (err, result)=>{
-      db.collection("count").findOne({title: "게시판"}, {$inc:{boardCount:1}}, (err, result)=>{
-        res.redirect("/board")
+      db.collection("count").updateOne({title: "게시판"}, {$inc: {boardCount: 1}}, (err, result)=>{
+        res.redirect(`/board/detail/${boardNum.boardCount}`)
       })
     })
   })
 })
-
 
 
 // 제품 목록

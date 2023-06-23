@@ -1,5 +1,5 @@
 <%- include('../header', jsFiles=["sub_common.js", "board/board_list.js"], cssFiles=[]) %>
-<div id="container" class="board_list">
+<div id="container" class="board_list press">
     <div class="cont1">
         <div class="center">
             <div class="titleWrap">
@@ -38,33 +38,34 @@
                     </div>
 
                     <!-- 검색어 입력 데이터 -->
-                    <input id="searchText" type="text" name="searchText" value="<%- searchText %>">
+                    <input id="searchText" type="text" name="searchText" value="">
             
                     <button id="searchBtn" type="submit">
                         <img src="/img/icon/search_icon.svg" alt="">
                     </button>
                 </form>
             </div>
-            <div class="boardList" id="grid">
+            <div class="boardList">
                 <% if (data.length > 0) { %>
                     <% for( let i = 0; i < data.length; i++ ) { %>
-                        <div class="list <%- data[i].boardCategory %>">
-                            <a href="/board/detail/<%- data[i].boardCount %>">
-                                <div class="imgWrap">
-                                    <img src="/upload/<%- data[i].boardImg[0] %>">
-                                </div>
-                                <div class="textWrap">
-                                    <h2 class="brdTitle">
-                                        <%- data[i].boardTitle %>
-                                    </h2>
-                                    <p class="brdDate">
-                                        <%- data[i].boardDate %>
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
+                        <% if (data[i].boardCategory === "press") { %>
+                            <div class="list <%- data[i].boardCategory %>">
+                                <a href="/board/detail/<%- data[i].boardCount %>">
+                                    <div class="imgWrap">
+                                        <img src="/upload/<%- data[i].boardImg[0] %>">
+                                    </div>
+                                    <div class="textWrap">
+                                        <h2 class="brdTitle">
+                                            <%- data[i].boardTitle %>
+                                        </h2>
+                                        <p class="brdDate">
+                                            <%- data[i].boardDate %>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        <% } %>
                     <% } %>
-                 
                 <% } %>
             </div>
 

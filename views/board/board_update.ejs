@@ -1,0 +1,95 @@
+<%- include('../header', jsFiles=["sub_common.js", "board/board_update.js"], cssFiles=[]) %>
+    <div id="container" class="board_update">
+        <div class="cont1">
+            <div class="center">
+                <div class="titleWrap">
+                    <h2 class="mainTitle poppins">Board Register</h2>
+                    <p class="subTitle">MLB PET의 게시물을 수정할 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cont2">
+            <div class="center">
+                <form action="/board/update/data" method="post" id="boardUpdate" enctype="multipart/form-data">
+                    <div class="formLeft">
+                        <div class="InfoWrap">
+                            <!-- 게시판 번호 -->
+                            <input type="hidden" id="boardCount" name="boardCount" value="<%- data.boardCount %>">
+                            <!-- 카테고리 -->
+                            <div class="inputWrap categoryWrap">
+                                <p class="label">카테고리</p>
+                                <div class="categorys">
+                                    <% if (data.boardCategory === "notice") { %>
+                                        <span>
+                                            <input type="radio" name="boardCategory" id="notice" class="categoryInput" value="notice" checked>
+                                            <label for="notice" class="categoryLabel select">
+                                                Notice
+                                            </label>
+                                        </span>
+                                        <span>
+                                            <input type="radio" name="boardCategory" id="press" class="categoryInput" value="press">
+                                            <label for="press" class="categoryLabel">
+                                                Press
+                                            </label>
+                                        </span>
+                                    <% } else if (data.boardCategory === "press") { %>
+                                        <span>
+                                            <input type="radio" name="boardCategory" id="notice" class="categoryInput" value="notice">
+                                            <label for="notice" class="categoryLabel">
+                                                Notice
+                                            </label>
+                                        </span>
+                                        <span>
+                                            <input type="radio" name="boardCategory" id="press" class="categoryInput" value="press" checked>
+                                            <label for="press" class="categoryLabel select">
+                                                Press
+                                            </label>
+                                        </span>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="twoWrap">
+                                <% if (login) { %>
+                                    <!-- 아이디 -->
+                                    <div class="inputWrap">
+                                        <label for="memberId">아이디</label>
+                                        <input type="text" name="memberId" id="memberId" value="<%- login.memberId %>" disabled>
+                                    </div>
+                                <% } %>
+                                <!-- 날짜 -->
+                                <div class="inputWrap">
+                                    <label for="boardDate">작성일</label>
+                                    <input type="date" name="boardDate" id="boardDate" value="<%- data.boardDate %>">
+                                </div>
+                            </div>
+                            <!-- 제목 -->
+                            <div class="inputWrap">
+                                <label for="boardTitle">제목</label>
+                                <input type="text" name="boardTitle" id="boardTitle" value="<%- data.boardTitle %>">
+                            </div>
+                            <!-- 이미지 -->
+                            <div class="inputWrap">
+                                <label for="boardImg">이미지</label>
+                                <input type="file" name="boardImg" id="boardImg" multiple  value="<%- data.boardDate %>">
+                            </div>
+                            <!-- 내용 -->
+                            <div class="inputWrap">
+                                <label for="boardConts">내용</label>
+                                <textarea name="boardConts" id="boardConts">
+                                    <%- data.boardConts %>
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formRight">
+                        <button type="cancel" class="cancel">취소</button>
+                        <button type="submit" class="join">등록</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <%- include('../common/goTop.ejs') %>
+    </div>
+</body>
+</html>
