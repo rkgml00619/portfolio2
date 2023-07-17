@@ -119,15 +119,21 @@ app.get('/', (req, res) => {
 app.get("/about", (req, res)=>{ 
   db.collection("media").find().toArray((err,result)=>{
     res.render("about.ejs", {login: req.user, data: result})
-    console.log(result);
   })
 })
 // 어바웃어스 미디어 등록 경로
-app.get("/mediaUpload", (req, res)=>{
+const mediaImgUpload = upload.fields([{name: 'mediaUpload'}]);
+app.post("/mediaUpload", mediaImgUpload, (req, res)=>{    
+  let mediaImgs = [];
+  
+  for(let i = 0; i < req.files['mediaUpload'].length; i++){
+    mediaImgs[i] = req.files['mediaUpload'][i].filename;
+  }
+
   db.collection("count").findOne({title: "미디어"}, (err, mediaNum)=>{
     db.collection("media").insertOne({
       num: mediaNum.mediaCount,
-      mediaUpload: req.query.mediaUpload,
+      mediaUpload: mediaImgs,
     }, (err, result)=>{
       db.collection("count").updateOne({title: "미디어"}, {$inc: {mediaCount:1}}, (err, result)=>{
         res.redirect("/about");
@@ -164,7 +170,6 @@ app.get("/board/category/:url", (req, res)=>{
 // 게시판 목록 검색 데이터 전달
 app.get("/board/search", (req, res)=>{
   let currentUrlValue = req.query.currentUrl;
-  console.log(currentUrlValue)
   let check = [];
   if(currentUrlValue === "board"){
     check = [
@@ -173,7 +178,7 @@ app.get("/board/search", (req, res)=>{
           index: "mlb_board_search",
           text: {
             query: req.query.searchText,
-            path: [req.query.searchOption]
+            path: req.query.searchOption
           }
         }
       },
@@ -189,7 +194,7 @@ app.get("/board/search", (req, res)=>{
           index: "mlb_board_search",
           text: {
             query: req.query.searchText,
-            path: [req.query.searchOption]
+            path: req.query.searchOption
           }
         }
       },
@@ -202,7 +207,12 @@ app.get("/board/search", (req, res)=>{
     ]
   }
   db.collection("board").aggregate(check).toArray((err, result)=>{
-    res.render("board_list_category.ejs", {data: result, searchText:req.query.searchText, login: req.user, currentUrl:req.query.currentUrl})
+    if(currentUrlValue === "board"){
+      res.render("board/board_list.ejs", {data: result, searchText: req.query.searchText, login: req.user, currentUrl: req.query.currentUrl})
+    }
+    else {      
+      res.render("board/board_list_category.ejs", {data: result, searchText: req.query.searchText, login: req.user, currentUrl: req.query.currentUrl})
+    }
   })
 })
 
@@ -354,8 +364,6 @@ app.get('/shop/edit/register', (req, res) => {
 // 제품 등록 데이터
 const cpUpload = upload.fields([{ name: 'prdImg'}, {name: 'addPrdImg'} ,{ name: 'detailImg'}]);
 app.post("/shop/edit/register/data",cpUpload,(req,res)=>{
-  // console.log(req.files["addPrdImg"])
-
   let prdImgs = [];
   let addPrdImgs = [];
   let detailImgs = [];
@@ -488,7 +496,6 @@ app.get("/members/mypage/edit", (req, res) => {
 })
 // 마이페이지 수정된 데이터 업데이트
 app.post("/members/mypage/editUpdate", (req, res) => {
-  console.log(req.body.memberTel_one);
   db.collection("members").updateOne({memberId: req.user.memberId}, {$set: {
     memberName: req.body.memberName,
     memberPass: req.body.changePass,

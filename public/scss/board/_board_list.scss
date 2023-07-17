@@ -248,6 +248,17 @@
                 .list.on.show {
                     opacity: 1;
                 }
+                .notResult {
+                    width: 100%;
+                    text-align: center;
+                    p {
+                        font-size: 16px;
+                        font-weight: 300;
+                        line-height: 1.4;
+                        word-break: keep-all;
+                        padding: 60px 0;
+                    }
+                }
             }
 
             .moreWrap {

@@ -46,7 +46,7 @@
                             <% for( let i = 0; i < data.length; i++ ) { %>
                                 <% for( let h = 0; h < data[i].mediaUpload.length; h++ ) { %>
                                     <div class="mediaList">
-                                        <img src="/img/about/media/<%- data[i].mediaUpload[h] %>">
+                                        <img src="/upload/<%- data[i].mediaUpload[h] %>">
                                     </div>
                                 <% } %>
                             <% } %>
@@ -59,7 +59,7 @@
 
             <% if (login) { %>
                 <% if (login.memberId === "admin") { %>
-                    <form id="mediaUploadForm" action="/mediaUpload" method="get" enctype="multipart/form-data">
+                    <form id="mediaUploadForm" action="/mediaUpload" method="post" enctype="multipart/form-data">
                         <input type="file" id="mediaUpload" name="mediaUpload" multiple>
 
                         <button class="mediaUploadBtn" type="submit">이미지 등록</button>
@@ -78,7 +78,7 @@
                     </div>
                     <img class="playIcon" src="/img/about/play_icon_wh.svg">
                 </div>
-                <video muted loop>
+                <video muted loop poster="/img/about/about_video.png">
                     <source src="/img/about/about_video.mp4">
                 </video>
             </div>

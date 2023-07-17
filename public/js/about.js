@@ -24,13 +24,13 @@ const mediaVideo = document.querySelector(".cont4 .videoWrap video");
 // 이미지 경로에서 이미지명만 따로 빼서 배열에 담음
 let imageName = [];
 images.forEach(function(imgLink, idx){
-    imageName[idx] = imgLink.substring(38)
+    imageName[idx] = imgLink.substring(imgLink.lastIndexOf("/upload"));
 });
     
 // 서브이미지들 클릭 시 메인 이미지 경로 변경
 for(let i = 0; i < mediaLists.length; i++){
     mediaLists[i].onclick = function(){
-        mediaMainImg.src = `/img/about/media/${imageName[i]}`;
+        mediaMainImg.src = `${imageName[i]}`;
 
         mediaMainImg.onload = function() {
             imgResizing(mediaMainImg)

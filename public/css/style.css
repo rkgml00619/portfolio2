@@ -5334,6 +5334,17 @@ input::placeholder, textarea::placeholder {
 .board_list .cont2 .center .boardList .list.on.show {
   opacity: 1;
 }
+.board_list .cont2 .center .boardList .notResult {
+  width: 100%;
+  text-align: center;
+}
+.board_list .cont2 .center .boardList .notResult p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  word-break: keep-all;
+  padding: 60px 0;
+}
 .board_list .cont2 .center .moreWrap {
   width: 100%;
   display: flex;
