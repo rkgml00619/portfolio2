@@ -8,11 +8,13 @@ detailConts.innerText = detailConts.innerText.trim();
 
 detailImg.forEach(function(img, idx){
     imgLink[idx] = img.src;
-})
+});
+
+// console.log(imgLink[0].lastIndexOf("/upload"))
 
 imgLink.forEach(function(link, idx){
-    imgLink[idx] = link.substring(21)
-})
+    imgLink[idx] = link.substring(link.lastIndexOf("/upload"));
+});
 
 // div 내부의 텍스트 가져오기
 const detailText = detailConts.innerHTML;
@@ -40,18 +42,23 @@ detailConts.innerHTML = updatedText;
 
 detailImg.forEach(function(img){
     img.remove();
-})
+});
 
 
 // 게시물 삭제 버튼 눌렀을 때 확인 후 삭제
-const removeBtn = document.querySelector(".board_detail .cont2 .center .btnWrap .adminBtn a");
+const removeBtn = document.querySelector(".board_detail .cont2 .center .btnWrap .adminBtn a.remove");
 
-removeBtn.onclick = function(e) {
-    e.preventDefault();
-
-    let removeCheck = window.confirm("게시물을 삭제하시겠습니까?");
-
-    if (removeCheck) {
-        window.location = removeBtn.getAttribute("href");
-    }
-};
+if(removeBtn.parentElement.classList.contains("not")){
+    removeBtn.parentElement.style.display = "none";
+}
+else {
+    removeBtn.onclick = function(e) {
+        e.preventDefault();
+    
+        let removeCheck = window.confirm("게시물을 삭제하시겠습니까?");
+    
+        if (removeCheck) {
+            window.location = removeBtn.getAttribute("href");
+        }
+    };
+}
