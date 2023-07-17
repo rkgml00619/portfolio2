@@ -119,10 +119,3 @@ resetBtn.onclick = function(){
         alert("등록된 내용을 유지하였습니다.");
     }
 }
-
-
-// topMove 버튼 제어
-const topPosition = document.querySelector(".shop_register .cont1");
-
-goTopBtnMove(topPosition);
-

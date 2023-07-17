@@ -7,6 +7,7 @@ const mypageCheckPass = document.querySelector(".members_mypage .mypagePassCheck
 
 const mypageCheckPassBtn = document.querySelector(".members_mypage .mypagePassCheck .passCheckBtns .checkBtn");
 const mypageCheckPassCancelBtn = document.querySelector(".members_mypage .mypagePassCheck .passCheckBtns .cancel");
+const cancel = document.querySelector(".members_mypage .cont1 .center form .formRight .cancel");
 
 mypageUpdateBtn.onclick = function(e){
     e.preventDefault();
@@ -36,3 +37,9 @@ mypageCheckPass.addEventListener('keydown', (event) => {
       mypageCheckPassBtn.click(); // 특정 링크 클릭
     }
 });
+
+// 취소 버튼 클릭 시
+cancel.onclick = function(e){
+    e.preventDefault();
+    history.back();
+}

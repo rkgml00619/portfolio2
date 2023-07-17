@@ -219,13 +219,13 @@ emailSel.onclick = function(){
 cancel.onclick = function(e){
     e.preventDefault();
 
-    let cancelCheck = window.confirm("회원가입을 취소하시겠습니까?");
+    let cancelCheck = window.confirm("회원정보 수정을 취소하시겠습니까?");
 
     if(cancelCheck){
-        alert("회원가입이 취소되었습니다.");
+        alert("회원정보 수정이 취소되었습니다.");
         history.back();
     }
     else {
-        alert("회원가입을 계속 진행해주세요.")
+        alert("회원정보 수정을 계속 진행해주세요.")
     }
 }

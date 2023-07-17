@@ -55,31 +55,3 @@ removeBtn.onclick = function(e) {
         window.location = removeBtn.getAttribute("href");
     }
 };
-
-// function getImageDataUrl(imageUrl) {
-//     return axios
-//     .get(imageUrl, { responseType: "arraybuffer" })
-//     .then((response) => {
-//     const base64 = btoa(
-//         new Uint8Array(response.data).reduce(
-//         (data, byte) => data + String.fromCharCode(byte),
-//         ""
-//         )
-//     );
-//     return `data:${response.headers["content-type"]};base64,${base64}`;
-//     });
-// }
-
-// 이미지 데이터 URL 가져오기
-// getImageDataUrl(imgLink[0])
-//   .then((dataUrl) => {
-//     // 이미지 데이터 URL 사용
-//     const imgElement = document.createElement("img");
-//     imgElement.src = dataUrl;
-
-//     // 이미지를 원하는 곳에 추가 또는 처리
-//     // 예: document.body.appendChild(imgElement);
-//   })
-//   .catch((error) => {
-//     console.error("이미지 로드 중 오류 발생:", error);
-//   });

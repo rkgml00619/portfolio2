@@ -1,84 +1,86 @@
 <%- include('../header', jsFiles=["sub_common.js", "members/mypage.js"], cssFiles=[]) %>
 <div id="container" class="members_mypage">
-    <div class="cont1">
-        <div class="center">
-            <div class="titleWrap">
-                <h2 class="mainTitle poppins">My Page</h2>
-                <p class="subTitle"><%- login.memberName %>님, 가입된 정보들을 확인해보세요.</p>
-            </div>
+    <% if (login) { %>
+        <div class="cont1">
+            <div class="center">
+                <div class="titleWrap">
+                    <h2 class="mainTitle poppins">My Page</h2>
+                    <p class="subTitle"><%- login.memberName %>님, 가입된 정보들을 확인해보세요.</p>
+                </div>
 
-            <form action="/members/mypage/update" method="post" id="mypage">
-                <div class="formLeft">                 
-                    <div class="joinInfo">
-                        <h5 class="formGroupTit">회원정보</h5>
+                <form action="/members/mypage/update" method="post" id="mypage">
+                    <div class="formLeft">                 
+                        <div class="joinInfo">
+                            <h5 class="formGroupTit">회원정보</h5>
 
-                        <div class="joinInfoWrap">
-                            <!-- 아이디 -->
-                            <div class="inputWrap">
-                                <label for="memberId">아이디</label>
-                                <input type="text" name="memberId" id="memberId" value="<%- login.memberId %>" disabled>
-                            </div>
-                            <!-- 비밀번호 -->
-                            <div class="inputWrap">
-                                <label for="memberPass">비밀번호</label>
-                                <input type="password" name="memberPass" id="memberPass" value="<%- login.memberPass %>" disabled>
+                            <div class="joinInfoWrap">
+                                <!-- 아이디 -->
+                                <div class="inputWrap">
+                                    <label for="memberId">아이디</label>
+                                    <input type="text" name="memberId" id="memberId" value="<%- login.memberId %>" disabled>
+                                </div>
+                                <!-- 비밀번호 -->
+                                <div class="inputWrap">
+                                    <label for="memberPass">비밀번호</label>
+                                    <input type="password" name="memberPass" id="memberPass" value="<%- login.memberPass %>" disabled>
+                                </div>
                             </div>
                         </div>
+
+
+                        <div class="privacyInfo">
+                            <h5 class="formGroupTit">개인정보</h5>
+
+                            <div class="privacyInfoWrap">
+                                <!-- 이름 -->
+                                <div class="inputWrap">
+                                    <label for="memberName">이름</label>
+                                    <input type="text" name="memberName" id="memberName" value="<%- login.memberName %>" disabled>
+                                </div>
+                                <!-- 전화번호 -->
+                                <div class="inputWrap telWrap">
+                                    <label for="memberTel">전화번호</label>
+                                    <div class="telInputWrap">
+                                        <div class="telInputs">
+                                            <input type="tel" name="memberTel_one" id="memberTel_one" placeholder="010" value="010">
+
+                                            <p class="symbol">-</p>
+
+                                            <input type="tel" name="memberTel" id="memberTel" value="<%- login.memberTel %>" disabled>
+
+                                            <p class="symbol">-</p>
+
+                                            <input type="tel" name="memberTel_three" id="memberTel_three" value="<%- login.memberTel_three %>" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 이메일 -->
+                                <div class="inputWrap emailWrap">
+                                    <label for="membersEmail">이메일</label>
+                                    <div class="emailInputWrap">
+                                        <div class="emailInputs">
+                                            <input type="text" name="memberEmail" id="memberEmail" value="<%- login.memberEmail %>" disabled>
+            
+                                            <p class="symbol">@</p>
+            
+                                            <input type="text" name="emailTextSel" id="emailTextSel" value="<%- login.emailTextSel %>" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
                     </div>
-
-
-                    <div class="privacyInfo">
-                        <h5 class="formGroupTit">개인정보</h5>
-
-                        <div class="privacyInfoWrap">
-                            <!-- 이름 -->
-                            <div class="inputWrap">
-                                <label for="memberName">이름</label>
-                                <input type="text" name="memberName" id="memberName" value="<%- login.memberName %>" disabled>
-                            </div>
-                            <!-- 전화번호 -->
-                            <div class="inputWrap telWrap">
-                                <label for="memberTel">전화번호</label>
-                                <div class="telInputWrap">
-                                    <div class="telInputs">
-                                        <input type="tel" name="memberTel_one" id="memberTel_one" placeholder="010" value="010">
-
-                                        <p class="symbol">-</p>
-
-                                        <input type="tel" name="memberTel" id="memberTel" value="<%- login.memberTel %>" disabled>
-
-                                        <p class="symbol">-</p>
-
-                                        <input type="tel" name="memberTel_three" id="memberTel_three" value="<%- login.memberTel_three %>" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 이메일 -->
-                            <div class="inputWrap emailWrap">
-                                <label for="membersEmail">이메일</label>
-                                <div class="emailInputWrap">
-                                    <div class="emailInputs">
-                                        <input type="text" name="memberEmail" id="memberEmail" value="<%- login.memberEmail %>" disabled>
-        
-                                        <p class="symbol">@</p>
-        
-                                        <input type="text" name="emailTextSel" id="emailTextSel" value="<%- login.emailTextSel %>" disabled>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>   
-                </div>
-                <div class="formRight">
-                    <a type="reset" class="cancel">취소</a>
-                    <a type="submit" class="mypageBtn">수정</a>
-                </div>
-                <%- include('mypagePassCheck.ejs') %>
-            </form>
+                    <div class="formRight">
+                        <a type="reset" class="cancel">뒤로가기</a>
+                        <a type="submit" class="mypageBtn">수정</a>
+                    </div>
+                    <%- include('mypagePassCheck.ejs') %>
+                </form>
+            </div>
         </div>
-    </div>
+    
+    <% } %>
 
     <%- include('../common/goTop.ejs') %>
 </div>
-</body>
-</html>
+<%- include('../footer.ejs') %>

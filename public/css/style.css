@@ -198,6 +198,8 @@ input::placeholder, textarea::placeholder {
   display: flex;
   justify-content: center;
   z-index: 9999;
+  background: transparent;
+  transition: all 0.5s;
 }
 #header .center {
   width: 80%;
@@ -289,6 +291,10 @@ input::placeholder, textarea::placeholder {
   display: none;
 }
 
+#header.on {
+  background: #fff;
+}
+
 #header.sub {
   position: relative;
 }
@@ -334,6 +340,237 @@ input::placeholder, textarea::placeholder {
   }
   #header .center .detailWrap {
     display: none;
+  }
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid #000;
+  box-sizing: border-box;
+  height: 50vh;
+}
+.footer .center {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .center .left {
+  width: 60%;
+  margin-right: 60px;
+}
+.footer .center .left img {
+  width: block;
+  width: 150px;
+  margin-bottom: 40px;
+}
+.footer .center .left p {
+  margin-bottom: 20px;
+  font-weight: 300;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+.footer .center .left p:last-child {
+  margin-bottom: 0;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #999;
+}
+.footer .center .right {
+  width: calc(40% - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.footer .center .right .siteMap {
+  position: relative;
+  width: 200px;
+}
+.footer .center .right .siteMap .fMenuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #000;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+.footer .center .right .siteMap .fMenuBtn span {
+  color: #000;
+}
+.footer .center .right .siteMap .fMenu {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  border: 1px solid transparent;
+  border-top: 0;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.footer .center .right .siteMap .fMenu li {
+  width: 100%;
+  height: 50px;
+}
+.footer .center .right .siteMap .fMenu li:last-child a {
+  border-bottom: 0;
+}
+.footer .center .right .siteMap .fMenu li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #999;
+  border-bottom: 1px solid transparent;
+  padding: 20px;
+  border-bottom: 0;
+  box-sizing: border-box;
+  font-weight: 300;
+  transition: all 0.5s;
+  text-transform: uppercase;
+}
+.footer .center .right .siteMap .fMenu li a:hover {
+  background: #000;
+  color: #fff;
+}
+.footer .center .right .siteMap .fMenu.on {
+  height: 250px;
+  border: 1px solid #000;
+  border-top: 0;
+  opacity: 1;
+}
+.footer .center .right .siteMap .fMenu.on li a {
+  border-bottom: 1px solid #000;
+}
+.footer .center .right .csCenter {
+  text-align: right;
+}
+.footer .center .right .csCenter h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.footer .center .right .csCenter p {
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer {
+    height: 60vh;
+  }
+  .footer .center {
+    width: 90%;
+  }
+  .footer .center .left {
+    width: 60%;
+    margin-right: 60px;
+  }
+  .footer .center .left p {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  .footer .center .right .siteMap {
+    width: 200px;
+  }
+  .footer .center .right .csCenter {
+    text-align: right;
+  }
+  .footer .center .right .csCenter h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .footer .center .right .csCenter p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+}
+@media screen and (max-width: 820px) {
+  .footer {
+    height: 50vh;
+  }
+  .footer .center {
+    width: 90%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .footer .center .left {
+    width: 100%;
+    margin-right: 60px;
+  }
+  .footer .center .left p {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  .footer .center .right {
+    width: 100%;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+  .footer .center .right .siteMap {
+    width: 200px;
+  }
+  .footer .center .right .csCenter {
+    text-align: left;
+  }
+  .footer .center .right .csCenter h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .footer .center .right .csCenter p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    height: auto;
+    padding: 60px 0;
+  }
+  .footer .center {
+    width: 90%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .footer .center .left {
+    width: 100%;
+    margin-right: 60px;
+  }
+  .footer .center .left p {
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  .footer .center .right {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+  .footer .center .right .siteMap {
+    width: 100%;
+  }
+  .footer .center .right .csCenter {
+    text-align: left;
+  }
+  .footer .center .right .csCenter h2 {
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .footer .center .right .csCenter p {
+    font-size: 15px;
+    line-height: 1.4;
   }
 }
 #header_detail {
@@ -633,37 +870,6 @@ input::placeholder, textarea::placeholder {
     }
   }
 }
-.fixMenu {
-  position: fixed;
-  bottom: 50px;
-  left: 10%;
-  z-index: 999;
-}
-.fixMenu ul {
-  display: flex;
-}
-.fixMenu ul li {
-  margin-right: 20px;
-}
-.fixMenu ul li a {
-  display: none;
-  height: 5px;
-  width: 40px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 50px;
-  transition: all 0.5s;
-}
-.fixMenu ul li.active a {
-  width: 180px;
-  background: rgb(255, 255, 255);
-}
-.fixMenu ul li.dark a {
-  background: rgba(0, 0, 0, 0.6);
-}
-.fixMenu ul li.dark.active a {
-  background: rgb(0, 0, 0);
-}
-
 .main .textWrap .mainTitle {
   font-size: 160px;
   font-weight: 900;
@@ -772,7 +978,12 @@ input::placeholder, textarea::placeholder {
   display: flex;
   align-items: center;
 }
-.main .conts .contsWrap .bigBox {
+.main .conts .contsWrap a {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+.main .conts .contsWrap a .bigBox {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -780,14 +991,53 @@ input::placeholder, textarea::placeholder {
   align-items: center;
   transition: all 0.5s;
 }
-.main .conts .contsWrap .bigBox .textWrap {
+.main .conts .contsWrap a .bigBox .textWrap {
   width: 80%;
   opacity: 1;
   overflow: hidden;
   transition: opacity 0.2s;
 }
-.main .conts .contsWrap .bigBox .textWrap .mainTitle {
+.main .conts .contsWrap a .bigBox .textWrap .mainTitle {
   white-space: nowrap;
+}
+.main .conts .contsWrap a .bigBox .textWrap .textBottom {
+  display: flex;
+  align-items: center;
+}
+.main .conts .contsWrap a .bigBox .textWrap .textBottom .linkBtn {
+  margin-left: 40px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+.main .conts .contsWrap a .bigBox .textWrap .textBottom .linkBtn:hover {
+  background: #fff;
+}
+.main .conts .contsWrap a .bigBox .textWrap .textBottom .linkBtn:hover span.goText {
+  opacity: 0;
+}
+.main .conts .contsWrap a .bigBox .textWrap .textBottom .linkBtn:hover span.arrow {
+  opacity: 1;
+}
+.main .conts .contsWrap a .bigBox .textWrap .textBottom .linkBtn span {
+  position: absolute;
+  transition: all 0.5s;
+}
+.main .conts .contsWrap a .bigBox .textWrap .textBottom .linkBtn span.goText {
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 1;
+  color: #fff;
+}
+.main .conts .contsWrap a .bigBox .textWrap .textBottom .linkBtn span.arrow {
+  font-size: 40px;
+  opacity: 0;
+  color: #000;
 }
 .main .conts .contsWrap .rightBox {
   width: 0;
@@ -891,11 +1141,15 @@ input::placeholder, textarea::placeholder {
 .main .conts .contsWrap .rightBox .listWrap .listBox img.hover {
   opacity: 0;
 }
-.main .conts.show .contsWrap .bigBox {
+.main .conts.show .contsWrap a {
   width: 50%;
   height: 80%;
 }
-.main .conts.show .contsWrap .bigBox .textWrap {
+.main .conts.show .contsWrap a .bigBox {
+  width: 100%;
+  height: 100%;
+}
+.main .conts.show .contsWrap a .bigBox .textWrap {
   opacity: 0;
 }
 .main .conts.show .contsWrap .rightBox {
@@ -916,32 +1170,37 @@ input::placeholder, textarea::placeholder {
   overflow: hidden;
   position: relative;
 }
-.main .cont4 .contsWrap img {
+.main .cont4 .contsWrap a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.main .cont4 .contsWrap a img {
   width: 100%;
 }
-.main .cont4 .contsWrap .bigBox {
+.main .cont4 .contsWrap a .bigBox {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.main .cont4 .contsWrap .bigBox .textWrap {
+.main .cont4 .contsWrap a .bigBox .textWrap {
   width: 80%;
   margin-top: 60px;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .mainTitle {
+.main .cont4 .contsWrap a .bigBox .textWrap .mainTitle {
   color: #000;
   margin-bottom: 60px;
   font-size: 140px;
   position: relative;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.full {
+.main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.full {
   display: inline-block;
   width: 0;
   white-space: nowrap;
   overflow: hidden;
   transition: all 2s ease-out;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.line {
+.main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.line {
   position: absolute;
   top: -120%;
   left: 0%;
@@ -951,19 +1210,19 @@ input::placeholder, textarea::placeholder {
   white-space: nowrap;
   transition: all 0.6s;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.full.show {
+.main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.full.show {
   width: 100%;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.line.show {
+.main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.line.show {
   top: 0;
   opacity: 1;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .subTitle {
+.main .cont4 .contsWrap a .bigBox .textWrap .subTitle {
   display: flex;
   align-items: center;
   color: #000;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn {
+.main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn {
   width: 60px;
   height: 60px;
   border: 1px solid #000;
@@ -974,26 +1233,26 @@ input::placeholder, textarea::placeholder {
   justify-content: center;
   transition: all 0.5s;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn:hover {
+.main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn:hover {
   background: #000;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn:hover span.goText {
+.main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn:hover span.goText {
   opacity: 0;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn:hover span.arrow {
+.main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn:hover span.arrow {
   opacity: 1;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn span {
+.main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn span {
   position: absolute;
   transition: all 0.5s;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn span.goText {
+.main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn span.goText {
   font-size: 20px;
   font-weight: 600;
   opacity: 1;
   color: #000;
 }
-.main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn span.arrow {
+.main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn span.arrow {
   font-size: 40px;
   opacity: 0;
   color: #fff;
@@ -1046,10 +1305,15 @@ input::placeholder, textarea::placeholder {
     overflow: hidden;
     transition: all 0.5s;
   }
-  .main .conts .contsWrap .bigBox {
+  .main .conts .contsWrap a {
+    width: 100%;
     height: 100vh;
+    transition: all 0.5s;
   }
-  .main .conts .contsWrap .bigBox .textWrap {
+  .main .conts .contsWrap a .bigBox {
+    height: 100%;
+  }
+  .main .conts .contsWrap a .bigBox .textWrap {
     width: 90%;
   }
   .main .conts .contsWrap .rightBox {
@@ -1078,36 +1342,40 @@ input::placeholder, textarea::placeholder {
   .main .conts .contsWrap .rightBox .listWrap .listBox img {
     width: 100%;
   }
-  .main .conts.show .contsWrap .bigBox {
+  .main .conts.show .contsWrap a {
     width: 50%;
-    height: 70vh;
+    height: 80vh;
+  }
+  .main .conts.show .contsWrap a .bigBox {
+    width: 100%;
+    height: 100%;
   }
   .main .cont4 .contsWrap {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .main .cont4 .contsWrap img {
+  .main .cont4 .contsWrap a img {
     width: 140%;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap {
+  .main .cont4 .contsWrap a .bigBox .textWrap {
     width: 90%;
     margin-top: 60px;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle {
     color: #000;
     margin-bottom: 60px;
     font-size: 100px;
     position: relative;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.full {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.full {
     display: inline-block;
     width: 0;
     white-space: nowrap;
     overflow: hidden;
     transition: all 2s ease-out;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.line {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.line {
     position: absolute;
     top: -120%;
     left: 0%;
@@ -1117,19 +1385,19 @@ input::placeholder, textarea::placeholder {
     white-space: nowrap;
     transition: all 0.6s;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.full.show {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.full.show {
     width: 100%;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.line.show {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.line.show {
     top: 0;
     opacity: 1;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle {
     display: flex;
     align-items: center;
     color: #000;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn {
     width: 60px;
     height: 60px;
     border: 1px solid #000;
@@ -1140,26 +1408,26 @@ input::placeholder, textarea::placeholder {
     justify-content: center;
     transition: all 0.5s;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn:hover {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn:hover {
     background: #000;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn:hover span.goText {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn:hover span.goText {
     opacity: 0;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn:hover span.arrow {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn:hover span.arrow {
     opacity: 1;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn span {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn span {
     position: absolute;
     transition: all 0.5s;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn span.goText {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn span.goText {
     font-size: 20px;
     font-weight: 600;
     opacity: 1;
     color: #000;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn span.arrow {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn span.arrow {
     font-size: 40px;
     opacity: 0;
     color: #fff;
@@ -1167,7 +1435,7 @@ input::placeholder, textarea::placeholder {
 }
 @media screen and (max-width: 820px) {
   .main .textWrap .mainTitle {
-    font-size: 140px;
+    font-size: 110px;
     margin-bottom: 40px;
   }
   .main .textWrap .subTitle {
@@ -1202,15 +1470,19 @@ input::placeholder, textarea::placeholder {
     align-items: center;
     justify-content: space-between;
   }
-  .main .conts .contsWrap .bigBox {
+  .main .conts .contsWrap a {
     width: 100%;
     height: 100vh;
+  }
+  .main .conts .contsWrap a .bigBox {
+    width: 100%;
+    height: 100%;
     transition: all 0.5s;
   }
-  .main .conts .contsWrap .bigBox .textWrap {
+  .main .conts .contsWrap a .bigBox .textWrap {
     width: 90%;
   }
-  .main .conts .contsWrap .bigBox .textWrap .mainTitle {
+  .main .conts .contsWrap a .bigBox .textWrap .mainTitle {
     white-space: wrap;
   }
   .main .conts .contsWrap .rightBox {
@@ -1304,11 +1576,15 @@ input::placeholder, textarea::placeholder {
   .main .conts .contsWrap .rightBox .listWrap .listBox img.hover {
     opacity: 0;
   }
-  .main .conts.show .contsWrap .bigBox {
+  .main .conts.show .contsWrap a {
     width: 100%;
     height: 40vh;
   }
-  .main .conts.show .contsWrap .bigBox .textWrap {
+  .main .conts.show .contsWrap a .bigBox {
+    width: 100%;
+    height: 100%;
+  }
+  .main .conts.show .contsWrap a .bigBox .textWrap {
     opacity: 0;
   }
   .main .conts.show .contsWrap .rightBox {
@@ -1324,39 +1600,36 @@ input::placeholder, textarea::placeholder {
   .main .cont3 .contsWrap .bigBox {
     background: url(../img/main/main_bg_3.png) no-repeat center/cover;
   }
-  .main .cont4 .contsWrap {
-    position: relative;
-  }
-  .main .cont4 .contsWrap img {
+  .main .cont4 .contsWrap a img {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     width: auto;
     height: 24vh;
   }
-  .main .cont4 .contsWrap .bigBox {
+  .main .cont4 .contsWrap a .bigBox {
     margin-top: 24vh;
     width: 100%;
     height: 100%;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap {
+  .main .cont4 .contsWrap a .bigBox .textWrap {
     width: 90%;
     margin-top: 10vh;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle {
     color: #000;
     margin-bottom: 60px;
     font-size: 120px;
     position: relative;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.full {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.full {
     display: inline-block;
     width: 0;
     white-space: wrap;
     overflow: hidden;
     transition: all 2s ease-out;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.line {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.line {
     position: absolute;
     top: -120%;
     left: 0%;
@@ -1366,19 +1639,19 @@ input::placeholder, textarea::placeholder {
     white-space: wrap;
     transition: all 0.6s;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.full.show {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.full.show {
     width: 100%;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle span.line.show {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle span.line.show {
     top: 0;
     opacity: 1;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle {
     display: flex;
     align-items: center;
     color: #000;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn {
     width: 60px;
     height: 60px;
     border: 1px solid #000;
@@ -1389,26 +1662,26 @@ input::placeholder, textarea::placeholder {
     justify-content: center;
     transition: all 0.5s;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn:hover {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn:hover {
     background: #000;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn:hover span.goText {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn:hover span.goText {
     opacity: 0;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn:hover span.arrow {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn:hover span.arrow {
     opacity: 1;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn span {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn span {
     position: absolute;
     transition: all 0.5s;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn span.goText {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn span.goText {
     font-size: 20px;
     font-weight: 600;
     opacity: 1;
     color: #000;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn span.arrow {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn span.arrow {
     font-size: 40px;
     opacity: 0;
     color: #fff;
@@ -1461,16 +1734,28 @@ input::placeholder, textarea::placeholder {
     align-items: center;
     justify-content: space-between;
   }
-  .main .conts .contsWrap .bigBox {
+  .main .conts .contsWrap a {
     width: 100%;
     height: 100vh;
+  }
+  .main .conts .contsWrap a .bigBox {
+    width: 100%;
+    height: 100%;
     transition: all 0.5s;
   }
-  .main .conts .contsWrap .bigBox .textWrap {
+  .main .conts .contsWrap a .bigBox .textWrap {
     width: 90%;
   }
-  .main .conts .contsWrap .bigBox .textWrap .mainTitle {
+  .main .conts .contsWrap a .bigBox .textWrap .mainTitle {
     white-space: wrap;
+  }
+  .main .conts .contsWrap a .bigBox .textWrap .textBottom {
+    display: block;
+    align-items: center;
+  }
+  .main .conts .contsWrap a .bigBox .textWrap .textBottom .linkBtn {
+    margin-left: 0;
+    margin-top: 40px;
   }
   .main .conts .contsWrap .rightBox {
     width: 90%;
@@ -1503,11 +1788,15 @@ input::placeholder, textarea::placeholder {
     margin-right: 0;
     margin-bottom: 20px;
   }
-  .main .conts.show .contsWrap .bigBox {
+  .main .conts.show .contsWrap a {
     width: 100%;
     height: 40vh;
   }
-  .main .conts.show .contsWrap .bigBox .textWrap {
+  .main .conts.show .contsWrap a .bigBox {
+    width: 100%;
+    height: 100%;
+  }
+  .main .conts.show .contsWrap a .bigBox .textWrap {
     opacity: 0;
   }
   .main .conts.show .contsWrap .rightBox {
@@ -1517,25 +1806,25 @@ input::placeholder, textarea::placeholder {
     margin-left: 0;
     opacity: 1;
   }
-  .main .cont4 .contsWrap .bigBox {
+  .main .cont4 .contsWrap a .bigBox {
     margin-top: 24vh;
     width: 100%;
     height: 100%;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap {
+  .main .cont4 .contsWrap a .bigBox .textWrap {
     width: 90%;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .mainTitle {
+  .main .cont4 .contsWrap a .bigBox .textWrap .mainTitle {
     margin-bottom: 60px;
     font-size: 62px;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     color: #000;
   }
-  .main .cont4 .contsWrap .bigBox .textWrap .subTitle .linkBtn {
+  .main .cont4 .contsWrap a .bigBox .textWrap .subTitle .linkBtn {
     margin-left: 0;
     margin-top: 60px;
   }
@@ -1830,7 +2119,6 @@ input::placeholder, textarea::placeholder {
 }
 .shop_register .cont1 .center form {
   border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
   display: flex;
   justify-content: space-between;
   padding: 60px 0;
@@ -4992,7 +5280,14 @@ input::placeholder, textarea::placeholder {
   opacity: 1;
   margin-bottom: 40px;
 }
-.board_list .cont2 .center .boardList .list .imgWrap {
+.board_list .cont2 .center .boardList .list:hover a .imgWrap img {
+  transform: scale(1.2);
+}
+.board_list .cont2 .center .boardList .list a {
+  display: block;
+  width: 100%;
+}
+.board_list .cont2 .center .boardList .list a .imgWrap {
   width: 100%;
   height: 260px;
   overflow: hidden;
@@ -5001,11 +5296,12 @@ input::placeholder, textarea::placeholder {
   align-items: center;
   justify-content: center;
 }
-.board_list .cont2 .center .boardList .list .imgWrap img {
+.board_list .cont2 .center .boardList .list a .imgWrap img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  transition: all 0.5s;
 }
-.board_list .cont2 .center .boardList .list .textWrap {
+.board_list .cont2 .center .boardList .list a .textWrap {
   width: 100%;
   height: 80px;
   margin: 20px 0;
@@ -5014,10 +5310,10 @@ input::placeholder, textarea::placeholder {
   flex-direction: column;
   justify-content: space-between;
 }
-.board_list .cont2 .center .boardList .list .textWrap .brdTitle {
+.board_list .cont2 .center .boardList .list a .textWrap .brdTitle {
   color: #000;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 1.3;
   font-weight: 500;
   word-break: keep-all;
   text-overflow: ellipsis;
@@ -5026,7 +5322,7 @@ input::placeholder, textarea::placeholder {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
-.board_list .cont2 .center .boardList .list .textWrap .brdDate {
+.board_list .cont2 .center .boardList .list a .textWrap .brdDate {
   font-size: 15px;
   font-weight: 300;
   color: #999;
@@ -5120,57 +5416,139 @@ input::placeholder, textarea::placeholder {
     opacity: 1;
     margin-bottom: 30px;
   }
-  .board_list .cont2 .center .boardList .list .imgWrap {
+  .board_list .cont2 .center .boardList .list.on {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 820px) {
+  .board_list .cont2 .center {
+    width: 90%;
+  }
+  .board_list .cont2 .center .boardTop .boardMenus li::after {
+    margin: 0 30px;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch {
     width: 100%;
-    height: 260px;
-    overflow: hidden;
-    border-radius: 5px;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch .selectTag {
+    width: 30%;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch .selectTag .searchSelect {
+    padding: 0 10px;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch .selectTag .searchOption li {
+    padding: 0 10px;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch #searchText {
+    width: 60%;
+  }
+  .board_list .cont2 .center .boardList .list .imgWrap {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .board_list .cont1 .center {
+    width: 90%;
+    padding: 30px 0;
+  }
+  .board_list .cont1 .center .titleWrap .mainTitle {
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+  .board_list .cont1 .center .titleWrap .subTitle {
+    font-size: 18px;
+  }
+  .board_list .cont2 {
+    padding: 60px 0;
+  }
+  .board_list .cont2 .center {
+    width: 90%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
   }
-  .board_list .cont2 .center .boardList .list .imgWrap img {
+  .board_list .cont2 .center .boardTop {
     width: 100%;
-    height: 100%;
-  }
-  .board_list .cont2 .center .boardList .list .textWrap {
-    width: 100%;
-    height: 80px;
-    margin: 20px 0;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
   }
-  .board_list .cont2 .center .boardList .list .textWrap .brdTitle {
-    color: #000;
-    font-size: 18px;
-    line-height: 1.2;
-    font-weight: 500;
-    word-break: keep-all;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  .board_list .cont2 .center .boardTop .boardMenus {
+    width: 100%;
+    display: flex;
+    margin-bottom: 40px;
   }
-  .board_list .cont2 .center .boardList .list .textWrap .brdDate {
-    font-size: 15px;
-    font-weight: 300;
-    color: #999;
+  .board_list .cont2 .center .boardTop .boardMenus li {
+    width: 33.333333%;
+    display: block;
+    position: relative;
+    text-align: center;
+  }
+  .board_list .cont2 .center .boardTop .boardMenus li::after {
+    content: "|";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin: 0;
+  }
+  .board_list .cont2 .center .boardTop .boardMenus li a {
+    font-size: 20px;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch {
+    width: 100%;
+    display: flex;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch .selectTag {
+    width: 25%;
+    height: 50px;
+    position: relative;
+    margin-right: 5px;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch .selectTag .searchSelect {
+    padding: 0 10px;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch .selectTag .searchOption li {
+    padding: 0 10px;
+  }
+  .board_list .cont2 .center .boardTop #boardSearch #searchText {
+    width: 60%;
+  }
+  .board_list .cont2 .center .boardList {
+    width: 100%;
+    display: block;
+    justify-content: flex-start;
+    align-content: flex-start;
+  }
+  .board_list .cont2 .center .boardList .list {
+    width: 100%;
+    margin-right: 0;
+  }
+  .board_list .cont2 .center .boardList .list:nth-child(4n) {
+    margin-right: 20px;
+  }
+  .board_list .cont2 .center .boardList .list:nth-child(3n) {
+    margin-right: 20px;
+  }
+  .board_list .cont2 .center .boardList .list:nth-child(1n) {
+    margin-right: 0;
+  }
+  .board_list .cont2 .center .boardList .list:nth-child(-n+8) {
+    display: block;
+    opacity: 1;
+    margin-bottom: 40px;
   }
   .board_list .cont2 .center .boardList .list.on {
-    display: block;
-    margin-bottom: 30px;
-  }
-  .board_list .cont2 .center .boardList .list.on.show {
-    opacity: 1;
+    margin-bottom: 40px;
   }
   .board_list .cont2 .center .moreWrap {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 40px;
   }
   .board_list .cont2 .center .moreWrap .moreBtn {
     display: flex;
@@ -5196,8 +5574,8 @@ input::placeholder, textarea::placeholder {
   .board_list .cont2 .center .boardAdminBtn {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    margin: 40px 0;
+    justify-content: center;
+    margin: 60px 0 40px;
   }
   .board_list .cont2 .center .boardAdminBtn a.uploadBtn {
     padding: 18px 30px;
@@ -5210,174 +5588,10 @@ input::placeholder, textarea::placeholder {
     color: #fff;
   }
 }
-@media screen and (max-width: 768px) {
-  .about .cont1 .center {
-    width: 90%;
-    padding: 30px 0;
-  }
-  .about .cont1 .center .titleWrap .mainTitle {
-    font-size: 50px;
-    margin-bottom: 10px;
-  }
-  .about .cont1 .center .titleWrap .subTitle {
-    font-size: 18px;
-  }
-  .about .cont2 .bigImg {
-    width: 100%;
-  }
-  .about .cont2 .center {
-    width: 90%;
-    display: block;
-    padding: 60px 0 80px;
-  }
-  .about .cont2 .center .left {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 40px;
-  }
-  .about .cont2 .center .left .logoImg {
-    width: 40%;
-    display: block;
-    margin-bottom: 0;
-  }
-  .about .cont2 .center .left .linkBtns {
-    width: calc(60% - 40px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .about .cont2 .center .left .linkBtns a {
-    width: 90%;
-    margin-bottom: 0;
-    padding: 12px 15px;
-    font-size: 13px;
-  }
-  .about .cont2 .center .right {
-    width: 100%;
-  }
-  .about .cont2 .center .right .aboutTit {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-  .about .cont2 .center .right .txt {
-    font-size: 16px;
-  }
-  .about .cont3 {
-    display: flex;
-    justify-content: center;
-  }
-  .about .cont3 .center {
-    width: 90%;
-  }
-  .about .cont3 .center .title {
-    font-size: 26px;
-  }
-  .about .cont3 .center .mediaConts {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 30px;
-  }
-  .about .cont3 .center .mediaConts .mediaLeft {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .about .cont3 .center .mediaConts .mediaLeft .mediaMainImg {
-    width: 100%;
-  }
-  .about .cont3 .center .mediaConts .mediaRight {
-    width: 100%;
-    align-items: flex-start;
-    align-content: flex-start;
-  }
-  .about .cont3 .center .mediaConts .mediaRight .mediaList {
-    width: calc(33.333333% - 10px);
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  .about .cont3 .center .mediaConts .mediaRight .mediaList:nth-child(2n) {
-    margin-right: 10px;
-  }
-  .about .cont3 .center .mediaConts .mediaRight .mediaList:nth-child(3n) {
-    margin-right: 0;
-  }
-  .about .cont3 .center #mediaUploadForm {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0;
-  }
-  .about .cont3 .center #mediaUploadForm input {
-    width: 64%;
-    padding: 10px;
-    margin-right: 0;
-  }
-  .about .cont4 {
-    display: flex;
-    justify-content: center;
-    padding: 40px 0;
-  }
-  .about .cont4 .center {
-    width: 90%;
-  }
-  .about .cont4 .center .videoWrap {
-    width: 100%;
-    position: relative;
-  }
-  .about .cont4 .center .videoWrap .overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.2);
-    transition: all 0.5s;
-  }
-  .about .cont4 .center .videoWrap .overlay .playBtn {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 20;
-    background: url(../img/about/playBtn_bg.png) no-repeat center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-  .about .cont4 .center .videoWrap .overlay .playBtn:hover {
-    animation: playBtnHover 1s;
-  }
-  @keyframes playBtnHover {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    0% {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
-  }
-  .about .cont4 .center .videoWrap .overlay .playIcon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    margin-left: 4px;
-  }
-  .about .cont4 .center .videoWrap video {
-    width: 100%;
-  }
-}
 .board_upload .cont1 {
   width: 100%;
   display: flex;
   justify-content: center;
-  border-bottom: 2px solid #000;
 }
 .board_upload .cont1 .center {
   width: 80%;
@@ -5407,6 +5621,7 @@ input::placeholder, textarea::placeholder {
   width: 80%;
 }
 .board_upload .cont2 .center form {
+  border-top: 2px solid #000;
   display: flex;
   justify-content: space-between;
   padding: 60px 0;
@@ -5522,152 +5737,108 @@ input::placeholder, textarea::placeholder {
 }
 
 @media screen and (max-width: 1200px) {
-  .members_mypageUpdate .cont1 {
+  .board_upload .cont1 {
     margin-top: 50px;
   }
-  .members_mypageUpdate .cont1 .center {
+  .board_upload .cont1 .center {
     width: 90%;
+    padding: 0;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap {
+  .board_upload .cont1 .center .titleWrap {
     margin-bottom: 50px;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap .mainTitle {
+  .board_upload .cont1 .center .titleWrap .mainTitle {
     font-size: 60px;
     margin-bottom: 30px;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap .subTitle {
+  .board_upload .cont1 .center .titleWrap .subTitle {
     font-size: 28px;
   }
-  .members_mypageUpdate .cont1 .center form {
+  .board_upload .cont2 .center {
+    width: 90%;
+  }
+  .board_upload .cont2 .center form {
     padding: 60px 0;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft {
+  .board_upload .cont2 .center form .formLeft {
     width: 100%;
     margin-right: 50px;
     padding-right: 50px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div {
+  .board_upload .cont2 .center form .formLeft .InfoWrap {
     margin-bottom: 40px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div .formGroupTit {
-    font-size: 22px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div p.label {
-    font-size: 18px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div {
-    padding: 20px 0;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap {
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap {
     margin-bottom: 30px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap label {
-    font-size: 18px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap select {
-    width: 50%;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText {
-    display: none;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: 16px;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap p.label, .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap label {
+    display: block;
+    font-size: 20px;
     font-weight: 300;
-    color: red;
+    margin-bottom: 10px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap {
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap input, .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap select {
+    display: inline-block;
+    width: 40%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap textarea {
+    border-radius: 5px;
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap #boardTitle {
+    width: 80%;
+  }
+  .board_upload .cont2 .center form .formLeft .InfoWrap .twoWrap {
+    width: 60%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs {
+  .board_upload .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap {
+    width: calc(50% - 10px);
+  }
+  .board_upload .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap input {
     width: 100%;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap {
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs {
-    width: 100%;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap {
-    margin-bottom: 40px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap:last-child {
-    margin-bottom: 0;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap input {
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span input {
     width: 0;
     height: 0;
     display: none;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label {
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel {
+    width: 140px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
     display: flex;
     align-items: center;
-    font-size: 18px;
-    font-weight: 300;
+    justify-content: center;
+    transition: all 0.5s;
+    cursor: pointer;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span {
-    display: block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-right: 10px;
-    position: relative;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon {
-    opacity: 0;
-    width: 20px;
-    height: 20px;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel:hover {
     background: #000;
     color: #fff;
-    z-index: 20;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-variation-settings: "wght" 300;
-    font-size: 24px;
+    border: 1px solid #000;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon.checked {
-    opacity: 1;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel.select {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
-    width: 100%;
-    height: auto;
-    overflow: auto;
-    padding: 30px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-         user-select: none;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs .errText {
-    margin-left: 0;
-    margin-top: 10px;
-    line-height: 1.4;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement {
-    height: 300px;
-    overflow: auto;
-  }
-  .members_mypageUpdate .cont1 .center form .formRight {
+  .board_upload .cont2 .center form .formRight {
     width: calc(40% - 50px);
     height: 400px;
     display: flex;
@@ -5677,7 +5848,7 @@ input::placeholder, textarea::placeholder {
     top: 40px;
     right: 0;
   }
-  .members_mypageUpdate .cont1 .center form .formRight button {
+  .board_upload .cont2 .center form .formRight button {
     display: block;
     width: 100%;
     height: 60px;
@@ -5689,80 +5860,122 @@ input::placeholder, textarea::placeholder {
     cursor: pointer;
     transition: all 0.5s;
   }
-  .members_mypageUpdate .cont1 .center form .formRight .reset {
+  .board_upload .cont2 .center form .formRight .reset {
     background: #ccc;
   }
-  .members_mypageUpdate .cont1 .center form .formRight .register {
+  .board_upload .cont2 .center form .formRight .register {
     background: #000;
   }
 }
 @media screen and (max-width: 768px) {
-  .members_mypageUpdate .cont1 {
+  .board_upload .cont1 {
     width: 100%;
     margin-top: 40px;
   }
-  .members_mypageUpdate .cont1 .center {
+  .board_upload .cont1 .center {
     width: 90%;
+    padding: 0;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap {
+  .board_upload .cont1 .center .titleWrap {
     margin-bottom: 40px;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap .mainTitle {
+  .board_upload .cont1 .center .titleWrap .mainTitle {
     font-size: 36px;
     margin-bottom: 20px;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap .subTitle {
+  .board_upload .cont1 .center .titleWrap .subTitle {
     font-size: 20px;
     font-weight: 300;
     color: #000;
   }
-  .members_mypageUpdate .cont1 .center form {
+  .board_upload .cont2 .center {
+    width: 90%;
+  }
+  .board_upload .cont2 .center form {
     display: block;
     padding: 40px 0;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft {
+  .board_upload .cont2 .center form .formLeft {
     width: 100%;
     margin-right: 0;
     border-right: 0;
     padding-right: 0;
     box-sizing: border-box;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div {
+  .board_upload .cont2 .center form .formLeft .InfoWrap {
     margin-bottom: 40px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div .formGroupTit {
-    font-size: 20px;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap {
+    margin-bottom: 30px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div p.label {
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap p.label, .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap label {
+    display: block;
     font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div {
-    padding: 20px 0;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap input, .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap select {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 16px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap select {
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap textarea {
+    border-radius: 5px;
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap #boardTitle {
     width: 100%;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
-    display: block;
-    font-size: 16px;
-    padding: 15px 20px;
-    margin-left: 0;
-    margin-top: 10px;
-    text-align: center;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .twoWrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText {
-    margin-left: 0;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap {
+    width: calc(50% - 10px);
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap {
-    margin-bottom: 40px;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap input {
+    width: 100%;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label {
-    font-size: 18px;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys {
+    display: flex;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
-    padding: 20px;
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span input {
+    width: 0;
+    height: 0;
+    display: none;
   }
-  .members_mypageUpdate .cont1 .center form .formRight {
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel {
+    width: 140px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel:hover {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+  }
+  .board_upload .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel.select {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+  }
+  .board_upload .cont2 .center form .formRight {
     width: 100%;
     height: auto;
     display: flex;
@@ -5774,16 +5987,16 @@ input::placeholder, textarea::placeholder {
     right: 0;
     padding: 20px 0;
   }
-  .members_mypageUpdate .cont1 .center form .formRight button {
+  .board_upload .cont2 .center form .formRight button {
     display: block;
     width: calc((100% - 10px) / 2);
     height: 60px;
     margin-bottom: 0;
   }
-  .members_mypageUpdate .cont1 .center form .formRight .reset {
+  .board_upload .cont2 .center form .formRight .reset {
     background: #ccc;
   }
-  .members_mypageUpdate .cont1 .center form .formRight .register {
+  .board_upload .cont2 .center form .formRight .register {
     background: #000;
   }
 }
@@ -5830,6 +6043,7 @@ input::placeholder, textarea::placeholder {
   border-bottom: 2px solid #000;
 }
 .board_detail .cont2 .center .detailTop .left {
+  width: 90%;
   display: flex;
   align-items: center;
 }
@@ -5848,7 +6062,10 @@ input::placeholder, textarea::placeholder {
 }
 .board_detail .cont2 .center .detailTop .left .brdTitle {
   font-size: 24px;
+  line-height: 1.3;
   font-weight: 500;
+  box-sizing: border-box;
+  padding-right: 20px;
 }
 .board_detail .cont2 .center .detailTop .brdDate {
   font-size: 16px;
@@ -5892,221 +6109,137 @@ input::placeholder, textarea::placeholder {
 }
 .board_detail .cont2 .center .btnWrap .adminBtn {
   display: flex;
+  justify-content: flex-end;
 }
 .board_detail .cont2 .center .btnWrap .adminBtn a {
   margin-right: 10px;
 }
+.board_detail .cont2 .center .btnWrap .adminBtn a:last-child {
+  margin-right: 0;
+}
 
 @media screen and (max-width: 1200px) {
-  .about .cont1 {
+  .board_detail .cont1 {
     width: 100%;
   }
-  .about .cont1 .center {
+  .board_detail .cont1 .center {
     width: 90%;
     padding: 40px 0;
   }
-  .about .cont1 .center .titleWrap .mainTitle {
+  .board_detail .cont1 .center .titleWrap .mainTitle {
     font-size: 80px;
     margin-bottom: 20px;
   }
-  .about .cont1 .center .titleWrap .subTitle {
+  .board_detail .cont1 .center .titleWrap .subTitle {
     font-size: 26px;
   }
-  .about .cont2 .center {
-    width: 90%;
+  .board_detail .cont2 {
+    padding: 60px 0;
   }
-  .about .cont2 .center .left {
-    width: 20%;
-  }
-  .about .cont2 .center .left .logoImg {
-    width: 100%;
-  }
-  .about .cont2 .center .left .linkBtns a {
-    width: 100%;
-  }
-  .about .cont2 .center .right {
-    width: calc(80% - 80px);
-  }
-  .about .cont3 .center {
-    width: 90%;
-  }
-  .about .cont3 .center .mediaConts .mediaRight .mediaList {
-    width: calc(50% - 10px);
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  .about .cont4 .center {
+  .board_detail .cont2 .center {
     width: 90%;
   }
 }
+@media screen and (max-width: 820px) {
+  .board_detail .cont1 {
+    width: 100%;
+  }
+  .board_detail .cont1 .center {
+    width: 90%;
+    padding: 40px 0;
+  }
+  .board_detail .cont1 .center .titleWrap .mainTitle {
+    font-size: 80px;
+    margin-bottom: 20px;
+  }
+  .board_detail .cont1 .center .titleWrap .subTitle {
+    font-size: 26px;
+  }
+  .board_detail .cont2 {
+    padding: 60px 0;
+  }
+  .board_detail .cont2 .center {
+    width: 90%;
+  }
+  .board_detail .cont2 .center .detailTop .left {
+    width: 100%;
+  }
+  .board_detail .cont2 .center .detailTop .brdDate {
+    display: none;
+  }
+}
 @media screen and (max-width: 768px) {
-  .about .cont1 .center {
+  .board_detail .cont1 .center {
     width: 90%;
     padding: 30px 0;
   }
-  .about .cont1 .center .titleWrap .mainTitle {
+  .board_detail .cont1 .center .titleWrap .mainTitle {
     font-size: 50px;
     margin-bottom: 10px;
   }
-  .about .cont1 .center .titleWrap .subTitle {
+  .board_detail .cont1 .center .titleWrap .subTitle {
     font-size: 18px;
   }
-  .about .cont2 .bigImg {
-    width: 100%;
-  }
-  .about .cont2 .center {
-    width: 90%;
-    display: block;
-    padding: 60px 0 80px;
-  }
-  .about .cont2 .center .left {
+  .board_detail .cont2 {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 40px;
-  }
-  .about .cont2 .center .left .logoImg {
-    width: 40%;
-    display: block;
-    margin-bottom: 0;
-  }
-  .about .cont2 .center .left .linkBtns {
-    width: calc(60% - 40px);
-    display: flex;
-    align-items: center;
     justify-content: center;
+    padding: 20px 0;
   }
-  .about .cont2 .center .left .linkBtns a {
+  .board_detail .cont2 .center {
     width: 90%;
-    margin-bottom: 0;
-    padding: 12px 15px;
-    font-size: 13px;
   }
-  .about .cont2 .center .right {
+  .board_detail .cont2 .center .detailTop .left {
     width: 100%;
+    display: block;
+    align-items: center;
   }
-  .about .cont2 .center .right .aboutTit {
-    font-size: 20px;
-    margin-bottom: 20px;
+  .board_detail .cont2 .center .detailTop .left .brdCategory {
+    display: inline-block;
+    font-size: 14px;
   }
-  .about .cont2 .center .right .txt {
+  .board_detail .cont2 .center .detailTop .left .brdTitle {
+    font-size: 22px;
+    padding-right: 0;
+    margin-top: 10px;
+    letter-spacing: -0.5px;
+  }
+  .board_detail .cont2 .center .detailTop .brdDate {
     font-size: 16px;
+    font-weight: 300;
+    color: #999;
   }
-  .about .cont3 {
-    display: flex;
-    justify-content: center;
-  }
-  .about .cont3 .center {
-    width: 90%;
-  }
-  .about .cont3 .center .title {
-    font-size: 26px;
-  }
-  .about .cont3 .center .mediaConts {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 30px;
-  }
-  .about .cont3 .center .mediaConts .mediaLeft {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .about .cont3 .center .mediaConts .mediaLeft .mediaMainImg {
-    width: 100%;
-  }
-  .about .cont3 .center .mediaConts .mediaRight {
-    width: 100%;
-    align-items: flex-start;
-    align-content: flex-start;
-  }
-  .about .cont3 .center .mediaConts .mediaRight .mediaList {
-    width: calc(33.333333% - 10px);
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
-  .about .cont3 .center .mediaConts .mediaRight .mediaList:nth-child(2n) {
-    margin-right: 10px;
-  }
-  .about .cont3 .center .mediaConts .mediaRight .mediaList:nth-child(3n) {
-    margin-right: 0;
-  }
-  .about .cont3 .center #mediaUploadForm {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0;
-  }
-  .about .cont3 .center #mediaUploadForm input {
-    width: 64%;
-    padding: 10px;
-    margin-right: 0;
-  }
-  .about .cont4 {
-    display: flex;
-    justify-content: center;
+  .board_detail .cont2 .center .content {
     padding: 40px 0;
   }
-  .about .cont4 .center {
-    width: 90%;
+  .board_detail .cont2 .center .content img {
+    margin-bottom: 20px;
+    max-width: 100%;
   }
-  .about .cont4 .center .videoWrap {
-    width: 100%;
-    position: relative;
+  .board_detail .cont2 .center .content p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    word-break: keep-all;
+    white-space: break-spaces;
   }
-  .about .cont4 .center .videoWrap .overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.2);
-    transition: all 0.5s;
-  }
-  .about .cont4 .center .videoWrap .overlay .playBtn {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 20;
-    background: url(../img/about/playBtn_bg.png) no-repeat center/cover;
+  .board_detail .cont2 .center .btnWrap {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
   }
-  .about .cont4 .center .videoWrap .overlay .playBtn:hover {
-    animation: playBtnHover 1s;
+  .board_detail .cont2 .center .btnWrap a {
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
   }
-  @keyframes playBtnHover {
-    0% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
-    0% {
-      transform: translate(-50%, -50%) rotate(360deg);
-    }
-  }
-  .about .cont4 .center .videoWrap .overlay .playIcon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 30px;
-    margin-left: 4px;
-  }
-  .about .cont4 .center .videoWrap video {
-    width: 100%;
+  .board_detail .cont2 .center .btnWrap .adminBtn a {
+    margin-right: 4px;
   }
 }
 .board_update .cont1 {
   width: 100%;
   display: flex;
   justify-content: center;
-  border-bottom: 2px solid #000;
 }
 .board_update .cont1 .center {
   width: 80%;
@@ -6136,6 +6269,7 @@ input::placeholder, textarea::placeholder {
   width: 80%;
 }
 .board_update .cont2 .center form {
+  border-top: 2px solid #000;
   display: flex;
   justify-content: space-between;
   padding: 60px 0;
@@ -6251,152 +6385,108 @@ input::placeholder, textarea::placeholder {
 }
 
 @media screen and (max-width: 1200px) {
-  .members_mypageUpdate .cont1 {
+  .board_update .cont1 {
     margin-top: 50px;
   }
-  .members_mypageUpdate .cont1 .center {
+  .board_update .cont1 .center {
     width: 90%;
+    padding: 0;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap {
+  .board_update .cont1 .center .titleWrap {
     margin-bottom: 50px;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap .mainTitle {
+  .board_update .cont1 .center .titleWrap .mainTitle {
     font-size: 60px;
     margin-bottom: 30px;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap .subTitle {
+  .board_update .cont1 .center .titleWrap .subTitle {
     font-size: 28px;
   }
-  .members_mypageUpdate .cont1 .center form {
+  .board_update .cont2 .center {
+    width: 90%;
+  }
+  .board_update .cont2 .center form {
     padding: 60px 0;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft {
+  .board_update .cont2 .center form .formLeft {
     width: 100%;
     margin-right: 50px;
     padding-right: 50px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div {
+  .board_update .cont2 .center form .formLeft .InfoWrap {
     margin-bottom: 40px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div .formGroupTit {
-    font-size: 22px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div p.label {
-    font-size: 18px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div {
-    padding: 20px 0;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap {
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap {
     margin-bottom: 30px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap label {
-    font-size: 18px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap select {
-    width: 50%;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText {
-    display: none;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: 16px;
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap p.label, .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap label {
+    display: block;
+    font-size: 20px;
     font-weight: 300;
-    color: red;
+    margin-bottom: 10px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap {
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap input, .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap select {
+    display: inline-block;
+    width: 40%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap textarea {
+    border-radius: 5px;
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap #boardTitle {
+    width: 80%;
+  }
+  .board_update .cont2 .center form .formLeft .InfoWrap .twoWrap {
+    width: 60%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .telInputWrap .telInputs {
+  .board_update .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap {
+    width: calc(50% - 10px);
+  }
+  .board_update .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap input {
     width: 100%;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap {
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .privacyInfo .emailWrap .emailInputWrap .emailInputs {
-    width: 100%;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap {
-    margin-bottom: 40px;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap:last-child {
-    margin-bottom: 0;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap input {
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span input {
     width: 0;
     height: 0;
     display: none;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label {
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel {
+    width: 140px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
     display: flex;
     align-items: center;
-    font-size: 18px;
-    font-weight: 300;
+    justify-content: center;
+    transition: all 0.5s;
+    cursor: pointer;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span {
-    display: block;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-right: 10px;
-    position: relative;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon {
-    opacity: 0;
-    width: 20px;
-    height: 20px;
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel:hover {
     background: #000;
     color: #fff;
-    z-index: 20;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-variation-settings: "wght" 300;
-    font-size: 24px;
+    border: 1px solid #000;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label > span span.checkIcon.checked {
-    opacity: 1;
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel.select {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
-    width: 100%;
-    height: auto;
-    overflow: auto;
-    padding: 30px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-         user-select: none;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreeInputs .errText {
-    margin-left: 0;
-    margin-top: 10px;
-    line-height: 1.4;
-  }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .serviceAgreement {
-    height: 300px;
-    overflow: auto;
-  }
-  .members_mypageUpdate .cont1 .center form .formRight {
+  .board_update .cont2 .center form .formRight {
     width: calc(40% - 50px);
     height: 400px;
     display: flex;
@@ -6406,7 +6496,7 @@ input::placeholder, textarea::placeholder {
     top: 40px;
     right: 0;
   }
-  .members_mypageUpdate .cont1 .center form .formRight button {
+  .board_update .cont2 .center form .formRight button {
     display: block;
     width: 100%;
     height: 60px;
@@ -6418,80 +6508,122 @@ input::placeholder, textarea::placeholder {
     cursor: pointer;
     transition: all 0.5s;
   }
-  .members_mypageUpdate .cont1 .center form .formRight .reset {
+  .board_update .cont2 .center form .formRight .reset {
     background: #ccc;
   }
-  .members_mypageUpdate .cont1 .center form .formRight .register {
+  .board_update .cont2 .center form .formRight .register {
     background: #000;
   }
 }
 @media screen and (max-width: 768px) {
-  .members_mypageUpdate .cont1 {
+  .board_update .cont1 {
     width: 100%;
     margin-top: 40px;
   }
-  .members_mypageUpdate .cont1 .center {
+  .board_update .cont1 .center {
     width: 90%;
+    padding: 0;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap {
+  .board_update .cont1 .center .titleWrap {
     margin-bottom: 40px;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap .mainTitle {
+  .board_update .cont1 .center .titleWrap .mainTitle {
     font-size: 36px;
     margin-bottom: 20px;
   }
-  .members_mypageUpdate .cont1 .center .titleWrap .subTitle {
+  .board_update .cont1 .center .titleWrap .subTitle {
     font-size: 20px;
     font-weight: 300;
     color: #000;
   }
-  .members_mypageUpdate .cont1 .center form {
+  .board_update .cont2 .center {
+    width: 90%;
+  }
+  .board_update .cont2 .center form {
     display: block;
     padding: 40px 0;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft {
+  .board_update .cont2 .center form .formLeft {
     width: 100%;
     margin-right: 0;
     border-right: 0;
     padding-right: 0;
     box-sizing: border-box;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div {
+  .board_update .cont2 .center form .formLeft .InfoWrap {
     margin-bottom: 40px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div .formGroupTit {
-    font-size: 20px;
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap {
+    margin-bottom: 30px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div p.label {
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap p.label, .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap label {
+    display: block;
     font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div {
-    padding: 20px 0;
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap input, .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap select {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 16px;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap input, .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap select {
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap textarea {
+    border-radius: 5px;
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap #boardTitle {
     width: 100%;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .checkBtn {
-    display: block;
-    font-size: 16px;
-    padding: 15px 20px;
-    margin-left: 0;
-    margin-top: 10px;
-    text-align: center;
+  .board_update .cont2 .center form .formLeft .InfoWrap .twoWrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft > div > div .inputWrap .errText {
-    margin-left: 0;
+  .board_update .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap {
+    width: calc(50% - 10px);
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap {
-    margin-bottom: 40px;
+  .board_update .cont2 .center form .formLeft .InfoWrap .twoWrap .inputWrap input {
+    width: 100%;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap label {
-    font-size: 18px;
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys {
+    display: flex;
   }
-  .members_mypageUpdate .cont1 .center form .formLeft .agreementWrap .inputWrap .agreementConts {
-    padding: 20px;
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span input {
+    width: 0;
+    height: 0;
+    display: none;
   }
-  .members_mypageUpdate .cont1 .center form .formRight {
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel {
+    width: 140px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel:hover {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+  }
+  .board_update .cont2 .center form .formLeft .InfoWrap .inputWrap.categoryWrap .categorys span .categoryLabel.select {
+    background: #000;
+    color: #fff;
+    border: 1px solid #000;
+  }
+  .board_update .cont2 .center form .formRight {
     width: 100%;
     height: auto;
     display: flex;
@@ -6503,16 +6635,16 @@ input::placeholder, textarea::placeholder {
     right: 0;
     padding: 20px 0;
   }
-  .members_mypageUpdate .cont1 .center form .formRight button {
+  .board_update .cont2 .center form .formRight button {
     display: block;
     width: calc((100% - 10px) / 2);
     height: 60px;
     margin-bottom: 0;
   }
-  .members_mypageUpdate .cont1 .center form .formRight .reset {
+  .board_update .cont2 .center form .formRight .reset {
     background: #ccc;
   }
-  .members_mypageUpdate .cont1 .center form .formRight .register {
+  .board_update .cont2 .center form .formRight .register {
     background: #000;
   }
 }

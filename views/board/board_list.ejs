@@ -3,7 +3,7 @@
     <div class="cont1">
         <div class="center">
             <div class="titleWrap">
-                <h2 class="mainTitle poppins">MLB Pet Board</h2>
+                <h2 class="mainTitle poppins">Board</h2>
                 <p class="subTitle">MLB PET의 다양한 소식들을 확인해보세요.</p>
             </div>
         </div>
@@ -13,9 +13,9 @@
         <div class="center">
             <div class="boardTop">
                 <ul class="boardMenus">
-                    <li class="poppins on"><a href="/board">All</a></li>
-                    <li class="poppins"><a href="/board/notice">Notice</a></li>
-                    <li class="poppins"><a href="/board/press">Press</a></li>
+                    <li class="poppins on" data-menu="all"><a href="/board">All</a></li>
+                    <li class="poppins" data-menu="notice"><a href="/board/category/notice">Notice</a></li>
+                    <li class="poppins" data-menu="press"><a href="/board/category/press">Press</a></li>
                 </ul>
 
                 <form id="boardSearch" action="/board/search" method="get">
@@ -43,6 +43,8 @@
                     <button id="searchBtn" type="submit">
                         <img src="/img/icon/search_icon.svg" alt="">
                     </button>
+                    
+                    <input type="hidden" id="currentUrl" name="currentUrl" value="<%- currentUrl %>">
                 </form>
             </div>
             <div class="boardList" id="grid">
@@ -84,10 +86,8 @@
                 <% } %>
             <% } %>
         </div>
-    </div>
-
+    </div>   
     <%- include('../common/goTop.ejs') %>
 </div>
 
-</body>
-</html>
+<%- include('../footer.ejs') %>

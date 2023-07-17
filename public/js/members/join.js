@@ -41,6 +41,7 @@ idCheckBtn.onclick = function(e){
     const checkId = /^[\w]{6,12}$/;
 
     axios.post('/idcheck', {
+        //작명    // 인풋태그값
         memberId: memberId.value
     })
     .then(function (response) {

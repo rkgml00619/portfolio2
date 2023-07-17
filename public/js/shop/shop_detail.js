@@ -242,7 +242,3 @@ const detailText = document.querySelector(".cont2 .detailPage .detailText");
 
 detailText.innerText = detailText.innerText.trim();
 
-// topMove 버튼 제어
-const topPosition = document.querySelector(".shop_detail .cont2");
-
-goTopBtnMove(topPosition);

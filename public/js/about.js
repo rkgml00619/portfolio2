@@ -43,8 +43,10 @@ for(let i = 0; i < mediaLists.length; i++){
 }
 
 // 이미지들의 가로 사이즈와 세로 사이즈를 확인하고 가로형인지 세로형인지 구별하여 width값과 height값이 별도로 지정될 수 있도록 구현
-mediaImgs.forEach((img, index) => {
-    imgResizing(img);
+window.addEventListener("load", function(){
+    mediaImgs.forEach((img, index) => {
+        imgResizing(img);
+    });
 });
 
 // 모바일 일 때 페이지 상단 텍스트 변경 및 상단 이미지 변경
@@ -57,7 +59,6 @@ else {
     mainSubTitle.innerHTML = mainSubTitle.innerHTML.replace(" 서로 닮아가는 PET LIFE", "<br>서로 닮아가는 PREMIUM PET LIFE")
 }
 
-// 
 mediaImgs.forEach((img, index) => {
     imgResizing(img);
 });
@@ -132,12 +133,3 @@ playBtn.onclick = function(){
     playBtn.style.display = "none";
     playBtnIcon.style.display = "none";
 }
-
-
-
-
-
-// topMove 버튼 제어
-const topPosition = document.querySelector(".about .cont1");
-
-goTopBtnMove(topPosition);

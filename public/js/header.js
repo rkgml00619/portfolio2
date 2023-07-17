@@ -7,6 +7,7 @@ const menuBtnLine = document.querySelectorAll("#header .menuBtn > span");
 const header = document.querySelector("#header");
 const headerLogo = document.querySelectorAll("#header .t_logo img");
 const headerBtn = document.querySelectorAll("#header .menuBtn span");
+const headerLoginBtn = document.querySelector("#header .headerBtns > div #loginId");
 const headerMemberBtns = document.querySelectorAll("#header .headerBtns > div a");
 
 const headerDetailCircle = document.querySelector("#header_detail .hdetail_bot .center .circleText");
@@ -19,7 +20,11 @@ const mobile = matchMedia("screen and (max-width: 768px)");
 // 접속 페이지 확인
 const mainLink = window.location.pathname;
 
-// console.log(mainLink);
+if(mainLink.includes("mypage") && headerLoginBtn.value === "none"){
+    alert("회원이 아니시면 접속하실 수 없습니다.");
+    window.location.href = history.back();
+}
+
 
 if(mainLink !== "/" && mainLink !== "/m"){
     header.classList.add("sub");

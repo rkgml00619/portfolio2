@@ -1,5 +1,5 @@
 <%- include('../header', jsFiles=["sub_common.js", "board/board_list.js"], cssFiles=[]) %>
-<div id="container" class="board_list press">
+<div id="container" class="board_list notice">
     <div class="cont1">
         <div class="center">
             <div class="titleWrap">
@@ -13,9 +13,9 @@
         <div class="center">
             <div class="boardTop">
                 <ul class="boardMenus">
-                    <li class="poppins on"><a href="/board">All</a></li>
-                    <li class="poppins"><a href="/board/notice">Notice</a></li>
-                    <li class="poppins"><a href="/board/press">Press</a></li>
+                    <li class="poppins"><a href="/board">All</a></li>
+                    <li class="poppins"><a href="/board/category/notice">Notice</a></li>
+                    <li class="poppins"><a href="/board/category/press">Press</a></li>
                 </ul>
 
                 <form id="boardSearch" action="/board/search" method="get">
@@ -38,17 +38,19 @@
                     </div>
 
                     <!-- 검색어 입력 데이터 -->
-                    <input id="searchText" type="text" name="searchText" value="">
+                    <input id="searchText" type="text" name="searchText" value="<%- searchText %>">
             
                     <button id="searchBtn" type="submit">
                         <img src="/img/icon/search_icon.svg" alt="">
                     </button>
+                    
+                    <input type="hidden" id="currentUrl" name="currentUrl" value="<%- currentUrl %>">
                 </form>
             </div>
             <div class="boardList">
                 <% if (data.length > 0) { %>
                     <% for( let i = 0; i < data.length; i++ ) { %>
-                        <% if (data[i].boardCategory === "press") { %>
+                        <% if (data[i].boardCategory === "notice") { %>
                             <div class="list <%- data[i].boardCategory %>">
                                 <a href="/board/detail/<%- data[i].boardCount %>">
                                     <div class="imgWrap">
@@ -64,7 +66,23 @@
                                     </div>
                                 </a>
                             </div>
-                        <% } %>
+                        <% } else if(data[i].boardCategory === "press"){%>
+                            <div class="list <%- data[i].boardCategory %>">
+                                <a href="/board/detail/<%- data[i].boardCount %>">
+                                    <div class="imgWrap">
+                                        <img src="/upload/<%- data[i].boardImg[0] %>">
+                                    </div>
+                                    <div class="textWrap">
+                                        <h2 class="brdTitle">
+                                            <%- data[i].boardTitle %>
+                                        </h2>
+                                        <p class="brdDate">
+                                            <%- data[i].boardDate %>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        <% }%>
                     <% } %>
                 <% } %>
             </div>

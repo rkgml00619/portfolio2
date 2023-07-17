@@ -1,4 +1,3 @@
-// 
 const mainTitle = document.querySelector(".cont1 .titleWrap .mainTitle");
 const subTitle = document.querySelector(".cont1 .titleWrap .subTitle");
 const prdList = document.querySelectorAll(".cont2 .lists .list");
@@ -42,8 +41,3 @@ else if(hrefText.includes("clothes")){
 for(let i = 0; i < listPriceTxt.length; i++){
     listPriceTxt[i].innerText = Number(listPriceTxt[i].innerText).toLocaleString();
 }
-
-// topMove 버튼 제어
-const topPosition = document.querySelector(".shop_list .cont1");
-
-goTopBtnMove(topPosition);

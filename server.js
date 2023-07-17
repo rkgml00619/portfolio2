@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 5000
+const port = 8080
 
 const MongoClient = require('mongodb').MongoClient;
 
@@ -110,8 +110,8 @@ app.get('/', (req, res) => {
     }
     // console.log(newClothes.length);
     // console.log(newAcc[0].num);
-    // console.log(newClothes.length);
-    res.render("index.ejs", {data: result, newClothes: newClothes, newAcc: newAcc, login: req.user});
+    // console.log(req.url);
+    res.render("index.ejs", {data: result, newClothes: newClothes, newAcc: newAcc, login: req.user, currentUrl: req.url});
   })
 })
 
@@ -138,41 +138,71 @@ app.get("/mediaUpload", (req, res)=>{
 
 // 게시판 전체 목록 페이지
 app.get("/board", (req, res)=>{
+
+  let testUrl = req.url
+
+  let testResult = testUrl.lastIndexOf("/");
+  let testString = testUrl.substring(testResult+1);
+
   db.collection("board").find().sort({boardCount: -1}).toArray((err, result)=>{
-    res.render("board/board_list.ejs", {login: req.user, data: result, searchText: ""})
+    res.render("board/board_list.ejs", {login: req.user, data: result, searchText: "", currentUrl: testString})
   })
 })
 // 게시판 Notice 목록 페이지
-app.get("/board/notice", (req, res)=>{
-  db.collection("board").find().sort({boardCount: -1}).toArray((err, result)=>{
-    res.render("board/board_list_notice.ejs", {login: req.user, data: result, searchText: ""})
-  })
-})
-// 게시판 Press 목록 페이지
-app.get("/board/press", (req, res)=>{
-  db.collection("board").find().sort({boardCount: -1}).toArray((err, result)=>{
-    res.render("board/board_list_press.ejs", {login: req.user, data: result, searchText: ""})
+app.get("/board/category/:url", (req, res)=>{
+
+  let testUrl = req.params.url
+
+  let testResult = testUrl.lastIndexOf("/");
+  let testString = testUrl.substring(testResult+1);
+
+
+  db.collection("board").find({boardCategory:testString}).sort({boardCount: -1}).toArray((err, result)=>{
+    res.render("board/board_list_category.ejs", {login: req.user, data: result,searchText: "", currentUrl: testString})
   })
 })
 // 게시판 목록 검색 데이터 전달
 app.get("/board/search", (req, res)=>{
-  let check = [
-    {
-      $search: {
-        index: "mlb_board_search",
-        text: {
-          query: req.query.searchText,
-          path: req.query.searchOption
+  let currentUrlValue = req.query.currentUrl;
+  console.log(currentUrlValue)
+  let check = [];
+  if(currentUrlValue === "board"){
+    check = [
+      {
+        $search: {
+          index: "mlb_board_search",
+          text: {
+            query: req.query.searchText,
+            path: [req.query.searchOption]
+          }
         }
+      },
+      {
+        $sort: {boardCount: -1}
       }
-    },
-    {
-      $sort: {boardCount: -1}
-    }
-  ]
-  
+    ]
+  }
+  else {
+    check = [
+      {
+        $search: {
+          index: "mlb_board_search",
+          text: {
+            query: req.query.searchText,
+            path: [req.query.searchOption]
+          }
+        }
+      },
+      {
+        $sort: {boardCount: -1}
+      },
+      {
+        $match: { boardCategory: currentUrlValue }
+      }
+    ]
+  }
   db.collection("board").aggregate(check).toArray((err, result)=>{
-    res.render("board/board_list.ejs", {data: result, searchText: "", login: req.user})
+    res.render("board_list_category.ejs", {data: result, searchText:req.query.searchText, login: req.user, currentUrl:req.query.currentUrl})
   })
 })
 
@@ -232,9 +262,9 @@ app.get("/board/detail/delete/:num", (req, res)=>{
 app.get("/board/upload", (req, res)=>{ 
   res.render("board/board_upload.ejs", {login: req.user})
 })
+
 // 게시판 등록 데이터 전달
 const brdImgUpload = upload.fields([{name: 'boardImg'}]);
-
 app.post("/board/upload/data", brdImgUpload, (req, res)=>{   
   let brdImgs = [];
 

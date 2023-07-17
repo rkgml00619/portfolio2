@@ -23,3 +23,8 @@ function goTopBtnMove(position){
     });
 }
 
+// topMove 버튼 제어
+const topPosition = document.querySelector("#container > div:first-child");
+
+goTopBtnMove(topPosition);
+

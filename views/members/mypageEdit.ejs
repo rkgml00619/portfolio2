@@ -1,105 +1,106 @@
 <%- include('../header', jsFiles=["sub_common.js", "members/mypageEdit.js"], cssFiles=[]) %>
     <div id="container" class="members_mypageUpdate">
-        <div class="cont1">
-            <div class="center">
-                <div class="titleWrap">
-                    <h2 class="mainTitle poppins">My Page</h2>
-                    <p class="subTitle"><%- login.memberName %>님, 가입된 정보들을 수정하실 수 있습니다.</p>
-                </div>
+        <% if (login) { %>
+            <div class="cont1">
+                <div class="center">
+                    <div class="titleWrap">
+                        <h2 class="mainTitle poppins">My Page</h2>
+                        <p class="subTitle"><%- login.memberName %>님, 가입된 정보들을 수정하실 수 있습니다.</p>
+                    </div>
 
-                <form action="/members/mypage/editUpdate" method="post" id="mypageUpdate">
-                    <div class="formLeft">
-                        <div class="joinInfo">
-                            <h5 class="formGroupTit">회원정보</h5>
+                    <form action="/members/mypage/editUpdate" method="post" id="mypageUpdate">
+                        <div class="formLeft">
+                            <div class="joinInfo">
+                                <h5 class="formGroupTit">회원정보</h5>
 
-                            <div class="joinInfoWrap">
-                                <!-- 아이디 -->
-                                <div class="inputWrap">
-                                    <label for="memberId">아이디</label>
-                                    <input type="text" name="memberId" id="memberId" value="<%- login.memberId %>" disabled>
-                                </div>
-                                <!-- 변경 비밀번호 -->
-                                <div class="inputWrap">
-                                    <!-- 기존 비밀번호 -->
-                                    <input type="password" id="originPass" name="originPass" value="<%- login.memberPass %>">
+                                <div class="joinInfoWrap">
+                                    <!-- 아이디 -->
+                                    <div class="inputWrap">
+                                        <label for="memberId">아이디</label>
+                                        <input type="text" name="memberId" id="memberId" value="<%- login.memberId %>" disabled>
+                                    </div>
+                                    <!-- 변경 비밀번호 -->
+                                    <div class="inputWrap">
+                                        <!-- 기존 비밀번호 -->
+                                        <input type="password" id="originPass" name="originPass" value="<%- login.memberPass %>">
 
-                                    <label for="changePass">비밀번호 변경</label>
-                                    <input type="password" name="changePass" id="changePass" placeholder="변경할 비밀번호를 입력해주세요" >
-                                    <p class="errText passErr">비밀번호를 입력해주세요</p>
-                                </div>
-                                <!-- 변경 비밀번호 체크 -->
-                                <div class="inputWrap">
-                                    <label for="changePassCheck">비밀번호 변경 확인</label>
-                                    <input type="password" name="changePassCheck" id="changePassCheck" placeholder="변경할 비밀번호를 입력해주세요">
-                                    <a href="#" class="checkBtn passCheck">비밀번호 확인</a>
-                                    <p class="errText passCheckErr">비밀번호를 확인해주세요</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="privacyInfo">
-                            <h5 class="formGroupTit">개인정보</h5>
-
-                            <div class="privacyInfoWrap">
-                                <!-- 이름 -->
-                                <div class="inputWrap">
-                                    <label for="memberName">이름</label>
-                                    <input type="text" name="memberName" id="memberName" value="<%- login.memberName %>">
-                                    <p class="errText nameErr">이름을 입력해주세요</p>
-                                </div>
-                                <!-- 전화번호 -->
-                                <div class="inputWrap telWrap">
-                                    <label for="memberTel">전화번호</label>
-                                    <div class="telInputWrap">
-                                        <div class="telInputs">
-                                            <input type="tel" name="memberTel_one" id="memberTel_one" value="010" disabled>
-    
-                                            <p class="symbol">-</p>
-    
-                                            <input type="tel" name="memberTel" id="memberTel" value="<%- login.memberTel %>">
-    
-                                            <p class="symbol">-</p>    
-                                            <input type="tel" name="memberTel_three" id="memberTel_three" value="<%- login.memberTel_three %>">
-                                        </div>
-                                        <p class="errText telErr">전화번호를 입력해주세요</p>
+                                        <label for="changePass">비밀번호 변경</label>
+                                        <input type="password" name="changePass" id="changePass" placeholder="변경할 비밀번호를 입력해주세요" >
+                                        <p class="errText passErr">비밀번호를 입력해주세요</p>
+                                    </div>
+                                    <!-- 변경 비밀번호 체크 -->
+                                    <div class="inputWrap">
+                                        <label for="changePassCheck">비밀번호 변경 확인</label>
+                                        <input type="password" name="changePassCheck" id="changePassCheck" placeholder="변경할 비밀번호를 입력해주세요">
+                                        <a href="#" class="checkBtn passCheck">비밀번호 확인</a>
+                                        <p class="errText passCheckErr">비밀번호를 확인해주세요</p>
                                     </div>
                                 </div>
-                                <!-- 이메일 -->
-                                <div class="inputWrap emailWrap">
-                                    <label for="membersEmail">이메일</label>
-                                    <div class="emailInputWrap">
-                                        <div class="emailInputs">
-                                            
-                                            <input type="text" name="memberEmail" id="memberEmail" value="<%- login.memberEmail %>">
+                            </div>
+
+                            <div class="privacyInfo">
+                                <h5 class="formGroupTit">개인정보</h5>
+
+                                <div class="privacyInfoWrap">
+                                    <!-- 이름 -->
+                                    <div class="inputWrap">
+                                        <label for="memberName">이름</label>
+                                        <input type="text" name="memberName" id="memberName" value="<%- login.memberName %>">
+                                        <p class="errText nameErr">이름을 입력해주세요</p>
+                                    </div>
+                                    <!-- 전화번호 -->
+                                    <div class="inputWrap telWrap">
+                                        <label for="memberTel">전화번호</label>
+                                        <div class="telInputWrap">
+                                            <div class="telInputs">
+                                                <input type="tel" name="memberTel_one" id="memberTel_one" value="010" disabled>
         
-                                            <p class="symbol">@</p>
+                                                <p class="symbol">-</p>
+        
+                                                <input type="tel" name="memberTel" id="memberTel" value="<%- login.memberTel %>">
+        
+                                                <p class="symbol">-</p>    
+                                                <input type="tel" name="memberTel_three" id="memberTel_three" value="<%- login.memberTel_three %>">
+                                            </div>
+                                            <p class="errText telErr">전화번호를 입력해주세요</p>
+                                        </div>
+                                    </div>
+                                    <!-- 이메일 -->
+                                    <div class="inputWrap emailWrap">
+                                        <label for="membersEmail">이메일</label>
+                                        <div class="emailInputWrap">
+                                            <div class="emailInputs">
+                                                
+                                                <input type="text" name="memberEmail" id="memberEmail" value="<%- login.memberEmail %>">
             
-                                            <input type="text" name="emailTextSel" id="emailTextSel" value="<%- login.emailTextSel %>">
-            
-                                            <select name="membersEmail" id="emailSel">
-                                                <option value="">직접입력</option>
-                                                <option value="naver.com">naver.com</option>
-                                                <option value="hanmail.net">hanmail.net</option>
-                                                <option value="gmail.com">gmail.com</option>
-                                                <option value="nate.com">nate.com</option>
-                                                <option value="hotmail.com">hotmail.com</option>
-                                            </select>
-                                        </div>                                        
-                                        <p class="errText emailErr">이메일을 입력해주세요</p>
+                                                <p class="symbol">@</p>
+                
+                                                <input type="text" name="emailTextSel" id="emailTextSel" value="<%- login.emailTextSel %>">
+                
+                                                <select name="membersEmail" id="emailSel">
+                                                    <option value="">직접입력</option>
+                                                    <option value="naver.com">naver.com</option>
+                                                    <option value="hanmail.net">hanmail.net</option>
+                                                    <option value="gmail.com">gmail.com</option>
+                                                    <option value="nate.com">nate.com</option>
+                                                    <option value="hotmail.com">hotmail.com</option>
+                                                </select>
+                                            </div>                                        
+                                            <p class="errText emailErr">이메일을 입력해주세요</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="formRight">
-                        <button type="cancel" class="cancel">취소</button>
-                        <button type="submit" class="join">수정완료</button>
-                    </div>
-                </form>
+                        <div class="formRight">
+                            <button type="cancel" class="cancel">취소</button>
+                            <button type="submit" class="join">수정완료</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        <% } %>
 
         <%- include('../common/goTop.ejs') %>
     </div>
-</body>
-</html>
+    <%- include('../footer.ejs') %>
